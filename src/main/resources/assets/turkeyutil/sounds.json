@@ -1,0 +1,6 @@
+{
+	"Turkey_Gobble": {"catagory": "master", "sounds": [{"name": "Turkey_Gobble", "stream": false}]},
+	"Duck_Double_Quack": {"catagory": "master", "sounds": [{"name": "Duck_Double_Quack", "stream": false}]},
+	"Duck_Single_Quack": {"catagory": "master", "sounds": [{"name": "Duck_Single_Quack", "stream": false}]},
+	"smack": {"catagory": "master", "sounds": [{"name": "smack", "stream": false}]}
+}

@@ -1,0 +1,113 @@
+itemGroup.TurkeyUtil=Turkey's Util
+
+tile.Charcoal_Block.name= Charcoal Block
+tile.Flint_Block.name= Flint Block
+tile.Mystical_Ore_Block.name= Mystical Ladyosto Ore
+tile.Deadpine_Log.name= Deadpine Log
+
+tile.Lime_Plant.name= Lime Plant
+
+tile.Armor_Combiner.name= Armor Combiner (WIP DO NOT USE)
+
+tile.Double_Compressed_Coal_Block.name= Double Compressed Coal Block
+tile.Triple_Compressed_Coal_Block.name= Triple Compressed Coal Block
+tile.Quadruple_Compressed_Coal_Block.name= Quadruple Compressed Coal Block
+tile.Quintuple_Compressed_Coal_Block.name= Quintuple Compressed Coal Block
+tile.Hextuple_Compressed_Coal_Block.name= Hextuple Compressed Coal Block
+tile.Septuple_Compressed_Coal_Block.name= Septuple Compressed Coal Block
+tile.Octuple_Compressed_Coal_Block.name= Octuple Compressed Coal Block
+
+tile.Compressed_Obsidian_Block.name= Compressed Obsidian Block
+tile.Double_Compressed_Obsidian_Block.name= Double Compressed Obsidian Block
+tile.Triple_Compressed_Obsidian_Block.name= Triple Compressed Obsidian Block
+tile.Quadruple_Compressed_Obsidian_Block.name= Quadruple Compressed Obsidian Block
+tile.Quintuple_Compressed_Obsidian_Block.name= Quintuple Compressed Obsidian Block
+tile.Hextuple_Compressed_Obsidian_Block.name= Hextuple Compressed Obsidian Block
+tile.Septuple_Compressed_Obsidian_Block.name= Septuple Compressed Obsidian Block
+tile.Octuple_Compressed_Obsidian_Block.name= Octuple Compressed Obsidian Block
+
+item.Wooden_Hammer.name= Wooden Hammer
+item.Stone_Hammer.name= Stone Hammer
+item.Iron_Hammer.name= Iron Hammer
+item.Gold_Hammer.name= Gold Hammer
+item.Diamond_Hammer.name= Diamond Hammer
+
+item.Fabulous_Diamond.name= Fabulous Diamond
+tile.Fabulous_Diamond_Block.name= Fabulous Diamond Block
+item.Super_Fabulous_Helmet.name= Super Fabulous Helmet
+item.Super_Fabulous_ChestPlate.name= Super Fabulous ChestPlate
+item.Super_Fabulous_Leggings.name= Super Fabulous Leggings
+item.Super_Fabulous_Boots.name= Super Fabulous Boots
+
+item.Cobblestone_Helmet.name= Cobblestone Helmet
+item.Cobblestone_ChestPlate.name= Cobblestone ChestPlate
+item.Cobblestone_Leggings.name= Cobblestone Leggings
+item.Cobblestone_Boots.name= Cobblestone Boots
+
+item.Chain.name= Chain
+item.Chain_Patch.name= Chain Patch
+
+item.Naraxam's_Bug_Swatter.name= Naraxam's Bug Swatter
+
+item.Gas_Mask.name= Gas Mask
+item.J3D_Wig.name= J3d247's J3n Wig
+item.Lime.name= Lime
+item.Lime_Seeds.name= Lime Seeds
+item.Juice.name= Scetchlink's Drink of Malted Liquid That is Totally Just Juice
+item.Flour.name= Flour
+item.Noodles.name= Noodles
+item.Gummy_worms.name= Gummy Worms
+item.Key_Lime_Pie.name= Key Lime Pie
+item.Pie_Pan.name= Pan
+item.Waffle.name= Waffle
+item.Raw_Waffle.name= Raw Waffle
+item.Bowl_of_Noodles.name= NoodleCraft Noodle bowl
+item.Cooked_Turkey.name= Cooked Turkey
+item.Raw_Turkey.name= Raw Turkey
+item.Cooked_Duck.name= Cooked Duck
+item.Raw_Duck.name= Raw Duck
+item.Danger_Dog.name= Danger Dog
+item.Cooked_Bacon.name= Cooked Bacon
+item.Raw_Bacon.name= Raw Bacon
+item.Cooked_Hotdog.name= Cooked Hotdog
+item.Raw_Hotdog.name= Raw Hotdog
+item.Doughnut_Bacon.name= Doughnut Flavored Bacon
+item.Rock_Soup.name= Rock Soup
+item.Bacon_Rock_Soup.name= Bacon Rock Soup
+item.Stale_Cookie.name= Pulpjohnfiction's Stale Cookie
+item.Genpie.name= Genpai
+item.Cooked_Chicken_Nugget.name= Cooked Chicken Nugget
+item.Raw_Chicken_Nugget.name= Raw Chicken Nugget
+item.Better_Book.name=Better Book
+item.Call_Of_The_Ducky_Army.name=Call Of The Ducky Army
+
+item.Walking_Wounded_Headband.name= The Walking Wounded Headband
+item.pandaaburr's_Panda_Mask.name= Pandaaburr's Panda Mask
+item.Ingy_The_Ingot.name= Siyliss' Ingy The Ingot
+item.Darkosto's_Coffee.name= Darkosto's Coffee
+item.Draskia's_Potato.name= Draskia's Potato
+item.Hound_Biscuit.name= LourdHound Biscuit
+item.Thilia's_Turtle_Shell.name= Thilia's Turtle Shell
+item.wallachsAnnounce.name= W4llach's Announcement Sign
+item.Happiness.name= Happiness
+
+item.Condensed_Core.name= Condensed Core
+item.TurkeyTape.name= Duck... I mean TurkeyTape
+
+item.Infinity_Air_Bucket.name= Empty Infinity Bucket
+item.Infinity_Water_Bucket.name= Infinity Water Bucket
+item.Infinity_Lava_Bucket.name= Infinity Lava Bucket
+
+entity.Turkey.name=Turkey
+entity.Duck.name=Duck
+entity.Rhea.name=Rhea
+entity.Voxel.name=Voxel
+entity.Poison_Skeleton.name=Poison Skeleton
+entity.Damage_Skeleton.name=Damage Skeleton
+
+achievement.turkeyutil.coalCompression=Compression
+achievement.turkeyutil.coalCompression.desc=Craft a Double Compressed Coal block
+achievement.turkeyutil.OctupleCoal=Coal Overload
+achievement.turkeyutil.OctupleCoal.desc=Craft an Octuple Compressed Coal block
+achievement.turkeyutil.mysticalOre=Mystical Properties
+achievement.turkeyutil.mysticalOre.desc=Find and mine a mystical ladyosto ore.
