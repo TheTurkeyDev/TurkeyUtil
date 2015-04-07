@@ -1,15 +1,10 @@
-#!/usr/bin/env bash
-
-<<<<<<< HEAD
-=======
 ##############################################################################
 ##
 ##  Changelog creation script for use with Git Shell & Drone.io
-##  Created by Funwayguy for AutoBuild 1.0.x
+##  Created by Funwayguy for
 ##
 ##############################################################################
 
->>>>>>> 9e40a94bcad7172bce33c5c34d3a93cfe1206aae
 # Offline Debug Variables
 #DRONE_BUILD_NUMBER=0
 #ver_num="TUR_VER_KEY"
