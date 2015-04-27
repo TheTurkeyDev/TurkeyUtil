@@ -19,7 +19,7 @@ public class BaconRockSoup extends TurkeyItemFood
 	{
 		player.attackEntityFrom(DamageSource.starve, 1.5f);
 		
-		if(!world.isRemote)
+		if(world.isRemote)
 			player.performHurtAnimation();
 
 		player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 0));
