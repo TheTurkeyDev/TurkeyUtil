@@ -38,30 +38,30 @@ public class TurkeyUtil
 {
 	public static final String MODID = "TurkeyUtil";
 	public static final String VERSION = "TUR_VER_KEY";
-	
+
 	@SidedProxy(clientSide = "com.turkey.turkeyUtil.proxy.ClientProxy", serverSide = "com.turkey.turkeyUtil.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	@Instance(value = MODID)
 	public static TurkeyUtil instance;
-	
+
 	public static Logger logger;
-	
+
 	public SimpleNetworkWrapper network;
-	
+
 	public static CreativeTabs modTab = new CreativeTabs(MODID) {
 		public Item getTabIconItem()
 		{
 			return Item.getItemFromBlock(UtilBlocks.charcolBlock);
 		}
 	};
-	
+
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 	}
-	
+
 	@EventHandler
 	public void load(FMLPreInitializationEvent event)
 	{
@@ -81,31 +81,25 @@ public class TurkeyUtil
 		this.network = NetworkRegistry.INSTANCE.newSimpleChannel("TurkeyUtil");
 		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
 		this.network.registerMessage(UtilPacket.HandlerClient.class, UtilPacket.class, 1, Side.CLIENT);
-		
+
 		if (Loader.isModLoaded("HungerOverhaul"))
 		{
 			logger.log(Level.INFO, "HungerOverhaul Detected.... applying hooks");
 			new HungerOverhaulHook();
 		}
 		else logger.log(Level.INFO, "HungerOverhaul not Detected, there for not adding hooks");
-		
+
 		MinecraftForge.EVENT_BUS.register(new InteractEvent());
 		FMLCommonHandler.instance().bus().register(new UpdateNotificationHandler());
 	}
-	
+
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		if (Loader.isModLoaded("chisel"))
 		{
 			logger.log(Level.INFO, "Chisel 2 Detected.... applying hooks");
-			try
-			{
-				new ChiselModHook();
-			} catch (NoClassDefFoundError e)
-			{
-				logger.log(Level.WARN, "Unable to load Chisel 2 mod hook!!!! You may have the wrong chisel mod or something has just gone wrong!");
-			}
+			new ChiselModHook();
 		}
 		else logger.log(Level.INFO, "Chisel 2 not Detected, there for not adding hooks");
 	}
