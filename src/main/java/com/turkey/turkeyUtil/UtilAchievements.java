@@ -1,10 +1,10 @@
 package com.turkey.turkeyUtil;
 
-import com.turkey.turkeyUtil.Blocks.UtilBlocks;
-
+import net.minecraft.init.Blocks;
 import net.minecraft.stats.Achievement;
-import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
+
+import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 
 public class UtilAchievements
 {
@@ -12,13 +12,15 @@ public class UtilAchievements
 	public static Achievement coalCompression;
 	public static Achievement octupleCoal;
 	public static Achievement mysticalOre;
+	public static Achievement stiars;
 	
 	public static void loadAchievements()
 	{
-		coalCompression = new Achievement("turkeyutil.coalCompression", "turkeyutil.coalCompression", -2, -2, UtilBlocks.doublecompressedCoal, AchievementList.buildPickaxe).registerStat();
+		coalCompression = new Achievement("turkeyutil.coalCompression", "turkeyutil.coalCompression", -2, -2, UtilBlocks.doublecompressedCoal, null).registerStat();
 		octupleCoal = new Achievement("turkeyutil.OctupleCoal", "turkeyutil.OctupleCoal", -2, 0, UtilBlocks.octuplecompressedCoal, coalCompression).registerStat();
-		mysticalOre = new Achievement("turkeyutil.mysticalOre", "turkeyutil.mysticalOre", 0, -2, UtilBlocks.mysticalOreBlock, AchievementList.buildPickaxe).registerStat();
-		page = new AchievementPage("TurkeyUtil Achievements", coalCompression, octupleCoal, mysticalOre);
+		mysticalOre = new Achievement("turkeyutil.mysticalOre", "turkeyutil.mysticalOre", 0, -2, UtilBlocks.mysticalOreBlock, null).registerStat();
+		stiars = new Achievement("turkeyutil.stairs", "turkeyutil.stairs", 0, 0, Blocks.stone_stairs, null).registerStat();
+		page = new AchievementPage("TurkeyUtil Achievements", coalCompression, octupleCoal, mysticalOre, stiars);
 		AchievementPage.registerAchievementPage(page);
 	}
 }
