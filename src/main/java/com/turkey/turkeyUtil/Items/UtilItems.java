@@ -50,6 +50,7 @@ public class UtilItems
 	public static Item w4llachsAnnounce;
 	public static Item catSpawn;
 	public static Item duckyArmy;
+	public static Item wyldWhiskey;
 	
 	public static Item betterBook;
 
@@ -68,6 +69,7 @@ public class UtilItems
 		w4llachsAnnounce = new W4llachsAnnouncement();
 		catSpawn = new CatSpawn();
 		duckyArmy = new DuckyArmy();
+		wyldWhiskey = new WyldWhiskey();
 
 		infinityBucket_Empty = new InfinityBucket(Blocks.air).setTextureName("turkeyutil:infinity_bucket_Empty").setUnlocalizedName("Infinity_Air_Bucket");
 		infinityBucket_Water = new InfinityBucket(Blocks.flowing_water).setTextureName("turkeyutil:infinity_bucket_Water").setUnlocalizedName("Infinity_Water_Bucket");
@@ -115,6 +117,7 @@ public class UtilItems
 		GameRegistry.registerItem(betterBook, "Better_Book");
 		GameRegistry.registerItem(catSpawn, "Happiness");
 		GameRegistry.registerItem(duckyArmy, "Call_Of_The_Ducky_Army");
+		GameRegistry.registerItem(wyldWhiskey, "Wylds_Drink_of_Choice");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

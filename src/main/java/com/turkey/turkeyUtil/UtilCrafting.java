@@ -175,7 +175,9 @@ public class UtilCrafting
 		if(ConfigLoader.isEnabled(UtilItems.catSpawn.getUnlocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.catSpawn, 1), "FFF", "FRF", "FFF", 'F', new ItemStack(Items.fish, 1), 'R', new ItemStack(Blocks.red_flower, 1));
 		if(ConfigLoader.isEnabled(UtilItems.duckyArmy.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.duckyArmy, 1), "FDF", "DCD", "FDF", 'F', new ItemStack(Items.feather, 1), 'D', new ItemStack(UtilFood.rawDuck, 1), 'C', UtilBlocks.quadruplecompressedCoal);
+			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.duckyArmy, 1), "FDF", "DCD", "FDF", 'F', new ItemStack(Items.feather, 1), 'D', new ItemStack(UtilFood.rawDuck, 1), 'C', new ItemStack(UtilBlocks.quadruplecompressedCoal, 1));
+		if(ConfigLoader.isEnabled(UtilItems.wyldWhiskey.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.wyldWhiskey, 1), "SDR", " B ", 'S', new ItemStack(UtilFood.juice, 1), 'D', new ItemStack(UtilItems.coffee, 1), 'R', new ItemStack(UtilFood.baconRockSoup, 1), 'B', new ItemStack(Items.glass_bottle, 1));
 		
 		if(ConfigLoader.isEnabled(UtilItems.flour.getUnlocalizedName()))
 		{

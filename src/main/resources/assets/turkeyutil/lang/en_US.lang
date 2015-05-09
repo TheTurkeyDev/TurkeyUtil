@@ -79,7 +79,6 @@ item.Genpie.name= Genpai
 item.Cooked_Chicken_Nugget.name= Cooked Chicken Nugget
 item.Raw_Chicken_Nugget.name= Raw Chicken Nugget
 item.Better_Book.name=Better Book
-item.Call_Of_The_Ducky_Army.name=Call Of The Ducky Army
 
 item.Walking_Wounded_Headband.name= The Walking Wounded Headband
 item.pandaaburr's_Panda_Mask.name= Pandaaburr's Panda Mask
@@ -90,6 +89,8 @@ item.Hound_Biscuit.name= LourdHound Biscuit
 item.Thilia's_Turtle_Shell.name= Thilia's Turtle Shell
 item.wallachsAnnounce.name= W4llach's Announcement Sign
 item.Happiness.name= Happiness
+item.Call_Of_The_Ducky_Army.name=Call Of The Ducky Army
+item.Wylds_Drink_of_Choice.name=Wyld's Drink of Choice
 
 item.Condensed_Core.name= Condensed Core
 item.TurkeyTape.name= Duck... I mean TurkeyTape
