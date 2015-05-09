@@ -57,8 +57,8 @@ public class WyldWhiskey  extends Item
         effects[25] = new PotionEffect(Potion.moveSpeed.id, 400, 1);
         effects[26] = new PotionEffect(Potion.nightVision.id, 200, 1);
         effects[27] = new PotionEffect(Potion.nightVision.id, 2000, 1);
-        effects[28] = new PotionEffect(Potion.poison.id, 200, 1);
-        effects[29] = new PotionEffect(Potion.poison.id, 100, 4);
+        effects[28] = new PotionEffect(Potion.poison.id, 200, 0);
+        effects[29] = new PotionEffect(Potion.poison.id, 100, 3);
         effects[30] = new PotionEffect(Potion.regeneration.id, 200, 1);
         effects[31] = new PotionEffect(Potion.regeneration.id, 100, 4);
         effects[32] = new PotionEffect(Potion.resistance.id, 2000, 1);
@@ -67,8 +67,8 @@ public class WyldWhiskey  extends Item
         effects[35] = new PotionEffect(Potion.waterBreathing.id, 2000, 10);
         effects[36] = new PotionEffect(Potion.weakness.id, 2000, 1);
         effects[37] = new PotionEffect(Potion.weakness.id, 2000, 5);
-        effects[38] = new PotionEffect(Potion.wither.id, 100, 1);
-        effects[39] = new PotionEffect(Potion.wither.id, 60, 3);
+        effects[38] = new PotionEffect(Potion.wither.id, 100, 0);
+        effects[39] = new PotionEffect(Potion.wither.id, 60, 2);
         effects[40] = new PotionEffect(Potion.field_76434_w.id, 2000, 1);
         effects[41] = new PotionEffect(Potion.field_76434_w.id, 2000, 4);
         effects[42] = new PotionEffect(Potion.field_76444_x.id, 2000, 1);
