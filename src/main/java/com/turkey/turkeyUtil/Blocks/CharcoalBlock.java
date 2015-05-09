@@ -16,7 +16,7 @@ public class CharcoalBlock extends Block
 		setHardness(5);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Charcoal_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
     @Override

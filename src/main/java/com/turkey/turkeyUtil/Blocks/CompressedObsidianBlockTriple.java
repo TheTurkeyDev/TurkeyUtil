@@ -13,6 +13,6 @@ public class CompressedObsidianBlockTriple extends Block
 		setHardness(75);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Triple_Compressed_Obsidian_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

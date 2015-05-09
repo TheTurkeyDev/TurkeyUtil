@@ -27,7 +27,7 @@ public class WyldWhiskey  extends Item
 		super.setTextureName("turkeyutil:wyldWhiskey");
 		super.setUnlocalizedName("Wylds_Drink_of_Choice");
         this.setMaxStackSize(16);
-        this.setCreativeTab(TurkeyUtil.modTab);
+        this.setCreativeTab(TurkeyUtil.buildguildmodTab);
         
         effects[0] = new PotionEffect(Potion.blindness.id, 200, 1);
         effects[1] = new PotionEffect(Potion.blindness.id, 2000, 1);

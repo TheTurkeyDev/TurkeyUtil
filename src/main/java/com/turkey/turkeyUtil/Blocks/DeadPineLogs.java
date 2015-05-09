@@ -15,7 +15,7 @@ public class DeadPineLogs extends BlockLog
 	public DeadPineLogs()
 	{
 		super.setBlockName("Deadpine_Log");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 		super.setBlockTextureName("turkeyUtil:deadpineLog");
 	}
 

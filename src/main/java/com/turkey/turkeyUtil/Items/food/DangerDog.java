@@ -1,5 +1,7 @@
 package com.turkey.turkeyUtil.Items.food;
 
+import com.turkey.turkeyUtil.TurkeyUtil;
+
 
 public class DangerDog extends TurkeyItemFood
 {
@@ -8,5 +10,6 @@ public class DangerDog extends TurkeyItemFood
 	{
 		super(8, .25f, false, "Danger_Dog", "Danger_Dog", 16);
 		super.addLore("It's wrapped in bacon! What more could you want!");
+		this.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
 	}
 }

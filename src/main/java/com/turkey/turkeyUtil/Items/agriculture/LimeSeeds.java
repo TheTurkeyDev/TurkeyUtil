@@ -18,7 +18,7 @@ public class LimeSeeds extends TurkeySeeds
 		super(parBlockPlant, Blocks.farmland);
         setUnlocalizedName("Lime_Seeds");
         setTextureName("turkeyUtil:seeds_lime");
-        setCreativeTab(TurkeyUtil.modTab);
+        setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

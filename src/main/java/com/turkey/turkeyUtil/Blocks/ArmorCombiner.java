@@ -22,7 +22,7 @@ public class ArmorCombiner extends BlockContainer
 		super.setHarvestLevel("pickaxe", 0);
 		super.setResistance(10);
 		super.setBlockName("Armor_Combiner");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 
 	@Override

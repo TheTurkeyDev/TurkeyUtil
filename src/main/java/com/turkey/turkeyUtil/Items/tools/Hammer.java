@@ -10,7 +10,7 @@ public class Hammer extends Item
 	
 	public Hammer()
 	{
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setContainerItem(this);
 		super.showDurabilityBar(new ItemStack(this));
 		super.setMaxStackSize(1);

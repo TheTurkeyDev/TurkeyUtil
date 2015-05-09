@@ -13,6 +13,6 @@ public class CompressedCoalBlockHextuple extends Block
 		setHardness(6);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Hextuple_Compressed_Coal_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

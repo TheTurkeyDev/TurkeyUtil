@@ -18,7 +18,7 @@ public class BetterBook extends Item
 	
 	public BetterBook() 
 	{
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setUnlocalizedName("Better_Book");
 		super.setMaxStackSize(1);
 		new ItemStack(this, 1).setTagInfo("author", new NBTTagString(""));

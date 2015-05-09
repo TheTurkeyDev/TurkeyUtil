@@ -10,6 +10,6 @@ public class TurkeyTape extends Item
 	{
 		super.setTextureName("turkeyutil:TurkeyTape");
 		super.setUnlocalizedName("TurkeyTape");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

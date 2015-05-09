@@ -16,7 +16,7 @@ public class FlintBlock extends Block
 		setHardness(5);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Flint_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
     @Override

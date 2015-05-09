@@ -1,5 +1,7 @@
 package com.turkey.turkeyUtil.Items.food;
 
+import com.turkey.turkeyUtil.TurkeyUtil;
+
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -13,6 +15,7 @@ public class Juice extends TurkeyItemFood
 	{
 		super(4, .25f, false, "Juice", "juice", 64);
 		super.addLore("Property of Scetchlink");
+		this.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	
     public EnumAction getItemUseAction(ItemStack stack)

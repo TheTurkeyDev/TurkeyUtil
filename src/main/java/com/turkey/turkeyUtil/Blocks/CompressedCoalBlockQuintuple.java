@@ -13,6 +13,6 @@ public class CompressedCoalBlockQuintuple extends Block
 		setHardness(6);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Quintuple_Compressed_Coal_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

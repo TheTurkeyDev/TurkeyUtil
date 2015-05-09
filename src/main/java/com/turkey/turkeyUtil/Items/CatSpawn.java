@@ -23,7 +23,7 @@ public class CatSpawn extends Item
 	{
 		super.setTextureName("turkeyutil:happiness");
 		super.setUnlocalizedName("Happiness");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

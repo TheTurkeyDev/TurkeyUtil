@@ -10,7 +10,7 @@ public class PiePan extends Item
 	{
 		super.setTextureName("turkeyutil:pie_pan");
 		super.setUnlocalizedName("Pie_Pan");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setContainerItem(this);
 	}
 }

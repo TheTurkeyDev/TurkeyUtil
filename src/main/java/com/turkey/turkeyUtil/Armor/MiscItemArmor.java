@@ -21,7 +21,7 @@ public class MiscItemArmor extends ItemArmor
 	{
 		super(material, 0, pos);
 		this.setUnlocalizedName(unlocalizedName);
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 		this.setMaxDamage(0);
 	}
 	

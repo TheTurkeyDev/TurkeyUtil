@@ -1,5 +1,7 @@
 package com.turkey.turkeyUtil.Items.food;
 
+import com.turkey.turkeyUtil.TurkeyUtil;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -13,6 +15,7 @@ public class BaconRockSoup extends TurkeyItemFood
 	{
 		super(8, .1875f, false, "Bacon_Rock_Soup", "bacon_rock_soup", 64);
 		super.addLore("\"Everything is better With bacon\" - MyasisDragon");
+		this.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)

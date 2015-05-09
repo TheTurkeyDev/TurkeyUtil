@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 import com.turkey.turkeyUtil.Items.agriculture.LimeSeeds;
+import com.turkey.turkeyUtil.Items.tools.BuildGuildShield;
 import com.turkey.turkeyUtil.Items.tools.DiamondHammer;
 import com.turkey.turkeyUtil.Items.tools.GoldHammer;
 import com.turkey.turkeyUtil.Items.tools.IronHammer;
@@ -51,6 +52,7 @@ public class UtilItems
 	public static Item catSpawn;
 	public static Item duckyArmy;
 	public static Item wyldWhiskey;
+	public static Item bgShield;
 	
 	public static Item betterBook;
 
@@ -70,6 +72,7 @@ public class UtilItems
 		catSpawn = new CatSpawn();
 		duckyArmy = new DuckyArmy();
 		wyldWhiskey = new WyldWhiskey();
+		bgShield = new BuildGuildShield();
 
 		infinityBucket_Empty = new InfinityBucket(Blocks.air).setTextureName("turkeyutil:infinity_bucket_Empty").setUnlocalizedName("Infinity_Air_Bucket");
 		infinityBucket_Water = new InfinityBucket(Blocks.flowing_water).setTextureName("turkeyutil:infinity_bucket_Water").setUnlocalizedName("Infinity_Water_Bucket");
@@ -118,6 +121,7 @@ public class UtilItems
 		GameRegistry.registerItem(catSpawn, "Happiness");
 		GameRegistry.registerItem(duckyArmy, "Call_Of_The_Ducky_Army");
 		GameRegistry.registerItem(wyldWhiskey, "Wylds_Drink_of_Choice");
+		GameRegistry.registerItem(bgShield, "Build_Guild_Shield");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

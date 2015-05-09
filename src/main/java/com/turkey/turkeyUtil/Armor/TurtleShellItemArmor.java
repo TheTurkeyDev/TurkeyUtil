@@ -17,7 +17,7 @@ public class TurtleShellItemArmor extends ItemArmor
 	public TurtleShellItemArmor(String unlocalizedName, ArmorMaterial material, int pos) {
 		super(material, 0, pos);
 		this.setUnlocalizedName(unlocalizedName);
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 
 	@Override

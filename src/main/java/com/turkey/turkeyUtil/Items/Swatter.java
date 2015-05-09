@@ -19,7 +19,7 @@ public class Swatter extends Item
 	{
 		super.setTextureName("turkeyutil:swatter");
 		super.setUnlocalizedName("Naraxam's_Bug_Swatter");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setMaxDamage(150);
 		super.setMaxStackSize(1);
 	}

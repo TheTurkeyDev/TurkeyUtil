@@ -21,7 +21,7 @@ public class DuckyArmy extends Item
 	{
 		super.setTextureName("turkeyutil:duck_army");
 		super.setUnlocalizedName("Call_Of_The_Ducky_Army");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

@@ -24,7 +24,7 @@ public class InfinityBucket extends ItemBucket
 	{
 		super(p_i45331_1_);
 		isFull = p_i45331_1_;
-		this.setCreativeTab(TurkeyUtil.modTab);
+		this.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setContainerItem(this);
 	}
 

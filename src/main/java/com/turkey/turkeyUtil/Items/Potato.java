@@ -17,7 +17,7 @@ public class Potato extends Item
 	{
 		super.setTextureName("turkeyutil:Potato");
 		super.setUnlocalizedName("Draskia's_Potato");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

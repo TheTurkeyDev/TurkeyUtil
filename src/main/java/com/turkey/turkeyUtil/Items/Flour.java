@@ -10,6 +10,6 @@ public class Flour extends Item
 	{
 		super.setTextureName("turkeyutil:flour");
 		super.setUnlocalizedName("Flour");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

@@ -16,7 +16,7 @@ public class FabulousBlock extends Block
 		setHardness(5);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Fabulous_Diamond_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
     @Override

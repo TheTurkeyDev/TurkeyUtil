@@ -13,6 +13,6 @@ public class CompressedCoalBlockDouble extends Block
 		setHardness(6);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Double_Compressed_Coal_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}	
 }

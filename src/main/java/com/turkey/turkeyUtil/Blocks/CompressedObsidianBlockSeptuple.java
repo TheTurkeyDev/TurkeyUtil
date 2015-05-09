@@ -13,6 +13,6 @@ public class CompressedObsidianBlockSeptuple extends Block
 		setHardness(75);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Septuple_Compressed_Obsidian_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

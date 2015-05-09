@@ -10,6 +10,6 @@ public class ChainPatch extends Item
 	{
 		super.setTextureName("turkeyutil:chain_patch");
 		super.setUnlocalizedName("Chain_Patch");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

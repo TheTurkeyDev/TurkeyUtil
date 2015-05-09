@@ -15,7 +15,7 @@ public class CobbleItemArmor extends ItemArmor
 	public CobbleItemArmor(String unlocalizedName, ArmorMaterial material, String textureName, int type) {
 		super(material, 0, type);
 		this.setUnlocalizedName(unlocalizedName);
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
 	@Override

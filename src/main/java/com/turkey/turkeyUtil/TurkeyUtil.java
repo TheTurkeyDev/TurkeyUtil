@@ -49,10 +49,31 @@ public class TurkeyUtil
 
 	public SimpleNetworkWrapper network;
 
-	public static CreativeTabs modTab = new CreativeTabs(MODID) {
+	public static CreativeTabs baseModTab = new CreativeTabs(MODID) {
 		public Item getTabIconItem()
 		{
 			return Item.getItemFromBlock(UtilBlocks.charcolBlock);
+		}
+	};
+	
+	public static CreativeTabs noodlecraftModTab = new CreativeTabs(MODID+"_NoodleCraft") {
+		public Item getTabIconItem()
+		{
+			return UtilFood.bowlofNoodles;
+		}
+	};
+	
+	public static CreativeTabs walkingwoundedModTab = new CreativeTabs(MODID+"_WalkingWounded") {
+		public Item getTabIconItem()
+		{
+			return UtilArmor.woundedBand;
+		}
+	};
+	
+	public static CreativeTabs buildguildmodTab = new CreativeTabs(MODID+"_BuildGuild") {
+		public Item getTabIconItem()
+		{
+			return UtilItems.bgShield;
 		}
 	};
 

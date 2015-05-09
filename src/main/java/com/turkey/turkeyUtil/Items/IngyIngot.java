@@ -23,7 +23,7 @@ public class IngyIngot extends Item
 	{
 		super.setTextureName("turkeyutil:ingy_ingot");
 		super.setUnlocalizedName("Ingy_The_Ingot");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)

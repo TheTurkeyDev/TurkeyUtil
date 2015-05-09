@@ -17,7 +17,7 @@ public class FabulousDiamond extends Item
 	{
 		super.setTextureName("turkeyutil:Fabulous_Diamond");
 		super.setUnlocalizedName("Fabulous_Diamond");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

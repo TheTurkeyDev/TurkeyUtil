@@ -18,7 +18,7 @@ public class Coffee extends Item
 			super.setTextureName("turkeyutil:Coffee");
 			super.setUnlocalizedName("Darkosto's_Coffee");
 	        this.setMaxStackSize(8);
-	        this.setCreativeTab(TurkeyUtil.modTab);
+	        this.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	    }
 
 	    public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)

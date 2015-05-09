@@ -13,6 +13,6 @@ public class CompressedObsidianBlockHextuple extends Block
 		setHardness(75);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Hextuple_Compressed_Obsidian_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

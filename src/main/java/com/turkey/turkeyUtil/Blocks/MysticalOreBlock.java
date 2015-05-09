@@ -22,7 +22,7 @@ public class MysticalOreBlock extends Block
 		setHardness(.3f);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Mystical_Ore_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 	
 	@Override

@@ -1,4 +1,7 @@
 itemGroup.TurkeyUtil=Turkey's Util
+itemGroup.TurkeyUtil_NoodleCraft=Turkey's Util NoodleCraft References
+itemGroup.TurkeyUtil_BuildGuild=Turkey's Util Build Guild References
+itemGroup.TurkeyUtil_WalkingWounded=Turkey's Util Walking Wounded References
 
 tile.Charcoal_Block.name= Charcoal Block
 tile.Flint_Block.name= Flint Block
@@ -91,6 +94,7 @@ item.wallachsAnnounce.name= W4llach's Announcement Sign
 item.Happiness.name= Happiness
 item.Call_Of_The_Ducky_Army.name=Call Of The Ducky Army
 item.Wylds_Drink_of_Choice.name=Wyld's Drink of Choice
+item.Build_Guild_Shield.name=Build Guild Shield
 
 item.Condensed_Core.name= Condensed Core
 item.TurkeyTape.name= Duck... I mean TurkeyTape

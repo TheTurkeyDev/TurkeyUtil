@@ -10,6 +10,6 @@ public class CondensedCore extends Item
 	{
 		super.setTextureName("turkeyutil:condensed_core");
 		super.setUnlocalizedName("Condensed_Core");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

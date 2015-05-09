@@ -13,6 +13,6 @@ public class CompressedCoalBlockOctuple extends Block
 		setHardness(6);
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Octuple_Compressed_Coal_Block");
-		setCreativeTab(TurkeyUtil.modTab);
+		setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

@@ -14,7 +14,7 @@ public class W4llachsAnnouncement extends Item
 	{
 		super.setTextureName("turkeyutil:w4llachs_Announcement");
 		super.setUnlocalizedName("wallachsAnnounce");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

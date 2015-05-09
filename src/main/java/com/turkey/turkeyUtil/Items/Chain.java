@@ -10,6 +10,6 @@ public class Chain extends Item
 	{
 		super.setTextureName("turkeyutil:chain");
 		super.setUnlocalizedName("Chain");
-		super.setCreativeTab(TurkeyUtil.modTab);
+		super.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }
