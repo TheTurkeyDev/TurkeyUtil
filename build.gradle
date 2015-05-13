@@ -22,7 +22,7 @@ group= "com.turkey.turkeyUtil"
 archivesBaseName = "TurkeyUtil"
 
 minecraft {
-    version = "1.7.10-10.13.3.1355-1.7.10"
+    version = "1.7.10-10.13.3.1403-1.7.10"
 }
 
 dependencies {
