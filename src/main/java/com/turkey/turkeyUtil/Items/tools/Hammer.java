@@ -8,8 +8,11 @@ import com.turkey.turkeyUtil.TurkeyUtil;
 public class Hammer extends Item
 {	
 	
-	public Hammer()
+	public Hammer(String name, int durability)
 	{
+		this.setUnlocalizedName(name);
+		this.setTextureName("turkeyutil:"+name);
+		super.setMaxDamage(durability);
 		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setContainerItem(this);
 		super.showDurabilityBar(new ItemStack(this));

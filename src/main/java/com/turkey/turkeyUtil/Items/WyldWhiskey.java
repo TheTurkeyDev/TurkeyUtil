@@ -126,6 +126,6 @@ public class WyldWhiskey  extends Item
 	{
     	//Receive
 		list.add("Take a drink of Wyld's drink of choice and receive magical effects");
-		list.add("WyldWhiskey");
+		list.add("Wyld, Member of the Build Guild");
 	}
 }

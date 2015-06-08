@@ -10,11 +10,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 import com.turkey.turkeyUtil.Items.agriculture.LimeSeeds;
 import com.turkey.turkeyUtil.Items.tools.BuildGuildShield;
-import com.turkey.turkeyUtil.Items.tools.DiamondHammer;
-import com.turkey.turkeyUtil.Items.tools.GoldHammer;
-import com.turkey.turkeyUtil.Items.tools.IronHammer;
-import com.turkey.turkeyUtil.Items.tools.StoneHammer;
-import com.turkey.turkeyUtil.Items.tools.WoodHammer;
+import com.turkey.turkeyUtil.Items.tools.Hammer;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -53,16 +49,17 @@ public class UtilItems
 	public static Item duckyArmy;
 	public static Item wyldWhiskey;
 	public static Item bgShield;
+	public static Item glennsSoul;
 	
 	public static Item betterBook;
 
 	public static void loadItems()
 	{
-		woodHammer = new WoodHammer();
-		stoneHammer = new StoneHammer();
-		ironHammer = new IronHammer();
-		goldHammer = new GoldHammer();
-		diamondHammer = new DiamondHammer();
+		woodHammer = new Hammer("Wooden_Hammer", 16);
+		stoneHammer = new Hammer("Stone_Hammer", 32);
+		ironHammer = new Hammer("Iron_Hammer", 64);
+		goldHammer = new Hammer("Gold_Hammer", 10);
+		diamondHammer = new Hammer("Diamond_Hammer", 390);
 
 		chain = new Chain();
 		chainPatch = new ChainPatch();
@@ -73,6 +70,7 @@ public class UtilItems
 		duckyArmy = new DuckyArmy();
 		wyldWhiskey = new WyldWhiskey();
 		bgShield = new BuildGuildShield();
+		glennsSoul = new GlennsSoul();
 
 		infinityBucket_Empty = new InfinityBucket(Blocks.air).setTextureName("turkeyutil:infinity_bucket_Empty").setUnlocalizedName("Infinity_Air_Bucket");
 		infinityBucket_Water = new InfinityBucket(Blocks.flowing_water).setTextureName("turkeyutil:infinity_bucket_Water").setUnlocalizedName("Infinity_Water_Bucket");
@@ -122,6 +120,7 @@ public class UtilItems
 		GameRegistry.registerItem(duckyArmy, "Call_Of_The_Ducky_Army");
 		GameRegistry.registerItem(wyldWhiskey, "Wylds_Drink_of_Choice");
 		GameRegistry.registerItem(bgShield, "Build_Guild_Shield");
+		GameRegistry.registerItem(glennsSoul, "Glenns_Soul");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

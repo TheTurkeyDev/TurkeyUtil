@@ -29,6 +29,7 @@ public class DuckyArmy extends Item
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
 		list.add("Calls xEvila's Ducky Army to the world!");
+		list.add("xEvila's, Member of NoodleCraft");
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

@@ -105,7 +105,7 @@ public class UtilPacket  implements IMessage
                     }
                     return null;
                 }
-			} 
+			}
 			else
 				TurkeyUtil.logger.log(Level.ERROR, "Received invalid packet on clientside!");
 			return null;

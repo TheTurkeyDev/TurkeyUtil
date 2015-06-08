@@ -23,7 +23,7 @@ public class CatSpawn extends Item
 	{
 		super.setTextureName("turkeyutil:happiness");
 		super.setUnlocalizedName("Happiness");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -31,6 +31,7 @@ public class CatSpawn extends Item
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
 		list.add("Brings temporary Happiness.... to RyanTheAllmighty atleast");
+		list.add("RyanTheAllmighty, Member of the Walking Wounded");
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

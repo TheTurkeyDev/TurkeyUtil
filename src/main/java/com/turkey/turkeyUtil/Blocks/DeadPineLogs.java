@@ -1,7 +1,11 @@
 package com.turkey.turkeyUtil.Blocks;
 
+import java.util.List;
+
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
@@ -38,5 +42,12 @@ public class DeadPineLogs extends BlockLog
 	protected IIcon getTopIcon(int p_150161_1_)
 	{
 		return this.field_150166_b[0];
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
+	{
+		list.add("Deadpine, Member of the Walking Wounded and NoodleCraft");
 	}
 }

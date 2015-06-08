@@ -15,6 +15,7 @@ public class Juice extends TurkeyItemFood
 	{
 		super(4, .25f, false, "Juice", "juice", 64);
 		super.addLore("Property of Scetchlink");
+		super.addLore("Scetchlink, Member of NoodleCraft");
 		this.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	

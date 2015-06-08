@@ -82,5 +82,6 @@ public class IngyIngot extends Item
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
 		list.add("Spawns an Iron Golem when used.");
+		list.add("SiylissTV, Member of the Walking Wounded");
 	}
 }

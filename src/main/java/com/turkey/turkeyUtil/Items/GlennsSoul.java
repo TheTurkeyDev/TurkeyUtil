@@ -11,20 +11,19 @@ import com.turkey.turkeyUtil.TurkeyUtil;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Potato extends Item
-{	
-	public Potato()
+public class GlennsSoul extends Item
+{
+	public GlennsSoul()
 	{
-		super.setTextureName("turkeyutil:Potato");
-		super.setUnlocalizedName("Draskia's_Potato");
-		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
+		super.setTextureName("turkeyutil:glennsSoul");
+		super.setUnlocalizedName("Glenns_Soul");
+		super.setCreativeTab(TurkeyUtil.buildguildmodTab);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
-		list.add("Turns a Zombie Villager into a regular Villager");
-		list.add("Draskia, Member of the Walking Wounded and NoodleCraft");
+		list.add("Sevadus, Member of the Build Guild");
 	}
 }
