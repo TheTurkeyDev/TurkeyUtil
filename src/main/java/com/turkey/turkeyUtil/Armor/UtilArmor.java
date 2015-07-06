@@ -1,5 +1,7 @@
 package com.turkey.turkeyUtil.Armor;
 
+import com.turkey.turkeyUtil.TurkeyUtil;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -48,10 +50,10 @@ public class UtilArmor
 		cobbleBoots = (new CobbleItemArmor("Cobblestone_Boots", cobblestoneArmor, "Cobblestone_boots", 3)).setTextureName("turkeyutil:Cobblestone_boots");
 		
 		gasMask = (new MiscItemArmor("Gas_Mask", miscArmor, 0)).setTextureName("turkeyutil:Gas_Mask");
-		woundedBand = (new MiscItemArmor("Walking_Wounded_Headband", miscArmor,0)).setTextureName("turkeyutil:Wounded_Headband");
-		pandaMask = (new MiscItemArmor("pandaaburr's_Panda_Mask", miscArmor,0)).setTextureName("turkeyutil:Panda_Mask");
-		turtleShell = (new TurtleShellItemArmor("Thilia's_Turtle_Shell", miscArmor,1)).setTextureName("turkeyutil:turtle_Shell");
-		j3dWig = (new MiscItemArmor("J3D_Wig", miscArmor, 0)).setTextureName("turkeyutil:J3D_Wig");
+		woundedBand = (new MiscItemArmor("Walking_Wounded_Headband", miscArmor,0)).setTextureName("turkeyutil:Wounded_Headband").setCreativeTab(TurkeyUtil.walkingwoundedModTab);
+		pandaMask = (new MiscItemArmor("pandaaburr's_Panda_Mask", miscArmor,0)).setTextureName("turkeyutil:Panda_Mask").setCreativeTab(TurkeyUtil.noodlecraftModTab);
+		turtleShell = (new TurtleShellItemArmor("Thilia's_Turtle_Shell", miscArmor,1)).setTextureName("turkeyutil:turtle_Shell").setCreativeTab(TurkeyUtil.noodlecraftModTab);
+		j3dWig = (new MiscItemArmor("J3D_Wig", miscArmor, 0)).setTextureName("turkeyutil:J3D_Wig").setCreativeTab(TurkeyUtil.noodlecraftModTab);
 		
 		GameRegistry.registerItem(superFabulousHelm, "Super_Fabulous_Helmet");
 		GameRegistry.registerItem(superFabulousChest, "Super_Fabulous_ChestPlate");

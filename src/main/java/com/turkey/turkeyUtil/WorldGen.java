@@ -2,11 +2,12 @@ package com.turkey.turkeyUtil;
 
 import java.util.Random;
 
-import com.turkey.turkeyUtil.Blocks.UtilBlocks;
-
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import com.turkey.turkeyUtil.Blocks.UtilBlocks;
+
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGen implements IWorldGenerator 
@@ -14,6 +15,8 @@ public class WorldGen implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) 
 	{
+		if(TurkeyUtilSettings.isBlockedWorld(world.getWorldInfo().getWorldName()))
+			return;
 		generateOre(world, random, chunkX * 16, chunkZ * 16);
 	}
 

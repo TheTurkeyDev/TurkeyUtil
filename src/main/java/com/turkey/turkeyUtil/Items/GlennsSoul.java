@@ -24,6 +24,7 @@ public class GlennsSoul extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
+		list.add("Used to craft essence containers");
 		list.add("Sevadus, Member of the Build Guild");
 	}
 }

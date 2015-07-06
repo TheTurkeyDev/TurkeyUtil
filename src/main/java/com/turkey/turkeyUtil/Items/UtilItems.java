@@ -11,13 +11,15 @@ import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 import com.turkey.turkeyUtil.Items.agriculture.LimeSeeds;
 import com.turkey.turkeyUtil.Items.tools.BuildGuildShield;
 import com.turkey.turkeyUtil.Items.tools.Hammer;
+import com.turkey.turkeyUtil.Items.tools.SoulEssanceReaper;
+import com.turkey.turkeyUtil.Items.tools.SoulReaper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
 public class UtilItems
-{	
-
+{
+	
 	public static Item woodHammer;
 	public static Item stoneHammer;
 	public static Item ironHammer;
@@ -28,6 +30,11 @@ public class UtilItems
 	public static Item chainPatch;
 
 	public static Item swatter;
+	
+	public static Item soulReaper;
+	public static Item soulEssenceReaper;
+	public static Item passiveEssenceContainer;
+	public static Item hostileEssenceContainer;
 
 	public static Item infinityBucket_Empty;
 	public static Item infinityBucket_Water;
@@ -64,6 +71,11 @@ public class UtilItems
 		chain = new Chain();
 		chainPatch = new ChainPatch();
 
+		soulReaper = new SoulReaper();
+		soulEssenceReaper = new SoulEssanceReaper();
+		passiveEssenceContainer = new SoulEssanceContainer("Passive");
+		hostileEssenceContainer = new SoulEssanceContainer("Hostile");
+		
 		swatter = new Swatter();
 		w4llachsAnnounce = new W4llachsAnnouncement();
 		catSpawn = new CatSpawn();
@@ -121,6 +133,10 @@ public class UtilItems
 		GameRegistry.registerItem(wyldWhiskey, "Wylds_Drink_of_Choice");
 		GameRegistry.registerItem(bgShield, "Build_Guild_Shield");
 		GameRegistry.registerItem(glennsSoul, "Glenns_Soul");
+		GameRegistry.registerItem(soulReaper, "Soul_Reaper");
+		GameRegistry.registerItem(soulEssenceReaper, "Soul_Essence_Reaper");
+		GameRegistry.registerItem(passiveEssenceContainer, "Soul_Essence_Container_Hostile");
+		GameRegistry.registerItem(hostileEssenceContainer, "Soul_Essence_Container_Passive");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

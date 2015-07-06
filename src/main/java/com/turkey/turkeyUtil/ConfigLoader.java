@@ -16,6 +16,7 @@ public class ConfigLoader
 		
 		TurkeyUtilSettings.UpdateCheck = config.get(setCat, "Check for new Builds", true).getBoolean();
 		TurkeyUtilSettings.DevBuildCheck = config.get(setCat, "Check for Dev Builds", true).getBoolean();
+		TurkeyUtilSettings.blockedWorlds = config.getStringList("BlockedWorlds", setCat, new String[0], "Worlds that the Mystical ore shold not generate in");
 		
 		config.addCustomCategoryComment(craftCat, "Allows you to enable and disable items crafting recipies");
 				
