@@ -79,6 +79,7 @@ public class SoulEssanceReaper extends Item
 				}
 			}
 		}
+		stack.damageItem(1, damager);
 		return true;
 	}
 	

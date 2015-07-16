@@ -36,7 +36,7 @@ public class SoulReaper extends Item
 	public Multimap getItemAttributeModifiers()
 	{
 		Multimap multimap = super.getItemAttributeModifiers();
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 1, 0));
+		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 4, 0));
 		return multimap;
 	}
 
@@ -45,11 +45,12 @@ public class SoulReaper extends Item
 		if(hit.getHealth() <= 0)
 		{
 			int r = rand.nextInt(100);
-			if(r == 0)
+			if(r < 5)
 			{
 				hit.worldObj.spawnEntityInWorld(new EntityItem(hit.worldObj, hit.posX, hit.posY, hit.posZ, new ItemStack(UtilItems.glennsSoul)));
 			}
 		}
+		stack.damageItem(1, damager);
 		return true;
 	}
 	
@@ -57,7 +58,7 @@ public class SoulReaper extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
-		list.add("Upon killing a mob, there is a 1% chance that a Glenn's soul will drop");
+		list.add("Upon killing a mob, there is a 5% chance that a Glenn's soul will drop");
 		list.add("AknotsDeath");
 	}
 }

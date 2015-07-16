@@ -25,6 +25,7 @@ public class GlennsSoul extends Item
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
 		list.add("Used to craft essence containers");
+		list.add("Obtained by killing mobs with Aknot's soul reaper");
 		list.add("Sevadus, Member of the Build Guild");
 	}
 }
