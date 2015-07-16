@@ -1,10 +1,9 @@
 package com.turkey.turkeyUtil.Hookins;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.item.ItemStack;
 
-import com.cricketcraft.chisel.init.ChiselBlocks;
+import org.apache.logging.log4j.Level;
+
 import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
 
@@ -24,7 +23,7 @@ public class ChiselModHook
 	public void load()
 	{
 		try{
-			GameRegistry.addRecipe(new ItemStack(UtilFood.lime, 1),"AAA","AAA","AAA",'A', new ItemStack(ChiselBlocks.limestone, 1));
+			GameRegistry.addRecipe(new ItemStack(UtilFood.lime, 1),"AAA","AAA","AAA",'A', new ItemStack(GameRegistry.findBlock("chisel", "limestone"), 1));
 		} catch (NoClassDefFoundError e)
 		{
 			TurkeyUtil.logger.log(Level.WARN, "Unable to load Chisel 2 mod hook!!!! You may have the wrong chisel mod or something has just gone wrong!");
