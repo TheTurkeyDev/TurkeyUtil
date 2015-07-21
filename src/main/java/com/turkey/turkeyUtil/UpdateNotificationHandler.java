@@ -26,11 +26,11 @@ public class UpdateNotificationHandler
 			event.player.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "[TurkeyUtil] Dev Copy, How did you get this?"));
 			return;
 		}
-		
+
 		try
 		{
 			String[] data = getNotification("http://bit.ly/14ZUXpn", true);
-			
+
 			if(!TurkeyUtilSettings.UpdateCheck)return;
 
 			String version = data[0].trim();
@@ -44,19 +44,7 @@ public class UpdateNotificationHandler
 				currentversion = currentversion.substring(currentversion.indexOf("_") + 1);
 			}
 			String link = data[1].trim();
-			int verStat;
-			
-			if (TurkeyUtilSettings.DevBuildCheck)
-			{
-				verStat = compareVersions(currentversion, version);
-			}
-			else
-			{
-				String v1 = TurkeyUtil.VERSION.substring(0, currentversion.lastIndexOf("."));
-				String v2 = version.substring(0, version.lastIndexOf("."));
-				verStat = compareVersions(v1, v2);
-			}
-			
+			int verStat = compareVersions(currentversion, version);
 
 			if (verStat == -1)
 			{
@@ -113,7 +101,7 @@ public class UpdateNotificationHandler
 				return -1; // New version available
 			}
 			else if (oldNum[i] > newNum[i]) { return 1; // Debug version ahead
-														// of release
+			// of release
 			}
 		}
 
