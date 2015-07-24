@@ -2,18 +2,23 @@ package com.turkey.turkeyUtil.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.oredict.OreDictionary;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 import com.turkey.turkeyUtil.Blocks.Agriculture.LimePlant;
 import com.turkey.turkeyUtil.Blocks.TileEntities.ArmorCombinerTileEntity;
+import com.turkey.turkeyUtil.Items.ItemMonocolorBlock;
+import com.turkey.turkeyUtil.Items.ItemMonocolorLightBlock;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class UtilBlocks
-{	
+{		
 	public static Block charcolBlock;
 	public static Block flintBlock;
 	public static Block fabulousBlock;
 	public static Block mysticalOreBlock;
 	public static Block deadpineLog;
+	public static Block monoBlock;
+	public static Block monoLightBlock;
 	
 	public static Block doublecompressedCoal;
 	public static Block triplecompressedCoal;
@@ -43,6 +48,8 @@ public class UtilBlocks
 		fabulousBlock = new FabulousBlock().setBlockTextureName("turkeyutil:fabulous_block");
 		mysticalOreBlock = new MysticalOreBlock().setBlockTextureName("turkeyutil:MysticalBlock");
 		deadpineLog = new DeadPineLogs();
+		monoBlock = new MonocolorBlock();
+		monoLightBlock = new MonocolorLightBlock();
 		
 		doublecompressedCoal = new CompressedCoalBlockDouble().setBlockTextureName("turkeyutil:doubleCompressesdCoal");
 		triplecompressedCoal = new CompressedCoalBlockTriple().setBlockTextureName("turkeyutil:tripleCompressesdCoal");
@@ -70,6 +77,8 @@ public class UtilBlocks
 		GameRegistry.registerBlock(fabulousBlock, "Fabulous_Diamond_Block");
 		GameRegistry.registerBlock(mysticalOreBlock, "Mystical_Ore_Block");
 		GameRegistry.registerBlock(deadpineLog, "Deadpine_Log");
+		GameRegistry.registerBlock(monoBlock, ItemMonocolorBlock.class, "monocolored_Block");
+		GameRegistry.registerBlock(monoLightBlock, ItemMonocolorLightBlock.class, "monocolored_Light_Block");
 		
 		GameRegistry.registerBlock(doublecompressedCoal, "Double_Compressed_Coal_Block");
 		GameRegistry.registerBlock(triplecompressedCoal,  "Triple_Compressed_Coal_Block");

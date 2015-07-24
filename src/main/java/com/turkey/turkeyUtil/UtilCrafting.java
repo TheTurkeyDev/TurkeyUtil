@@ -70,6 +70,18 @@ public class UtilCrafting
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.septuplecompressedObsidian, 9), new ItemStack(UtilBlocks.octuplecompressedObsidian, 1));
 		}
 
+		if(ConfigLoader.isEnabled("Monocolored Blocks"))
+		{
+			for(int i = 0; i < 16; i++)
+				GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.monoBlock, 1, i), "DD", "DD", 'D', new ItemStack(Items.dye, 1, 15 - i));
+		}
+
+		if(ConfigLoader.isEnabled("Monocolored Light Blocks"))
+		{
+			for(int i = 0; i < 16; i++)
+				GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.monoLightBlock, 1, i), new ItemStack(UtilBlocks.monoBlock, 1, i), new ItemStack(Blocks.glowstone, 1));
+		}
+
 		if(ConfigLoader.isEnabled(UtilBlocks.mysticalOreBlock.getLocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.mysticalOreBlock), new ItemStack(Items.diamond, 1), new ItemStack(Items.emerald, 1), new ItemStack(Items.gold_ingot, 1), new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.redstone, 1), new ItemStack(Items.dye, 1, 4), new ItemStack(Items.coal, 1), new ItemStack(Items.quartz, 1), new ItemStack(Items.brick, 1));
 
