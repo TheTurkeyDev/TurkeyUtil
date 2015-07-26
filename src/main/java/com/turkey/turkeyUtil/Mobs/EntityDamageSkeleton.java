@@ -296,7 +296,7 @@ public class EntityDamageSkeleton extends EntityMob implements IRangedAttackMob
 		EntityArrow entityarrow = new EntityArrow(this.worldObj, this, p_82196_1_, 1.6F, (float)(14 - this.worldObj.difficultySetting.getDifficultyId() * 4));
 		double vx = entityarrow.motionX, vy = entityarrow.motionY, vz = entityarrow.motionZ;
 
-		EntityPotion potion = new EntityPotion(worldObj, entityarrow.posX, entityarrow.posY, entityarrow.posZ, 16396);
+		EntityPotion potion = new EntityPotion(worldObj, entityarrow.posX, entityarrow.posY, entityarrow.posZ, new ItemStack(Items.potionitem, 1, 16396));
 
 		potion.setVelocity(vx, vy, vz);
 
