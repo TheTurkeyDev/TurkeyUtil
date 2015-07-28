@@ -298,7 +298,16 @@ public class EntityPoisonSkeleton extends EntityMob implements IRangedAttackMob
 
 		EntityPotion potion = new EntityPotion(this.worldObj, entityarrow.posX, entityarrow.posY, entityarrow.posZ, new ItemStack(Items.potionitem, 1, 16388));
 
-		potion.setVelocity(vx, vy, vz);
+		potion.motionX = vx;
+		potion.motionY = vy;
+		potion.motionZ = vz;
+
+        if (potion.prevRotationPitch == 0.0F && potion.prevRotationYaw == 0.0F)
+        {
+            float f = MathHelper.sqrt_double(vx * vx + vz * vz);
+            potion.prevRotationYaw = potion.rotationYaw = (float)(Math.atan2(vx, vz) * 180.0D / Math.PI);
+            potion.prevRotationPitch = potion.rotationPitch = (float)(Math.atan2(vy, (double)f) * 180.0D / Math.PI);
+        }
 
 		this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		this.worldObj.spawnEntityInWorld(potion);
