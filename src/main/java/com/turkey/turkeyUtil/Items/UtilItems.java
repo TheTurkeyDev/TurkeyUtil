@@ -7,12 +7,12 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 import com.turkey.turkeyUtil.Items.agriculture.LimeSeeds;
 import com.turkey.turkeyUtil.Items.tools.BuildGuildShield;
 import com.turkey.turkeyUtil.Items.tools.Hammer;
 import com.turkey.turkeyUtil.Items.tools.SoulEssanceReaper;
 import com.turkey.turkeyUtil.Items.tools.SoulReaper;
+import com.turkey.turkeyUtil.blocks.UtilBlocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -44,6 +44,9 @@ public class UtilItems
 	public static Item turkeyTape;
 
 	public static Item fabulousDiamond;
+	public static Item coloredIngots;
+	public static Item lightIngot;
+	public static Item darknessIngot;
 
 	public static Item coffee;
 	public static Item ingyIngot;
@@ -92,6 +95,9 @@ public class UtilItems
 		turkeyTape = new TurkeyTape();
 
 		fabulousDiamond = new FabulousDiamond();
+		coloredIngots = new ColoredIngots();
+		lightIngot = new LightIngot();
+		darknessIngot = new DarknessIngot();
 
 		coffee = new Coffee();
 		ingyIngot = new IngyIngot();
@@ -137,6 +143,9 @@ public class UtilItems
 		GameRegistry.registerItem(soulEssenceReaper, "Soul_Essence_Reaper");
 		GameRegistry.registerItem(passiveEssenceContainer, "Soul_Essence_Container_Hostile");
 		GameRegistry.registerItem(hostileEssenceContainer, "Soul_Essence_Container_Passive");
+		GameRegistry.registerItem(coloredIngots, "Colored_Ingot");
+		GameRegistry.registerItem(lightIngot, "Light_Ingot");
+		GameRegistry.registerItem(darknessIngot, "Darkness_Ingot");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

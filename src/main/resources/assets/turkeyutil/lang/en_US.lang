@@ -11,6 +11,11 @@ tile.Deadpine_Log.name= Deadpine Log
 tile.Lime_Plant.name= Lime Plant
 
 tile.Armor_Combiner.name= Armor Combiner (WIP DO NOT USE)
+tile.Light_Collector.name= Light Collector
+
+tile.Iron_Advanced_Hopper.name= Extra Iron Advanced Hopper
+tile.Gold_Advanced_Hopper.name= Gold Advanced Hopper
+tile.Diamond_Advanced_Hopper.name= Diamond Advanced Hopper
 
 tile.Double_Compressed_Coal_Block.name= Double Compressed Coal Block
 tile.Triple_Compressed_Coal_Block.name= Triple Compressed Coal Block
@@ -20,7 +25,7 @@ tile.Hextuple_Compressed_Coal_Block.name= Hextuple Compressed Coal Block
 tile.Septuple_Compressed_Coal_Block.name= Septuple Compressed Coal Block
 tile.Octuple_Compressed_Coal_Block.name= Octuple Compressed Coal Block
 
-tile.Compressed_Obsidian_Block.name= Compressed Obsidian Block
+tile.Single_Compressed_Obsidian_Block.name= Compressed Obsidian Block
 tile.Double_Compressed_Obsidian_Block.name= Double Compressed Obsidian Block
 tile.Triple_Compressed_Obsidian_Block.name= Triple Compressed Obsidian Block
 tile.Quadruple_Compressed_Obsidian_Block.name= Quadruple Compressed Obsidian Block
@@ -62,6 +67,26 @@ tile.monocolored_Light_Block.red.name= Red Monocolored Light Block
 tile.monocolored_Light_Block.silver.name= Silver Monocolored Light Block
 tile.monocolored_Light_Block.white.name= White Monocolored Light Block
 tile.monocolored_Light_Block.yellow.name= Yellow Monocolored Light Block
+
+item.Colored_Ingot.white.name= White Colored Ingot
+item.Colored_Ingot.orange.name= Orange Colored Ingot
+item.Colored_Ingot.magenta.name= Magenta Colored Ingot
+item.Colored_Ingot.light_blue.name= Light Blue Colored Ingot
+item.Colored_Ingot.yellow.name= Yellow Colored Ingot
+item.Colored_Ingot.lime.name= Lime Colored Ingot
+item.Colored_Ingot.pink.name= Pink Colored Ingot
+item.Colored_Ingot.gray.name= Gray Colored Ingot
+item.Colored_Ingot.silver.name= Silver Colored Ingot
+item.Colored_Ingot.cyan.name= Cyan Colored Ingot
+item.Colored_Ingot.purple.name= Purple Colored Ingot
+item.Colored_Ingot.blue.name= Blue Colored Ingot
+item.Colored_Ingot.brown.name= Brown Colored Ingot
+item.Colored_Ingot.green.name= Green Colored Ingot
+item.Colored_Ingot.red.name= Red Colored Ingot
+item.Colored_Ingot.black.name= Black Colored Ingot
+
+item.Light_Ingot.name= Light Ingot
+item.Darkness_Ingot.name= Darkness Ingot
 
 item.Wooden_Hammer.name= Wooden Hammer
 item.Stone_Hammer.name= Stone Hammer

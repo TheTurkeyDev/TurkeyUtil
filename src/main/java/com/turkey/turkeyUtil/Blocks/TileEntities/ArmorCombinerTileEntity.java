@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks.TileEntities;
+package com.turkey.turkeyUtil.blocks.TileEntities;
 
 import net.minecraft.tileentity.TileEntity;
 

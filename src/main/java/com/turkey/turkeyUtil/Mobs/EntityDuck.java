@@ -1,6 +1,4 @@
-package com.turkey.turkeyUtil.Mobs;
-
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+package com.turkey.turkeyUtil.mobs;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,6 +16,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.turkey.turkeyUtil.Items.food.UtilFood;
 
 public class EntityDuck extends EntityAnimal
 {

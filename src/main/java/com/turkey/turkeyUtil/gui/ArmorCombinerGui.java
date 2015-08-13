@@ -6,8 +6,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Blocks.Container.ArmorCombinerContainer;
-import com.turkey.turkeyUtil.Blocks.TileEntities.ArmorCombinerTileEntity;
+import com.turkey.turkeyUtil.blocks.Container.ArmorCombinerContainer;
+import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 
 public class ArmorCombinerGui extends GuiContainer
 {
@@ -17,8 +17,8 @@ public class ArmorCombinerGui extends GuiContainer
 	public ArmorCombinerGui(InventoryPlayer inventory, ArmorCombinerTileEntity tileEntity, World world)
 	{
 		super(new ArmorCombinerContainer(inventory, tileEntity, world));
-		this.xSize = 256;
-		this.ySize = 256;
+		this.xSize = 176;
+		this.ySize = 165;
 	}
 
 	@Override

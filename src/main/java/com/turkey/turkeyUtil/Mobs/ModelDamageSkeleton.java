@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Mobs;
+package com.turkey.turkeyUtil.mobs;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelZombie;

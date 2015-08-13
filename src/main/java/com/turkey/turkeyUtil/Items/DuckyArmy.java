@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Mobs.EntityDuck;
+import com.turkey.turkeyUtil.mobs.EntityDuck;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

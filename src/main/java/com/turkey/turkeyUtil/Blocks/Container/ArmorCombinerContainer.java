@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks.Container;
+package com.turkey.turkeyUtil.blocks.Container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Blocks.TileEntities.ArmorCombinerTileEntity;
+import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 
 public class ArmorCombinerContainer extends Container
 {

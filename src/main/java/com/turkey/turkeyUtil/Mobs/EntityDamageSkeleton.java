@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Mobs;
+package com.turkey.turkeyUtil.mobs;
 
 import java.util.Calendar;
 
@@ -32,7 +32,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Mobs.ai.EntitySlowAIArrowAttack;
+import com.turkey.turkeyUtil.mobs.ai.EntitySlowAIArrowAttack;
 
 public class EntityDamageSkeleton extends EntityMob implements IRangedAttackMob
 {

@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks.Agriculture;
+package com.turkey.turkeyUtil.blocks.Agriculture;
 
 import java.util.Random;
 

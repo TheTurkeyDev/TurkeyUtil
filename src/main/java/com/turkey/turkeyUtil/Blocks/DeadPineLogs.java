@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks;
+package com.turkey.turkeyUtil.blocks;
 
 import java.util.List;
 

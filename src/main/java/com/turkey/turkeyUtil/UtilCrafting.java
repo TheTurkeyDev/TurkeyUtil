@@ -5,10 +5,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.turkey.turkeyUtil.Armor.UtilArmor;
-import com.turkey.turkeyUtil.Blocks.UtilBlocks;
 import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.armor.UtilArmor;
+import com.turkey.turkeyUtil.blocks.AdvancedHopper;
+import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.util.HopperType;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -73,7 +75,7 @@ public class UtilCrafting
 		if(ConfigLoader.isEnabled("Monocolored Blocks"))
 		{
 			for(int i = 0; i < 16; i++)
-				GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.monoBlock, 1, i), "DD", "DD", 'D', new ItemStack(Items.dye, 1, 15 - i));
+				GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.monoBlock, 1, i), "DD", "DD", 'D', new ItemStack(UtilItems.coloredIngots, 1, i));
 		}
 
 		if(ConfigLoader.isEnabled("Monocolored Light Blocks"))
@@ -82,6 +84,16 @@ public class UtilCrafting
 				GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.monoLightBlock, 1, i), new ItemStack(UtilBlocks.monoBlock, 1, i), new ItemStack(Blocks.glowstone, 1));
 		}
 
+		if(ConfigLoader.isEnabled(UtilBlocks.lightCollector.getLocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.lightCollector), "IGI", "IDI", "III", 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(Blocks.glass), 'D', new ItemStack(Items.diamond));
+
+		if(ConfigLoader.isEnabled("Advanced Hoppers"))
+			for(AdvancedHopper hopper: UtilBlocks.advancedHoppers)
+			{
+				System.out.println(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim());
+				GameRegistry.addShapedRecipe(new ItemStack(hopper), "I I", "IHI", " I ", 'I', new ItemStack(HopperType.getHopperTypeFromName(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim()).getItem()), 'H', new ItemStack(Blocks.hopper));
+			}
+				
 		if(ConfigLoader.isEnabled(UtilBlocks.mysticalOreBlock.getLocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.mysticalOreBlock), new ItemStack(Items.diamond, 1), new ItemStack(Items.emerald, 1), new ItemStack(Items.gold_ingot, 1), new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.redstone, 1), new ItemStack(Items.dye, 1, 4), new ItemStack(Items.coal, 1), new ItemStack(Items.quartz, 1), new ItemStack(Items.brick, 1));
 

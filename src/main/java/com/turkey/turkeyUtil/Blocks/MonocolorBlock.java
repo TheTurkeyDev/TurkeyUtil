@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks;
+package com.turkey.turkeyUtil.blocks;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.material.Material;

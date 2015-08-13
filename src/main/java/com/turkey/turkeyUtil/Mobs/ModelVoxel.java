@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Mobs;
+package com.turkey.turkeyUtil.mobs;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

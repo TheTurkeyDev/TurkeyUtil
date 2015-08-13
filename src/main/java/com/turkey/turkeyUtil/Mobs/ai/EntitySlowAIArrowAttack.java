@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Mobs.ai;
+package com.turkey.turkeyUtil.mobs.ai;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

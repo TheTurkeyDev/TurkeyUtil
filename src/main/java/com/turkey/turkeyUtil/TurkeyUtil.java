@@ -7,17 +7,22 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
-import com.turkey.turkeyUtil.Armor.UtilArmor;
-import com.turkey.turkeyUtil.Blocks.UtilBlocks;
-import com.turkey.turkeyUtil.Events.InteractEvent;
-import com.turkey.turkeyUtil.Hookins.ChiselModHook;
-import com.turkey.turkeyUtil.Hookins.HungerOverhaulHook;
 import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
-import com.turkey.turkeyUtil.Mobs.UtilMobs;
+import com.turkey.turkeyUtil.armor.UtilArmor;
+import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.events.InteractEvent;
+import com.turkey.turkeyUtil.events.UpdateNotificationHandler;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
+import com.turkey.turkeyUtil.hookins.ChiselModHook;
+import com.turkey.turkeyUtil.hookins.HungerOverhaulHook;
+import com.turkey.turkeyUtil.mobs.UtilMobs;
 import com.turkey.turkeyUtil.network.UtilPacket;
 import com.turkey.turkeyUtil.proxy.CommonProxy;
+import com.turkey.turkeyUtil.registries.LightRegistry;
+import com.turkey.turkeyUtil.util.TurkeyUtilFuelHandler;
+import com.turkey.turkeyUtil.util.UtilAchievements;
+import com.turkey.turkeyUtil.util.WorldGen;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
@@ -93,6 +98,7 @@ public class TurkeyUtil
 		UtilFood.loadFood();
 		UtilArmor.loadArmor();
 		UtilCrafting.loadCraftingRecipies();
+		LightRegistry.instance.loadDefaultFilters();
 		UtilMobs.loadMobs();
 		GameRegistry.registerFuelHandler(new TurkeyUtilFuelHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new UtilGuiHandler());

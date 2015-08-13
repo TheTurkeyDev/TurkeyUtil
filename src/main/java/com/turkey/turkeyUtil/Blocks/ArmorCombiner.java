@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Blocks;
+package com.turkey.turkeyUtil.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Blocks.TileEntities.ArmorCombinerTileEntity;
+import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;

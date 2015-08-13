@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Mobs;
+package com.turkey.turkeyUtil.mobs;
 
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
@@ -44,6 +44,8 @@ public class UtilMobs
 		{
 			if(BiomeGenBase.getBiomeGenArray()[i] != null)
 			{
+				if(BiomeGenBase.getBiomeGenArray()[i].equals(BiomeGenBase.sky) || BiomeGenBase.getBiomeGenArray()[i].equals(BiomeGenBase.hell))
+					return;
 				EntityRegistry.addSpawn(entityClass, 10, 5, 5, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
 			}
 		}
