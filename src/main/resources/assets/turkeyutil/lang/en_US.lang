@@ -85,6 +85,23 @@ item.Colored_Ingot.green.name= Green Colored Ingot
 item.Colored_Ingot.red.name= Red Colored Ingot
 item.Colored_Ingot.black.name= Black Colored Ingot
 
+item.Colored_Core.white.name= White Colored Ingot
+item.Colored_Core.orange.name= Core of Fire
+item.Colored_Core.magenta.name= Magenta Core
+item.Colored_Core.light_blue.name= Core of the Sky
+item.Colored_Core.yellow.name= Yellow Core
+item.Colored_Core.lime.name= Lime Core
+item.Colored_Core.pink.name= Pink Core
+item.Colored_Core.gray.name= Gray Core
+item.Colored_Core.silver.name= Silver Core
+item.Colored_Core.cyan.name= Cyan Core
+item.Colored_Core.purple.name= Purple Core
+item.Colored_Core.blue.name= Core of Water
+item.Colored_Core.brown.name= Core of the Earth
+item.Colored_Core.green.name= Core of Life
+item.Colored_Core.red.name= Core of Rage
+item.Colored_Core.black.name= Core of the Void
+
 item.Light_Ingot.name= Light Ingot
 item.Darkness_Ingot.name= Darkness Ingot
 

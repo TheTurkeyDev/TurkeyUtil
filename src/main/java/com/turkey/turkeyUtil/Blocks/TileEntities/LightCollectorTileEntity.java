@@ -1,6 +1,7 @@
 package com.turkey.turkeyUtil.blocks.TileEntities;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -8,6 +9,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 
 import com.turkey.turkeyUtil.Items.UtilItems;
@@ -18,15 +20,16 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 {
 	private ItemStack[] inventory = new ItemStack[1];
 
-	private String customName;
+	private String customName = "";
 
-	private String status = "Idle";
 	private int progress = 0;
 
 	private int delay = 0;
 
 	public void updateEntity()
 	{
+		if(this.worldObj.isRemote)
+			return;
 		delay++;
 
 		if(delay < 20)
@@ -39,7 +42,6 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 			int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord + 1, this.zCoord);
 			if(inventory[0] == null)
 			{
-				status = "Idle";
 				progress = 0;
 			}
 			else if(inventory[0].getItem().equals(Items.iron_ingot))
@@ -48,14 +50,12 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 				{
 					if(this.worldObj.isDaytime())
 					{
-						status = "Infusing with Light";
 						progress = this.tickInfusing(inventory[0]);
 						if(progress >= 100)
 							inventory[0] = new ItemStack(UtilItems.lightIngot);
 					}
 					else
 					{
-						status = "Infusing with Darkness";
 						progress = this.tickInfusing(inventory[0]);
 						if(progress >= 100)
 							inventory[0] = new ItemStack(UtilItems.darknessIngot);
@@ -67,22 +67,17 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 				FilterColor color = LightRegistry.instance.getFilterColorFromBlock(above, meta);
 				if(!color.equals(FilterColor.clear))
 				{
-					status = "Infusing with " + color.getName() + " Light";
 					progress = this.tickInfusing(inventory[0]);
 					if(progress >= 100)
 						inventory[0] = new ItemStack(UtilItems.coloredIngots, 1, color.getMeta());
 				}
 				else
-				{
-					status = "Idle";
 					progress = 0;
-				}
 			}
 			else if(inventory[0].getItem().equals(UtilItems.coloredIngots))
 			{
 				if(LightRegistry.instance.getFilterColorFromBlock(above, meta).equals(FilterColor.clear))
 				{
-					status = "Infusing with Light";
 					progress = this.tickInfusing(inventory[0]);
 					if(progress >= 100)
 						inventory[0] = new ItemStack(UtilItems.lightIngot);
@@ -115,6 +110,27 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 		percentComplete++;
 
 		nbt.setInteger("InfusionPercent", percentComplete);
+		
+		NBTTagCompound display = (NBTTagCompound) nbt.getTag("display");
+		
+		if(display == null)
+		{
+			display = new NBTTagCompound();
+			nbt.setTag("display", display);
+		}
+
+		NBTTagList list = display.getTagList("Lore", 8);
+		if(list == null)
+			list = new NBTTagList();
+
+		if (list.tagCount() > 0)
+			for (int j = list.tagCount() - 1; j >= 0; j--)
+				if(list.getStringTagAt(j).contains("Light Infusing Progress"))
+					list.removeTag(j);
+
+		list.appendTag(new NBTTagString("Light Infusing Progress: " + percentComplete + "%"));
+		display.setTag("Lore", list);
+
 		stack.setTagCompound(nbt);
 
 		return percentComplete;
@@ -130,7 +146,6 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 			this.customName = nbt.getString("CustomName");
 		}
 
-		this.status = nbt.getString("Status");
 		this.progress = nbt.getInteger("Progress");
 		this.delay = nbt.getInteger("Delay");
 
@@ -164,8 +179,6 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 
 		nbt.setTag("Items", nbttaglist);
 
-
-		nbt.setString("Status", this.status);
 		nbt.setInteger("Progress", this.progress);
 		nbt.setInteger("Delay", this.delay);
 
@@ -240,12 +253,57 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 
 	public String getCollectorStatus()
 	{
-		return this.status;
+		String s = "Idle";
+		if(canSeeTheSky())
+		{
+			Block above = this.worldObj.getBlock(this.xCoord, this.yCoord + 1, this.zCoord);
+			int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord + 1, this.zCoord);
+			if(inventory[0] == null)
+				s = "Idle";
+			else if(inventory[0].getItem().equals(Items.iron_ingot))
+			{
+				float time = Minecraft.getMinecraft().theWorld.getCelestialAngle(1.0F);
+				if(LightRegistry.instance.getFilterColorFromBlock(above, meta).equals(FilterColor.clear))
+				{
+					if(time >= 0.784 || time <= 0.215)
+						s = "Infusing with Light";
+					else
+						s = "Infusing with Darkness";
+				}
+			}
+			else if(inventory[0].getItem().equals(UtilItems.lightIngot))
+			{
+				FilterColor color = LightRegistry.instance.getFilterColorFromBlock(above, meta);
+				if(!color.equals(FilterColor.clear))
+					s = "Infusing with " + color.getName() + " Light";
+				else
+					s = "Idle";
+			}
+			else if(inventory[0].getItem().equals(UtilItems.coloredIngots))
+			{
+				if(LightRegistry.instance.getFilterColorFromBlock(above, meta).equals(FilterColor.clear))
+					s = "Infusing with Light";
+			}
+		}
+		return s;
 	}
 
 	public int getCollectorProgress()
 	{
 		return this.progress;
+	}
+	public void setCollectorProgress(int prog)
+	{
+		this.progress = prog;
+	}
+
+	public int getDelay()
+	{
+		return this.delay;
+	}
+	public void setDelay(int delay)
+	{
+		this.delay = delay;
 	}
 
 	@Override

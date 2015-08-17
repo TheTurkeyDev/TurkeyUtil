@@ -12,8 +12,8 @@ import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
 public class AdvancedHopperGui extends GuiContainer
 {
 	private AdvancedHopperTileEntity hopper;
-	public static ResourceLocation textureFive = new ResourceLocation(TurkeyUtil.MODID + ":textures/gui/hopper5slot.png");
-	public static ResourceLocation textureTen = new ResourceLocation(TurkeyUtil.MODID + ":textures/gui/hopper10slot.png");
+	public static ResourceLocation textureFive = new ResourceLocation(TurkeyUtil.MODID + ":textures/gui/hopper5Slot.png");
+	public static ResourceLocation textureTen = new ResourceLocation(TurkeyUtil.MODID + ":textures/gui/hopper10Slot.png");
 
 	public AdvancedHopperGui(InventoryPlayer inventory, AdvancedHopperTileEntity tileEntity)
 	{

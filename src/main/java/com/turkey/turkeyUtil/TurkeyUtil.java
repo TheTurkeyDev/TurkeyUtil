@@ -14,6 +14,7 @@ import com.turkey.turkeyUtil.blocks.UtilBlocks;
 import com.turkey.turkeyUtil.events.InteractEvent;
 import com.turkey.turkeyUtil.events.UpdateNotificationHandler;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
+import com.turkey.turkeyUtil.hookins.ChanceCubesHook;
 import com.turkey.turkeyUtil.hookins.ChiselModHook;
 import com.turkey.turkeyUtil.hookins.HungerOverhaulHook;
 import com.turkey.turkeyUtil.mobs.UtilMobs;
@@ -54,28 +55,32 @@ public class TurkeyUtil
 
 	public SimpleNetworkWrapper network;
 
-	public static CreativeTabs baseModTab = new CreativeTabs(MODID) {
+	public static CreativeTabs baseModTab = new CreativeTabs(MODID)
+	{
 		public Item getTabIconItem()
 		{
 			return Item.getItemFromBlock(UtilBlocks.charcolBlock);
 		}
 	};
-	
-	public static CreativeTabs noodlecraftModTab = new CreativeTabs(MODID+"_NoodleCraft") {
+
+	public static CreativeTabs noodlecraftModTab = new CreativeTabs(MODID + "_NoodleCraft")
+	{
 		public Item getTabIconItem()
 		{
 			return UtilFood.bowlofNoodles;
 		}
 	};
-	
-	public static CreativeTabs walkingwoundedModTab = new CreativeTabs(MODID+"_WalkingWounded") {
+
+	public static CreativeTabs walkingwoundedModTab = new CreativeTabs(MODID + "_WalkingWounded")
+	{
 		public Item getTabIconItem()
 		{
 			return UtilArmor.woundedBand;
 		}
 	};
-	
-	public static CreativeTabs buildguildmodTab = new CreativeTabs(MODID+"_BuildGuild") {
+
+	public static CreativeTabs buildguildmodTab = new CreativeTabs(MODID + "_BuildGuild")
+	{
 		public Item getTabIconItem()
 		{
 			return UtilItems.bgShield;
@@ -109,12 +114,13 @@ public class TurkeyUtil
 		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
 		this.network.registerMessage(UtilPacket.HandlerClient.class, UtilPacket.class, 1, Side.CLIENT);
 
-		if (Loader.isModLoaded("HungerOverhaul"))
+		if(Loader.isModLoaded("HungerOverhaul"))
 		{
 			logger.log(Level.INFO, "HungerOverhaul Detected.... applying hooks");
 			new HungerOverhaulHook();
 		}
-		else logger.log(Level.INFO, "HungerOverhaul not Detected, there for not adding hooks");
+		else
+			logger.log(Level.INFO, "HungerOverhaul not Detected, there for not adding hooks");
 
 		MinecraftForge.EVENT_BUS.register(new InteractEvent());
 		FMLCommonHandler.instance().bus().register(new UpdateNotificationHandler());
@@ -123,11 +129,20 @@ public class TurkeyUtil
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		if (Loader.isModLoaded("chisel"))
+		if(Loader.isModLoaded("chisel"))
 		{
 			logger.log(Level.INFO, "Chisel 2 Detected.... applying hooks");
 			new ChiselModHook();
 		}
-		else logger.log(Level.INFO, "Chisel 2 not Detected, there for not adding hooks");
+		else
+			logger.log(Level.INFO, "Chisel 2 not Detected, there for not adding hooks");
+		
+		if(Loader.isModLoaded("chancecubes"))
+		{
+			logger.log(Level.INFO, "Chance Cubes Detected.... applying (possibly deadly) hooks");
+			new ChanceCubesHook();
+		}
+		else
+			logger.log(Level.INFO, "Chance Cubes not Detected....... What kind of pack are you making without Chance Cubes?");
 	}
 }

@@ -3,24 +3,31 @@ package com.turkey.turkeyUtil.blocks.Container;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class LightCollectorContainer extends Container
 {
-	private final IInventory inventory;
+	private LightCollectorTileEntity te;
+	private int lastDelay;
+	private int lastCollectorProgress;
 
-	public LightCollectorContainer(InventoryPlayer player, IInventory inventory)
+	public LightCollectorContainer(InventoryPlayer player, LightCollectorTileEntity te)
 	{
-		this.inventory = inventory;
-		inventory.openInventory();
+		this.te = te;
+		te.openInventory();
 		byte b0 = 84;
 		int i;
 
-		for(i = 0; i < inventory.getSizeInventory(); i++)
+		for(i = 0; i < te.getSizeInventory(); i++)
 		{
-			this.addSlotToContainer(new Slot(inventory, i, 80 + (i * 18), 33 + (18 * i))
+			this.addSlotToContainer(new Slot(te, i, 80 + (i * 18), 33 + (18 * i))
 			{
 			    public boolean isItemValid(ItemStack stack)
 			    {
@@ -42,10 +49,54 @@ public class LightCollectorContainer extends Container
 			this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 58 + b0));
 		}
 	}
+	
+	public void addCraftingToCrafters(ICrafting crafting)
+    {
+        super.addCraftingToCrafters(crafting);
+        crafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
+        crafting.sendProgressBarUpdate(this, 1, this.te.getCollectorProgress());
+    }
+	
+    public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
+
+        for (int i = 0; i < this.crafters.size(); ++i)
+        {
+            ICrafting icrafting = (ICrafting)this.crafters.get(i);
+
+            if (this.lastDelay != this.te.getDelay())
+            {
+                icrafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
+            }
+
+            if (this.lastCollectorProgress != this.te.getCollectorProgress())
+            {
+                icrafting.sendProgressBarUpdate(this, 1, this.te.getCollectorProgress());
+            }
+        }
+
+        this.lastDelay = this.te.getDelay();
+        this.lastCollectorProgress = this.te.getCollectorProgress();
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int id, int value)
+    {
+        if (id == 0)
+        {
+            this.te.setDelay(value);
+        }
+
+        if (id == 1)
+        {
+            this.te.setCollectorProgress(value);
+        }
+    }
 
 	public boolean canInteractWith(EntityPlayer p_75145_1_)
 	{
-		return this.inventory.isUseableByPlayer(p_75145_1_);
+		return this.te.isUseableByPlayer(p_75145_1_);
 	}
 
 	/**
@@ -61,14 +112,14 @@ public class LightCollectorContainer extends Container
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 
-			if(slotNum < this.inventory.getSizeInventory())
+			if(slotNum < this.te.getSizeInventory())
 			{
-				if(!this.mergeItemStack(itemstack1, this.inventory.getSizeInventory(), this.inventorySlots.size(), true))
+				if(!this.mergeItemStack(itemstack1, this.te.getSizeInventory(), this.inventorySlots.size(), true))
 				{
 					return null;
 				}
 			}
-			else if(!this.mergeItemStack(itemstack1, 0, this.inventory.getSizeInventory(), false))
+			else if(!this.mergeItemStack(itemstack1, 0, this.te.getSizeInventory(), false))
 			{
 				return null;
 			}
@@ -92,6 +143,6 @@ public class LightCollectorContainer extends Container
 	public void onContainerClosed(EntityPlayer player)
 	{
 		super.onContainerClosed(player);
-		this.inventory.closeInventory();
+		this.te.closeInventory();
 	}
 }

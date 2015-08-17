@@ -9,16 +9,8 @@ import com.turkey.turkeyUtil.Items.food.UtilFood;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ChiselModHook
+public class ChiselModHook extends UtilHookin
 {
-
-	public static boolean isEnabled = false;
-
-	public ChiselModHook()
-	{
-		load();
-		isEnabled = true;
-	}
 
 	public void load()
 	{
@@ -28,10 +20,5 @@ public class ChiselModHook
 		{
 			TurkeyUtil.logger.log(Level.WARN, "Unable to load Chisel 2 mod hook!!!! You may have the wrong chisel mod or something has just gone wrong!");
 		}
-	}
-
-	public static boolean isEnabled()
-	{
-		return isEnabled;
 	}
 }

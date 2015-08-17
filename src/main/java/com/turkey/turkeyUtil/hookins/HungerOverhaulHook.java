@@ -6,16 +6,8 @@ import com.turkey.turkeyUtil.Items.food.UtilFood;
 
 import cpw.mods.fml.common.event.FMLInterModComms;
 
-public class HungerOverhaulHook
+public class HungerOverhaulHook extends UtilHookin
 {
-public static boolean isEnabled = false;
-	
-	public HungerOverhaulHook()
-	{
-		load();
-		isEnabled = true;
-	}
-	
 	public void load()
 	{
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.baconRockSoup));
@@ -44,7 +36,7 @@ public static boolean isEnabled = false;
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.cookedDuck));
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.rawDuck));
 	}
-	
+
 	public static boolean isEnabled()
 	{
 		return isEnabled;

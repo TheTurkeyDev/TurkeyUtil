@@ -64,6 +64,7 @@ public class LightRegistry
 		this.addLightFilter(Blocks.stained_glass, 14, FilterColor.red);
 		this.addLightFilter(Blocks.stained_glass, 15, FilterColor.black);
 		this.addLightFilter(Blocks.glass, 0, FilterColor.clear);
+		this.addLightFilter(Blocks.air, 0, FilterColor.clear);
 	}
 	
 	

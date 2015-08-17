@@ -25,7 +25,7 @@ public class LightCollectorGui extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_)
 	{
-		this.fontRendererObj.drawString(te.getInventoryName(), 8, 6, 4210752);
+		this.fontRendererObj.drawString(te.getInventoryName(), 8, 70, 4210752);
 		this.fontRendererObj.drawString(te.getCollectorStatus(), (this.xSize / 2) - (this.fontRendererObj.getStringWidth(te.getCollectorStatus()) / 2), 5, 4210752);
 		this.fontRendererObj.drawString("Progress: " + te.getCollectorProgress() + "%", (this.xSize / 2) - (this.fontRendererObj.getStringWidth("Progress: " + te.getCollectorProgress() + "%") / 2), 15, 4210752);
 	}

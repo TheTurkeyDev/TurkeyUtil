@@ -10,7 +10,6 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.Items.UtilItems;
@@ -66,7 +65,7 @@ public class EntityTurkey extends EntityAnimal
 
         for (int k = 0; k < j; ++k)
         {
-            this.dropItem(Items.feather, 1);
+            this.dropItem(UtilItems.turkeyFeather, 1);
         }
 
         if (this.isBurning())

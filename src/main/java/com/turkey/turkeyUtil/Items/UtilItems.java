@@ -45,6 +45,7 @@ public class UtilItems
 
 	public static Item fabulousDiamond;
 	public static Item coloredIngots;
+	public static Item coloredCores;
 	public static Item lightIngot;
 	public static Item darknessIngot;
 
@@ -60,6 +61,7 @@ public class UtilItems
 	public static Item wyldWhiskey;
 	public static Item bgShield;
 	public static Item glennsSoul;
+	public static Item turkeyFeather;
 	
 	public static Item betterBook;
 
@@ -93,9 +95,11 @@ public class UtilItems
 
 		condensedCore = new CondensedCore();
 		turkeyTape = new TurkeyTape();
+		turkeyFeather = new TurkeyFeather();
 
 		fabulousDiamond = new FabulousDiamond();
 		coloredIngots = new ColoredIngots();
+		coloredCores = new ColoredCore();
 		lightIngot = new LightIngot();
 		darknessIngot = new DarknessIngot();
 
@@ -146,6 +150,8 @@ public class UtilItems
 		GameRegistry.registerItem(coloredIngots, "Colored_Ingot");
 		GameRegistry.registerItem(lightIngot, "Light_Ingot");
 		GameRegistry.registerItem(darknessIngot, "Darkness_Ingot");
+		GameRegistry.registerItem(coloredCores, "Colored_Core");
+		GameRegistry.registerItem(turkeyFeather, "Turkey_Feather");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

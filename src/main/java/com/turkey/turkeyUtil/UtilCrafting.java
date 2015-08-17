@@ -89,10 +89,7 @@ public class UtilCrafting
 
 		if(ConfigLoader.isEnabled("Advanced Hoppers"))
 			for(AdvancedHopper hopper: UtilBlocks.advancedHoppers)
-			{
-				System.out.println(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim());
 				GameRegistry.addShapedRecipe(new ItemStack(hopper), "I I", "IHI", " I ", 'I', new ItemStack(HopperType.getHopperTypeFromName(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim()).getItem()), 'H', new ItemStack(Blocks.hopper));
-			}
 				
 		if(ConfigLoader.isEnabled(UtilBlocks.mysticalOreBlock.getLocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.mysticalOreBlock), new ItemStack(Items.diamond, 1), new ItemStack(Items.emerald, 1), new ItemStack(Items.gold_ingot, 1), new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.redstone, 1), new ItemStack(Items.dye, 1, 4), new ItemStack(Items.coal, 1), new ItemStack(Items.quartz, 1), new ItemStack(Items.brick, 1));
@@ -284,8 +281,6 @@ public class UtilCrafting
 		if(ConfigLoader.isEnabled(UtilFood.genPie.getUnlocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.genPie, 1), new ItemStack(UtilItems.piePan, 1), new ItemStack(UtilItems.flour, 1), new ItemStack(Items.apple));
 
-		if(ConfigLoader.isEnabled("leather"))
-			GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather), 10);
 		if(ConfigLoader.isEnabled(UtilFood.waffle.getUnlocalizedName()))
 			GameRegistry.addSmelting(UtilFood.rawWaffle, new ItemStack(UtilFood.waffle), 10);
 		if(ConfigLoader.isEnabled(UtilFood.cookedTurkey.getUnlocalizedName()))
@@ -298,5 +293,10 @@ public class UtilCrafting
 			GameRegistry.addSmelting(UtilFood.rawHotdog, new ItemStack(UtilFood.cookedHotdog), 10);
 		if(ConfigLoader.isEnabled(UtilFood.cookedchickenNugget.getUnlocalizedName()))
 			GameRegistry.addSmelting(UtilFood.rawchickenNugget, new ItemStack(UtilFood.cookedchickenNugget), 10);
+		
+		if(ConfigLoader.isEnabled("smelt_rotten_flesh"))
+			GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather), 10);
+		if(ConfigLoader.isEnabled("smelt_sand_stone"))
+			GameRegistry.addSmelting(Blocks.sandstone, new ItemStack(Blocks.glass, 4), 10);
 	}
 }
