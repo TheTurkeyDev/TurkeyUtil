@@ -1,5 +1,6 @@
 package com.turkey.turkeyUtil;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -7,6 +8,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.Items.tools.UtilTools;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.AdvancedHopper;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
@@ -77,6 +79,12 @@ public class UtilCrafting
 			for(int i = 0; i < 16; i++)
 				GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.monoBlock, 1, i), "DD", "DD", 'D', new ItemStack(UtilItems.coloredIngots, 1, i));
 		}
+		
+		if(ConfigLoader.isEnabled("Colored Cores"))
+		{
+			for(int i = 0; i < 16; i++)
+				GameRegistry.addShapedRecipe(new ItemStack(UtilItems.coloredCores, 1, i), "CCC", "CCC", "CCC", 'C', new ItemStack(UtilItems.coloredIngots, 1, i));
+		}
 
 		if(ConfigLoader.isEnabled("Monocolored Light Blocks"))
 		{
@@ -91,27 +99,24 @@ public class UtilCrafting
 			for(AdvancedHopper hopper: UtilBlocks.advancedHoppers)
 				GameRegistry.addShapedRecipe(new ItemStack(hopper), "I I", "IHI", " I ", 'I', new ItemStack(HopperType.getHopperTypeFromName(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim()).getItem()), 'H', new ItemStack(Blocks.hopper));
 				
-		if(ConfigLoader.isEnabled(UtilBlocks.mysticalOreBlock.getLocalizedName()))
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.mysticalOreBlock), new ItemStack(Items.diamond, 1), new ItemStack(Items.emerald, 1), new ItemStack(Items.gold_ingot, 1), new ItemStack(Items.iron_ingot, 1), new ItemStack(Items.redstone, 1), new ItemStack(Items.dye, 1, 4), new ItemStack(Items.coal, 1), new ItemStack(Items.quartz, 1), new ItemStack(Items.brick, 1));
-
-		if(ConfigLoader.isEnabled(UtilItems.woodHammer.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.woodHammer, 1), "WS", "WS", " S", 'W', new ItemStack(Blocks.planks), 'S', new ItemStack(Items.stick));
-		if(ConfigLoader.isEnabled(UtilItems.stoneHammer.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.stoneHammer, 1), "TS", "TS", " S", 'T', new ItemStack(Blocks.cobblestone), 'S', new ItemStack(Items.stick));
-		if(ConfigLoader.isEnabled(UtilItems.ironHammer.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.ironHammer, 1), "IS", "IS", " S", 'I', new ItemStack(Items.iron_ingot), 'S', new ItemStack(Items.stick));
-		if(ConfigLoader.isEnabled(UtilItems.goldHammer.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.goldHammer, 1), "GS", "GS", " S", 'G', new ItemStack(Items.gold_ingot), 'S', new ItemStack(Items.stick));
-		if(ConfigLoader.isEnabled(UtilItems.diamondHammer.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.diamondHammer, 1), "DS", "DS", " S", 'D', new ItemStack(Items.diamond), 'S', new ItemStack(Items.stick));
+		if(ConfigLoader.isEnabled(UtilTools.woodHammer.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.woodHammer, 1), "WS", "WS", " S", 'W', new ItemStack(Blocks.planks), 'S', new ItemStack(Items.stick));
+		if(ConfigLoader.isEnabled(UtilTools.stoneHammer.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.stoneHammer, 1), "TS", "TS", " S", 'T', new ItemStack(Blocks.cobblestone), 'S', new ItemStack(Items.stick));
+		if(ConfigLoader.isEnabled(UtilTools.ironHammer.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.ironHammer, 1), "IS", "IS", " S", 'I', new ItemStack(Items.iron_ingot), 'S', new ItemStack(Items.stick));
+		if(ConfigLoader.isEnabled(UtilTools.goldHammer.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.goldHammer, 1), "GS", "GS", " S", 'G', new ItemStack(Items.gold_ingot), 'S', new ItemStack(Items.stick));
+		if(ConfigLoader.isEnabled(UtilTools.diamondHammer.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.diamondHammer, 1), "DS", "DS", " S", 'D', new ItemStack(Items.diamond), 'S', new ItemStack(Items.stick));
 
 		if(ConfigLoader.isEnabled(UtilItems.swatter.getUnlocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.swatter, 1), "S", "S", "T", 'S', new ItemStack(Items.string), 'T', new ItemStack(Items.stick));
 
-		if(ConfigLoader.isEnabled(UtilItems.soulReaper.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.soulReaper, 1), "III", " S ", "S  ", 'S', new ItemStack(Items.stick), 'I', new ItemStack(Items.iron_ingot));
-		if(ConfigLoader.isEnabled(UtilItems.soulEssenceReaper.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.soulEssenceReaper, 1), "III", "GS ", "S  ", 'S', new ItemStack(Items.stick), 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(UtilItems.glennsSoul));
+		if(ConfigLoader.isEnabled(UtilTools.soulReaper.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.soulReaper, 1), "III", " S ", "S  ", 'S', new ItemStack(Items.stick), 'I', new ItemStack(Items.iron_ingot));
+		if(ConfigLoader.isEnabled(UtilTools.soulEssenceReaper.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.soulEssenceReaper, 1), "III", "GS ", "S  ", 'S', new ItemStack(Items.stick), 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(UtilItems.glennsSoul));
 		if(ConfigLoader.isEnabled(UtilItems.passiveEssenceContainer.getUnlocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.passiveEssenceContainer, 1), "GBG", "SIS", "GSG", 'S', new ItemStack(UtilItems.glennsSoul), 'G', new ItemStack(Blocks.glass), 'I', new ItemStack(Items.iron_ingot), 'B', new ItemStack(Blocks.diamond_block));
 		if(ConfigLoader.isEnabled(UtilItems.hostileEssenceContainer.getUnlocalizedName()))
@@ -129,11 +134,11 @@ public class UtilCrafting
 
 		if(ConfigLoader.isEnabled(UtilItems.chain.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.chain, 16), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.iron_ingot, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilItems.chainPatch.getUnlocalizedName()))
@@ -153,6 +158,50 @@ public class UtilCrafting
 			GameRegistry.addShapedRecipe(new ItemStack(UtilArmor.cobbleChest), "F F", "FFF", "FFF", 'F', new ItemStack(Blocks.cobblestone));
 			GameRegistry.addShapedRecipe(new ItemStack(UtilArmor.cobblePants), "FFF", "F F", "F F", 'F', new ItemStack(Blocks.cobblestone));
 			GameRegistry.addShapedRecipe(new ItemStack(UtilArmor.cobbleBoots), "F F", "F F", 'F', new ItemStack(Blocks.cobblestone));
+		}
+		
+		if(ConfigLoader.isEnabled("Super Fabulous Sword"))
+		{
+			ItemStack sword;
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousSword), " F ", " F ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond));
+			
+			sword = new ItemStack(UtilTools.fabulousSword);
+			sword.addEnchantment(Enchantment.sharpness, 1);
+			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 14));
+			
+			sword = new ItemStack(UtilTools.fabulousSword);
+			sword.addEnchantment(Enchantment.fireAspect, 1);
+			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 1));
+			
+			sword = new ItemStack(UtilTools.fabulousSword);
+			sword.addEnchantment(Enchantment.looting, 1);
+			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 4));
+			
+			sword = new ItemStack(UtilTools.fabulousSword);
+			sword.addEnchantment(Enchantment.unbreaking, 1);
+			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 8));
+		}
+		
+		if(ConfigLoader.isEnabled("Super Fabulous Pickaxe"))
+		{
+			ItemStack sword;
+			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousPickaxe), "FFF", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond));
+			
+			sword = new ItemStack(UtilTools.fabulousPickaxe);
+			sword.addEnchantment(Enchantment.efficiency, 1);
+			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 7));
+			
+			sword = new ItemStack(UtilTools.fabulousPickaxe);
+			sword.addEnchantment(Enchantment.fortune, 1);
+			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 4));
+			
+			sword = new ItemStack(UtilTools.fabulousPickaxe);
+			sword.addEnchantment(Enchantment.silkTouch, 1);
+			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 0));
+			
+			sword = new ItemStack(UtilTools.fabulousPickaxe);
+			sword.addEnchantment(Enchantment.unbreaking, 1);
+			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 8));
 		}
 
 		if(ConfigLoader.isEnabled(UtilItems.turkeyTape.getUnlocalizedName()))
@@ -211,47 +260,47 @@ public class UtilCrafting
 
 		if(ConfigLoader.isEnabled(UtilItems.flour.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilItems.flour, 1), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.wheat, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilFood.juice.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.juice, 1), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(UtilFood.lime, 1), new ItemStack(Items.glass_bottle, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilFood.rawBacon.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawBacon, 1), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.porkchop, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilFood.rawHotdog.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawHotdog, 1), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.beef, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilFood.rawchickenNugget.getUnlocalizedName()))
 		{
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilItems.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilItems.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilItems.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilItems.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
-			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilItems.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilTools.woodHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilTools.stoneHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilTools.ironHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilTools.goldHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
+			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.rawchickenNugget, 1), new ItemStack(UtilTools.diamondHammer, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.chicken, 1));
 		}
 
 		if(ConfigLoader.isEnabled(UtilFood.noodles.getUnlocalizedName()))

@@ -70,7 +70,6 @@ public class SoulEssanceContainer extends Item
 					ents.add(ent);
 				else if(passive && !(ent instanceof EntityMob))
 					ents.add(ent);
-					
 			}
 			
 			if(ents.size() == 0)
@@ -81,12 +80,8 @@ public class SoulEssanceContainer extends Item
 			Entity entity = spawnCreature(ents.get(r), world, (double)p_77648_4_ + 0.5D, (double)p_77648_5_ + 2, (double)p_77648_6_ + 0.5D);
 
 			if (entity != null)
-			{	
 				if (!player.capabilities.isCreativeMode)
-				{
-					--stack.stackSize;
-				}
-			}
+					stack.setItemDamage(100);
 
 			return true;
 		}

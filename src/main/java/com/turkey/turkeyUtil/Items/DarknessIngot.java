@@ -9,7 +9,7 @@ public class DarknessIngot extends Item
 	public DarknessIngot()
 	{
 		this.setUnlocalizedName("Darkness_Ingot");
-		this.setTextureName(TurkeyUtil.MODID + ":darkness_Ingot");
+		this.setTextureName(TurkeyUtil.MODID + ":darkness_ingot");
 		this.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 }

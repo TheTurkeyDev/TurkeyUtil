@@ -85,15 +85,15 @@ item.Colored_Ingot.green.name= Green Colored Ingot
 item.Colored_Ingot.red.name= Red Colored Ingot
 item.Colored_Ingot.black.name= Black Colored Ingot
 
-item.Colored_Core.white.name= White Colored Ingot
+item.Colored_Core.white.name= Core of Silk
 item.Colored_Core.orange.name= Core of Fire
 item.Colored_Core.magenta.name= Magenta Core
 item.Colored_Core.light_blue.name= Core of the Sky
-item.Colored_Core.yellow.name= Yellow Core
+item.Colored_Core.yellow.name= Core of Wealth
 item.Colored_Core.lime.name= Lime Core
 item.Colored_Core.pink.name= Pink Core
-item.Colored_Core.gray.name= Gray Core
-item.Colored_Core.silver.name= Silver Core
+item.Colored_Core.gray.name= Core of Speed
+item.Colored_Core.silver.name= Core of Durability
 item.Colored_Core.cyan.name= Cyan Core
 item.Colored_Core.purple.name= Purple Core
 item.Colored_Core.blue.name= Core of Water
@@ -110,6 +110,12 @@ item.Stone_Hammer.name= Stone Hammer
 item.Iron_Hammer.name= Iron Hammer
 item.Gold_Hammer.name= Gold Hammer
 item.Diamond_Hammer.name= Diamond Hammer
+
+item.Fabulous_Sword.name= Fabulous Sword
+item.Fabulous_Pickaxe.name= Fabulous Pickaxe
+item.Fabulous_Shovel.name= Fabulous Shovel
+item.Fabulous_Axe.name= Fabulous Axe
+item.Fabulous_Hoe.name= Fabulous Hoe
 
 item.Fabulous_Diamond.name= Fabulous Diamond
 tile.Fabulous_Diamond_Block.name= Fabulous Diamond Block
@@ -163,6 +169,8 @@ item.Genpie.name= Genpai
 item.Cooked_Chicken_Nugget.name= Cooked Chicken Nugget
 item.Raw_Chicken_Nugget.name= Raw Chicken Nugget
 item.Better_Book.name=Better Book
+item.Turkey_Feather.name=Turkey Feather
+item.Kiraeys_Turkey_Feather.name=Kiraeys Turkey Feather
 
 item.Walking_Wounded_Headband.name= The Walking Wounded Headband
 item.pandaaburr's_Panda_Mask.name= Pandaaburr's Panda Mask

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.Items.tools.UtilTools;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
 import com.turkey.turkeyUtil.events.InteractEvent;
@@ -83,7 +84,7 @@ public class TurkeyUtil
 	{
 		public Item getTabIconItem()
 		{
-			return UtilItems.bgShield;
+			return UtilTools.bgShield;
 		}
 	};
 
@@ -98,18 +99,24 @@ public class TurkeyUtil
 	{
 		logger = event.getModLog();
 		ConfigLoader.loadConfigSettings(event.getSuggestedConfigurationFile());
+		
 		UtilBlocks.loadBlocks();
 		UtilItems.loadItems();
 		UtilFood.loadFood();
 		UtilArmor.loadArmor();
+		UtilTools.loadTools();
 		UtilCrafting.loadCraftingRecipies();
-		LightRegistry.instance.loadDefaultFilters();
 		UtilMobs.loadMobs();
-		GameRegistry.registerFuelHandler(new TurkeyUtilFuelHandler());
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new UtilGuiHandler());
+		
 		UtilAchievements.loadAchievements();
+		LightRegistry.instance.loadDefaultFilters();
+		
+		GameRegistry.registerFuelHandler(new TurkeyUtilFuelHandler());
+		
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new UtilGuiHandler());
 		proxy.registerGuis();
 		proxy.registerRenderings();
+		
 		this.network = NetworkRegistry.INSTANCE.newSimpleChannel("TurkeyUtil");
 		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
 		this.network.registerMessage(UtilPacket.HandlerClient.class, UtilPacket.class, 1, Side.CLIENT);
@@ -136,7 +143,7 @@ public class TurkeyUtil
 		}
 		else
 			logger.log(Level.INFO, "Chisel 2 not Detected, there for not adding hooks");
-		
+
 		if(Loader.isModLoaded("chancecubes"))
 		{
 			logger.log(Level.INFO, "Chance Cubes Detected.... applying (possibly deadly) hooks");
