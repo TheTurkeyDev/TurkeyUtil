@@ -7,6 +7,7 @@ import com.turkey.turkeyUtil.TurkeyUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 
 public class FabulousBlock extends Block
 {	
@@ -23,5 +24,10 @@ public class FabulousBlock extends Block
     public Item getItemDropped(int metadata, Random random, int fortune) 
     {
         return Item.getItemFromBlock(UtilBlocks.fabulousBlock);
+    }
+    
+    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ)
+    {
+    	return true;
     }
 }

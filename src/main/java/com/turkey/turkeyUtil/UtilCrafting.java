@@ -1,11 +1,14 @@
 package com.turkey.turkeyUtil;
 
-import net.minecraft.enchantment.Enchantment;
+import java.util.List;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 
+import com.google.common.collect.Lists;
 import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.Items.food.UtilFood;
 import com.turkey.turkeyUtil.Items.tools.UtilTools;
@@ -18,6 +21,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class UtilCrafting
 {
+
+	public static List<IRecipe> enchantableRecipes = Lists.newArrayList();
+
 	public static void loadCraftingRecipies()
 	{
 		if(ConfigLoader.isEnabled(UtilBlocks.charcolBlock.getLocalizedName()))
@@ -79,7 +85,7 @@ public class UtilCrafting
 			for(int i = 0; i < 16; i++)
 				GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.monoBlock, 1, i), "DD", "DD", 'D', new ItemStack(UtilItems.coloredIngots, 1, i));
 		}
-		
+
 		if(ConfigLoader.isEnabled("Colored Cores"))
 		{
 			for(int i = 0; i < 16; i++)
@@ -96,9 +102,9 @@ public class UtilCrafting
 			GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.lightCollector), "IGI", "IDI", "III", 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(Blocks.glass), 'D', new ItemStack(Items.diamond));
 
 		if(ConfigLoader.isEnabled("Advanced Hoppers"))
-			for(AdvancedHopper hopper: UtilBlocks.advancedHoppers)
+			for(AdvancedHopper hopper : UtilBlocks.advancedHoppers)
 				GameRegistry.addShapedRecipe(new ItemStack(hopper), "I I", "IHI", " I ", 'I', new ItemStack(HopperType.getHopperTypeFromName(hopper.getUnlocalizedName().replace("tile.", "").replace("_Advanced_Hopper", "").trim()).getItem()), 'H', new ItemStack(Blocks.hopper));
-				
+
 		if(ConfigLoader.isEnabled(UtilTools.woodHammer.getUnlocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.woodHammer, 1), "WS", "WS", " S", 'W', new ItemStack(Blocks.planks), 'S', new ItemStack(Items.stick));
 		if(ConfigLoader.isEnabled(UtilTools.stoneHammer.getUnlocalizedName()))
@@ -159,50 +165,21 @@ public class UtilCrafting
 			GameRegistry.addShapedRecipe(new ItemStack(UtilArmor.cobblePants), "FFF", "F F", "F F", 'F', new ItemStack(Blocks.cobblestone));
 			GameRegistry.addShapedRecipe(new ItemStack(UtilArmor.cobbleBoots), "F F", "F F", 'F', new ItemStack(Blocks.cobblestone));
 		}
-		
+
 		if(ConfigLoader.isEnabled("Super Fabulous Sword"))
-		{
-			ItemStack sword;
-			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousSword), " F ", " F ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond));
-			
-			sword = new ItemStack(UtilTools.fabulousSword);
-			sword.addEnchantment(Enchantment.sharpness, 1);
-			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 14));
-			
-			sword = new ItemStack(UtilTools.fabulousSword);
-			sword.addEnchantment(Enchantment.fireAspect, 1);
-			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 1));
-			
-			sword = new ItemStack(UtilTools.fabulousSword);
-			sword.addEnchantment(Enchantment.looting, 1);
-			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 4));
-			
-			sword = new ItemStack(UtilTools.fabulousSword);
-			sword.addEnchantment(Enchantment.unbreaking, 1);
-			GameRegistry.addShapedRecipe(sword, " F ", " F ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 8));
-		}
-		
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousSword), " F ", " F ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
+
 		if(ConfigLoader.isEnabled("Super Fabulous Pickaxe"))
-		{
-			ItemStack sword;
-			GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousPickaxe), "FFF", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond));
-			
-			sword = new ItemStack(UtilTools.fabulousPickaxe);
-			sword.addEnchantment(Enchantment.efficiency, 1);
-			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 7));
-			
-			sword = new ItemStack(UtilTools.fabulousPickaxe);
-			sword.addEnchantment(Enchantment.fortune, 1);
-			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 4));
-			
-			sword = new ItemStack(UtilTools.fabulousPickaxe);
-			sword.addEnchantment(Enchantment.silkTouch, 1);
-			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 0));
-			
-			sword = new ItemStack(UtilTools.fabulousPickaxe);
-			sword.addEnchantment(Enchantment.unbreaking, 1);
-			GameRegistry.addShapedRecipe(sword, "FFF", " S ", "CS ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 8));
-		}
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousPickaxe), "FFF", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
+
+		if(ConfigLoader.isEnabled("Super Fabulous Axe"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousAxe), "FF ", "FS ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
+
+		if(ConfigLoader.isEnabled("Super Fabulous Shovel"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousSpade), " F ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
+
+		if(ConfigLoader.isEnabled("Super Fabulous Hoe"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousHoe), "FF ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
 
 		if(ConfigLoader.isEnabled(UtilItems.turkeyTape.getUnlocalizedName()))
 		{
@@ -257,6 +234,8 @@ public class UtilCrafting
 			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.duckyArmy, 1), "FDF", "DCD", "FDF", 'F', new ItemStack(Items.feather, 1), 'D', new ItemStack(UtilFood.rawDuck, 1), 'C', new ItemStack(UtilBlocks.quadruplecompressedCoal, 1));
 		if(ConfigLoader.isEnabled(UtilItems.wyldWhiskey.getUnlocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.wyldWhiskey, 1), "SDR", " B ", 'S', new ItemStack(UtilFood.juice, 1), 'D', new ItemStack(UtilItems.coffee, 1), 'R', new ItemStack(UtilFood.baconRockSoup, 1), 'B', new ItemStack(Items.glass_bottle, 1));
+		if(ConfigLoader.isEnabled(UtilItems.kiraeysTurkeyFeather.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.kiraeysTurkeyFeather, 1), "ROY", "GFB", "IVP", 'R', new ItemStack(Items.dye, 1, 1), 'O', new ItemStack(Items.dye, 1, 14), 'Y', new ItemStack(Items.dye, 1, 11), 'G', new ItemStack(Items.dye, 1, 2), 'F', new ItemStack(UtilItems.turkeyFeather), 'B', new ItemStack(Items.dye, 1, 4), 'I', new ItemStack(Items.dye, 1, 5), 'V', new ItemStack(Items.dye, 1, 13), 'P', new ItemStack(Items.dye, 1, 9));
 
 		if(ConfigLoader.isEnabled(UtilItems.flour.getUnlocalizedName()))
 		{
@@ -342,7 +321,7 @@ public class UtilCrafting
 			GameRegistry.addSmelting(UtilFood.rawHotdog, new ItemStack(UtilFood.cookedHotdog), 10);
 		if(ConfigLoader.isEnabled(UtilFood.cookedchickenNugget.getUnlocalizedName()))
 			GameRegistry.addSmelting(UtilFood.rawchickenNugget, new ItemStack(UtilFood.cookedchickenNugget), 10);
-		
+
 		if(ConfigLoader.isEnabled("smelt_rotten_flesh"))
 			GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.leather), 10);
 		if(ConfigLoader.isEnabled("smelt_sand_stone"))

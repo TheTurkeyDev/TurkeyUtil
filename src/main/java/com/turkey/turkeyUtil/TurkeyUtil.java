@@ -3,6 +3,7 @@ package com.turkey.turkeyUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.RecipeSorter;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
@@ -12,6 +13,7 @@ import com.turkey.turkeyUtil.Items.food.UtilFood;
 import com.turkey.turkeyUtil.Items.tools.UtilTools;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.events.FabulousToolCrafting;
 import com.turkey.turkeyUtil.events.InteractEvent;
 import com.turkey.turkeyUtil.events.UpdateNotificationHandler;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
@@ -116,6 +118,7 @@ public class TurkeyUtil
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new UtilGuiHandler());
 		proxy.registerGuis();
 		proxy.registerRenderings();
+		proxy.registerEvents();
 		
 		this.network = NetworkRegistry.INSTANCE.newSimpleChannel("TurkeyUtil");
 		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
@@ -128,6 +131,9 @@ public class TurkeyUtil
 		}
 		else
 			logger.log(Level.INFO, "HungerOverhaul not Detected, there for not adding hooks");
+		
+		RecipeSorter.register(TurkeyUtil.MODID + ":fabulous_tool_crafting", FabulousToolCrafting.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
+		GameRegistry.addRecipe(new FabulousToolCrafting());
 
 		MinecraftForge.EVENT_BUS.register(new InteractEvent());
 		FMLCommonHandler.instance().bus().register(new UpdateNotificationHandler());
