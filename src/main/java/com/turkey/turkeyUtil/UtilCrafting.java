@@ -180,6 +180,21 @@ public class UtilCrafting
 
 		if(ConfigLoader.isEnabled("Super Fabulous Hoe"))
 			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousHoe), "FF ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
+		
+		if(ConfigLoader.isEnabled("Flint Sword"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintSword), " F ", " F ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
+
+		if(ConfigLoader.isEnabled("Flint Pickaxe"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintPickaxe), "FFF", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
+
+		if(ConfigLoader.isEnabled("Flint Axe"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintAxe), "FF ", "FS ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
+
+		if(ConfigLoader.isEnabled("Flint Shovel"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintSpade), " F ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
+
+		if(ConfigLoader.isEnabled("Flint Hoe"))
+			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintHoe), "FF ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
 
 		if(ConfigLoader.isEnabled(UtilItems.turkeyTape.getUnlocalizedName()))
 		{

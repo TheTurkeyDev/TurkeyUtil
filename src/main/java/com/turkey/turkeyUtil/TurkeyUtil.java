@@ -62,7 +62,7 @@ public class TurkeyUtil
 	{
 		public Item getTabIconItem()
 		{
-			return Item.getItemFromBlock(UtilBlocks.charcolBlock);
+			return UtilItems.turkeyFeather;
 		}
 	};
 

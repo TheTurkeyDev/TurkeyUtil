@@ -7,6 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class UtilTools
 {
+	public static ToolMaterial flint = EnumHelper.addToolMaterial("Flint", 0, 100, 3.0F, 1.0F, 14);
 	public static ToolMaterial fabulousDiamond = EnumHelper.addToolMaterial("Fabulous_Diamond", 3, 2000, 12.0F, 4.0F, 22);
 	
 	public static Item woodHammer;
@@ -26,6 +27,12 @@ public class UtilTools
 	public static UtilAxe fabulousAxe;
 	public static UtilHoe fabulousHoe;
 	
+	public static UtilSword flintSword;
+	public static UtilPickaxe flintPickaxe;
+	public static UtilSpade flintSpade;
+	public static UtilAxe flintAxe;
+	public static UtilHoe flintHoe;
+	
 	public static void loadTools()
 	{		
 		GameRegistry.registerItem(woodHammer = new Hammer("Wooden_Hammer", 16), "Wooden_Hammer");
@@ -44,5 +51,11 @@ public class UtilTools
 		GameRegistry.registerItem(fabulousSpade = new UtilSpade("Fabulous_Shovel", fabulousDiamond), "Fabulous_Shovel");
 		GameRegistry.registerItem(fabulousAxe = new UtilAxe("Fabulous_Axe", fabulousDiamond), "Fabulous_Axe");
 		GameRegistry.registerItem(fabulousHoe = new UtilHoe("Fabulous_Hoe", fabulousDiamond), "Fabulous_Hoe");
+		
+		GameRegistry.registerItem(flintSword = new UtilSword("Flint_Sword", flint), "Flint_Sword");
+		GameRegistry.registerItem(flintPickaxe = new UtilPickaxe("Flint_Pickaxe", flint), "Flint_Pickaxe");
+		GameRegistry.registerItem(flintSpade = new UtilSpade("Flint_Shovel", flint), "Flint_Shovel");
+		GameRegistry.registerItem(flintAxe = new UtilAxe("Flint_Axe", flint), "Flint_Axe");
+		GameRegistry.registerItem(flintHoe = new UtilHoe("Flint_Hoe", flint), "Flint_Hoe");
 	}
 }
