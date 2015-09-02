@@ -6,19 +6,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
-
-import com.turkey.turkeyUtil.TurkeyUtil;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ColoredCore extends Item
+public class ColoredCore extends BaseItemUtil
 {
 	public ColoredCore()
 	{
-		this.setUnlocalizedName("Colored_Core");
-		this.setTextureName(TurkeyUtil.MODID + ":colored_core");
-		this.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Colored_Core");
 		this.setHasSubtypes(true);
 	}
 

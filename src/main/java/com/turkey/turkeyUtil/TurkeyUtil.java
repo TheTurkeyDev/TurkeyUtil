@@ -24,8 +24,10 @@ import com.turkey.turkeyUtil.mobs.UtilMobs;
 import com.turkey.turkeyUtil.network.UtilPacket;
 import com.turkey.turkeyUtil.proxy.CommonProxy;
 import com.turkey.turkeyUtil.registries.LightRegistry;
+import com.turkey.turkeyUtil.util.ConfigLoader;
 import com.turkey.turkeyUtil.util.TurkeyUtilFuelHandler;
 import com.turkey.turkeyUtil.util.UtilAchievements;
+import com.turkey.turkeyUtil.util.UtilCrafting;
 import com.turkey.turkeyUtil.util.WorldGen;
 
 import cpw.mods.fml.common.FMLCommonHandler;

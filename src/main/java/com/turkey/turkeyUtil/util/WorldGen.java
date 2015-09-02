@@ -6,7 +6,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-import com.turkey.turkeyUtil.UtilSettings;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;

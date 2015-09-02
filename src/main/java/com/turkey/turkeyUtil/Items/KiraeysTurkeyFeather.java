@@ -1,21 +1,16 @@
 package com.turkey.turkeyUtil.Items;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-public class KiraeysTurkeyFeather extends Item
+public class KiraeysTurkeyFeather extends BaseItemUtil
 {
 	public KiraeysTurkeyFeather()
 	{
-		super.setTextureName("turkeyutil:kiraeys_turkey_feather");
-		super.setUnlocalizedName("Kiraeys_Turkey_Feather");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Kiraeys_Turkey_Feather");
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

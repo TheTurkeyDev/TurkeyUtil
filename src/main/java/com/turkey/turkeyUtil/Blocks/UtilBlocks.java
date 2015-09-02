@@ -24,7 +24,7 @@ public class UtilBlocks
 	public static Block deadpineLog;
 	public static Block monoBlock;
 	public static Block monoLightBlock;
-	
+
 	public static Block doublecompressedCoal;
 	public static Block triplecompressedCoal;
 	public static Block quadruplecompressedCoal;
@@ -32,7 +32,7 @@ public class UtilBlocks
 	public static Block hextuplecompressedCoal;
 	public static Block septuplecompressedCoal;
 	public static Block octuplecompressedCoal;
-	
+
 	public static Block compressedObsidian;
 	public static Block doublecompressedObsidian;
 	public static Block triplecompressedObsidian;
@@ -41,82 +41,61 @@ public class UtilBlocks
 	public static Block hextuplecompressedObsidian;
 	public static Block septuplecompressedObsidian;
 	public static Block octuplecompressedObsidian;
-	
+
 	public static Block limePlant;
-	
+
 	public static Block armorCombiner;
 	public static Block lightCollector;
-	
+
 	public static AdvancedHopper[] advancedHoppers;
 	
+	public static Block emptyPortal;
+	public static Block voidPortal;
+	public static Block flatPortal;
+
 	public static void loadBlocks()
 	{
-		charcolBlock = new CharcoalBlock().setBlockTextureName("turkeyutil:CharcoalBlock");
-		flintBlock = new FlintBlock().setBlockTextureName("turkeyutil:FlintBlock");
-		fabulousBlock = new FabulousBlock().setBlockTextureName("turkeyutil:fabulous_block");
-		mysticalOreBlock = new MysticalOreBlock().setBlockTextureName("turkeyutil:MysticalBlock");
-		deadpineLog = new DeadPineLogs();
-		monoBlock = new MonocolorBlock();
-		monoLightBlock = new MonocolorLightBlock();
+		GameRegistry.registerBlock(charcolBlock = new CharcoalBlock().setBlockTextureName("turkeyutil:CharcoalBlock"), "Charcoal_Block");
+		GameRegistry.registerBlock(flintBlock = new FlintBlock().setBlockTextureName("turkeyutil:FlintBlock"), "Flint_Block");
+		GameRegistry.registerBlock(fabulousBlock = new FabulousBlock().setBlockTextureName("turkeyutil:fabulous_block"), "Fabulous_Diamond_Block");
+		GameRegistry.registerBlock(mysticalOreBlock = new MysticalOreBlock().setBlockTextureName("turkeyutil:MysticalBlock"), "Mystical_Ore_Block");
+		GameRegistry.registerBlock(deadpineLog = new DeadPineLogs(), "Deadpine_Log");
+		GameRegistry.registerBlock(monoBlock = new MonocolorBlock(), ItemMonocolorBlock.class, "monocolored_Block");
+		GameRegistry.registerBlock(monoLightBlock = new MonocolorLightBlock(), ItemMonocolorLightBlock.class, "monocolored_Light_Block");
+
+		GameRegistry.registerBlock(doublecompressedCoal = new CompressedCoalBlock("Double").setBlockTextureName("turkeyutil:doubleCompressesdCoal"), "Double_Compressed_Coal_Block");
+		GameRegistry.registerBlock(triplecompressedCoal = new CompressedCoalBlock("Triple").setBlockTextureName("turkeyutil:tripleCompressesdCoal"),  "Triple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(quadruplecompressedCoal = new CompressedCoalBlock("Quadruple").setBlockTextureName("turkeyutil:quadCompressesdCoal"), "Quadruple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(quintuplecompressedCoal = new CompressedCoalBlock("Quintuple").setBlockTextureName("turkeyutil:quintCompressesdCoal"), "Quintuple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(hextuplecompressedCoal = new CompressedCoalBlock("Hextuple").setBlockTextureName("turkeyutil:hexCompressesdCoal"), "Hextuple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(septuplecompressedCoal = new CompressedCoalBlock("Septuple").setBlockTextureName("turkeyutil:septCompressesdCoal"), "Septuple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(octuplecompressedCoal = new CompressedCoalBlock("Octuple").setBlockTextureName("turkeyutil:octCompressesdCoal"), "Octuple_Compressed_Coal_Block");
+
+		GameRegistry.registerBlock(compressedObsidian = new CompressedObsidianBlock("Single", 75).setBlockTextureName("turkeyutil:CompressesdObsidian"), "Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(doublecompressedObsidian = new CompressedObsidianBlock("Double", 75).setBlockTextureName("turkeyutil:doubleCompressesdObsidian"), "Double_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(triplecompressedObsidian = new CompressedObsidianBlock("Triple", 75).setBlockTextureName("turkeyutil:tripleCompressesdObsidian"), "Triple_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(quadruplecompressedObsidian = new CompressedObsidianBlock("Quadruple", 75).setBlockTextureName("turkeyutil:quadCompressesdObsidian"), "Quadruple_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(quintuplecompressedObsidian = new CompressedObsidianBlock("Quintuple", 76).setBlockTextureName("turkeyutil:quintCompressesdObsidian"), "Quintuple_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(hextuplecompressedObsidian = new CompressedObsidianBlock("Hextuple", 76).setBlockTextureName("turkeyutil:hexCompressesdObsidian"), "Hextuple_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(septuplecompressedObsidian = new CompressedObsidianBlock("Septuple", 76).setBlockTextureName("turkeyutil:septCompressesdObsidian"), "Septuple_Compressed_Obsidian_Block");
+		GameRegistry.registerBlock(octuplecompressedObsidian = new CompressedObsidianBlock("Octuple", 76).setBlockTextureName("turkeyutil:octCompressesdObsidian"), "Octuple_Compressed_Obsidian_Block");
+
+		GameRegistry.registerBlock(limePlant = new LimePlant(), "Lime_Plant");
 		
-		doublecompressedCoal = new CompressedCoalBlock("Double").setBlockTextureName("turkeyutil:doubleCompressesdCoal");
-		triplecompressedCoal = new CompressedCoalBlock("Triple").setBlockTextureName("turkeyutil:tripleCompressesdCoal");
-		quadruplecompressedCoal = new CompressedCoalBlock("Quadruple").setBlockTextureName("turkeyutil:quadCompressesdCoal");
-		quintuplecompressedCoal = new CompressedCoalBlock("Quintuple").setBlockTextureName("turkeyutil:quintCompressesdCoal");
-		hextuplecompressedCoal = new CompressedCoalBlock("Hextuple").setBlockTextureName("turkeyutil:hexCompressesdCoal");
-		septuplecompressedCoal = new CompressedCoalBlock("Septuple").setBlockTextureName("turkeyutil:septCompressesdCoal");
-		octuplecompressedCoal = new CompressedCoalBlock("Octuple").setBlockTextureName("turkeyutil:octCompressesdCoal");
-		
-		compressedObsidian = new CompressedObsidianBlock("Single", 75).setBlockTextureName("turkeyutil:CompressesdObsidian");
-		doublecompressedObsidian = new CompressedObsidianBlock("Double", 75).setBlockTextureName("turkeyutil:doubleCompressesdObsidian");
-		triplecompressedObsidian = new CompressedObsidianBlock("Triple", 75).setBlockTextureName("turkeyutil:tripleCompressesdObsidian");
-		quadruplecompressedObsidian = new CompressedObsidianBlock("Quadruple", 75).setBlockTextureName("turkeyutil:quadCompressesdObsidian");
-		quintuplecompressedObsidian = new CompressedObsidianBlock("Quintuple", 76).setBlockTextureName("turkeyutil:quintCompressesdObsidian");
-		hextuplecompressedObsidian = new CompressedObsidianBlock("Hextuple", 76).setBlockTextureName("turkeyutil:hexCompressesdObsidian");
-		septuplecompressedObsidian = new CompressedObsidianBlock("Septuple", 76).setBlockTextureName("turkeyutil:septCompressesdObsidian");
-		octuplecompressedObsidian = new CompressedObsidianBlock("Octuple", 76).setBlockTextureName("turkeyutil:octCompressesdObsidian");
-		
-		limePlant = new LimePlant();
-		
-		armorCombiner = new ArmorCombiner();
-		lightCollector = new LightCollector();
-		
-		GameRegistry.registerBlock(charcolBlock, "Charcoal_Block");
-		GameRegistry.registerBlock(flintBlock, "Flint_Block");
-		GameRegistry.registerBlock(fabulousBlock, "Fabulous_Diamond_Block");
-		GameRegistry.registerBlock(mysticalOreBlock, "Mystical_Ore_Block");
-		GameRegistry.registerBlock(deadpineLog, "Deadpine_Log");
-		GameRegistry.registerBlock(monoBlock, ItemMonocolorBlock.class, "monocolored_Block");
-		GameRegistry.registerBlock(monoLightBlock, ItemMonocolorLightBlock.class, "monocolored_Light_Block");
-		
-		GameRegistry.registerBlock(doublecompressedCoal, "Double_Compressed_Coal_Block");
-		GameRegistry.registerBlock(triplecompressedCoal,  "Triple_Compressed_Coal_Block");
-		GameRegistry.registerBlock(quadruplecompressedCoal, "Quadruple_Compressed_Coal_Block");
-		GameRegistry.registerBlock(quintuplecompressedCoal, "Quintuple_Compressed_Coal_Block");
-		GameRegistry.registerBlock(hextuplecompressedCoal, "Hextuple_Compressed_Coal_Block");
-		GameRegistry.registerBlock(septuplecompressedCoal, "Septuple_Compressed_Coal_Block");
-		GameRegistry.registerBlock(octuplecompressedCoal, "Octuple_Compressed_Coal_Block");
-		
-		GameRegistry.registerBlock(compressedObsidian, "Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(doublecompressedObsidian, "Double_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(triplecompressedObsidian, "Triple_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(quadruplecompressedObsidian, "Quadruple_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(quintuplecompressedObsidian, "Quintuple_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(hextuplecompressedObsidian, "Hextuple_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(septuplecompressedObsidian, "Septuple_Compressed_Obsidian_Block");
-		GameRegistry.registerBlock(octuplecompressedObsidian, "Octuple_Compressed_Obsidian_Block");
-		
-		GameRegistry.registerBlock(limePlant, "Lime_Plant");
-		
-		GameRegistry.registerBlock(armorCombiner, "Armor_Combiner");
+		GameRegistry.registerBlock(emptyPortal = new EmptyPortal(), "Empty_Portal");
+		GameRegistry.registerBlock(voidPortal = new VoidWorldPortal(), "Void_Portal");
+		GameRegistry.registerBlock(flatPortal = new FlatWorldPortal(), "Flat_Portal");
+
+		GameRegistry.registerBlock(armorCombiner = new ArmorCombiner(), "Armor_Combiner");
 		GameRegistry.registerTileEntity(ArmorCombinerTileEntity.class, armorCombiner.getUnlocalizedName());
-		
-		GameRegistry.registerBlock(lightCollector, "Light_Collector");
+
+		GameRegistry.registerBlock(lightCollector = new LightCollector(), "Light_Collector");
 		GameRegistry.registerTileEntity(LightCollectorTileEntity.class, lightCollector.getUnlocalizedName());
-		
+
+
 		OreDictionary.registerOre("oreMystical", mysticalOreBlock);
 		OreDictionary.registerOre("treeWood", deadpineLog);
-		
+
 		List<HopperType> hopperTypes = HopperType.getHopperTypes();
 		advancedHoppers = new AdvancedHopper[hopperTypes.size()];
 		for(int i = 0; i < hopperTypes.size(); i++)

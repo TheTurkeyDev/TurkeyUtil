@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil;
+package com.turkey.turkeyUtil.util;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ import com.turkey.turkeyUtil.Items.tools.UtilTools;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.AdvancedHopper;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
-import com.turkey.turkeyUtil.util.HopperType;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -97,6 +96,9 @@ public class UtilCrafting
 			for(int i = 0; i < 16; i++)
 				GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.monoLightBlock, 1, i), new ItemStack(UtilBlocks.monoBlock, 1, i), new ItemStack(Blocks.glowstone, 1));
 		}
+		
+		if(ConfigLoader.isEnabled(UtilItems.abyssCore.getUnlocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.abyssCore, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(UtilItems.darknessIngot, 1));
 
 		if(ConfigLoader.isEnabled(UtilBlocks.lightCollector.getLocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.lightCollector), "IGI", "IDI", "III", 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(Blocks.glass), 'D', new ItemStack(Items.diamond));
@@ -180,7 +182,7 @@ public class UtilCrafting
 
 		if(ConfigLoader.isEnabled("Super Fabulous Hoe"))
 			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.fabulousHoe), "FF ", " S ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(UtilItems.fabulousDiamond)));
-		
+
 		if(ConfigLoader.isEnabled("Flint Sword"))
 			enchantableRecipes.add(GameRegistry.addShapedRecipe(new ItemStack(UtilTools.flintSword), " F ", " F ", " S ", 'S', new ItemStack(Items.stick), 'F', new ItemStack(Items.flint)));
 
@@ -324,6 +326,15 @@ public class UtilCrafting
 		if(ConfigLoader.isEnabled(UtilFood.genPie.getUnlocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.genPie, 1), new ItemStack(UtilItems.piePan, 1), new ItemStack(UtilItems.flour, 1), new ItemStack(Items.apple));
 
+		
+		if(ConfigLoader.isEnabled(UtilBlocks.emptyPortal.getLocalizedName()))
+			GameRegistry.addRecipe(new ItemStack(UtilBlocks.emptyPortal, 1), "DDD", "D D", "DDD", 'D', new ItemStack(UtilItems.darknessIngot, 1));
+		if(ConfigLoader.isEnabled(UtilBlocks.voidPortal.getLocalizedName()))
+			GameRegistry.addRecipe(new ItemStack(UtilBlocks.voidPortal, 1), "   ", " E ", " V ", 'E', new ItemStack(UtilBlocks.emptyPortal, 1),  'V', new ItemStack(UtilItems.abyssCore, 1));
+		if(ConfigLoader.isEnabled(UtilBlocks.flatPortal.getLocalizedName()))
+			GameRegistry.addRecipe(new ItemStack(UtilBlocks.flatPortal, 1), "DDD", "SES", "SPS", 'D', new ItemStack(Blocks.dirt, 1), 'S', new ItemStack(Blocks.stone, 1), 'E', new ItemStack(UtilBlocks.emptyPortal, 1), 'P', new ItemStack(UtilTools.fabulousPickaxe, 1));
+		
+		
 		if(ConfigLoader.isEnabled(UtilFood.waffle.getUnlocalizedName()))
 			GameRegistry.addSmelting(UtilFood.rawWaffle, new ItemStack(UtilFood.waffle), 10);
 		if(ConfigLoader.isEnabled(UtilFood.cookedTurkey.getUnlocalizedName()))

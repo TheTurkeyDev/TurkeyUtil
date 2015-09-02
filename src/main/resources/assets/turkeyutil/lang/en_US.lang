@@ -10,6 +10,10 @@ tile.Deadpine_Log.name= Deadpine Log
 
 tile.Lime_Plant.name= Lime Plant
 
+tile.Empty_Portal.name= Empty Portal
+tile.Void_Portal.name= Void Portal
+tile.Flat_Portal.name= Flat Portal
+
 tile.Armor_Combiner.name= Armor Combiner (WIP DO NOT USE)
 tile.Light_Collector.name= Light Collector
 
@@ -101,6 +105,7 @@ item.Colored_Core.brown.name= Core of the Earth
 item.Colored_Core.green.name= Core of Life
 item.Colored_Core.red.name= Core of Rage
 item.Colored_Core.black.name= Core of the Void
+item.Abyss_Core.black.name= Core of the Abyss
 
 item.Light_Ingot.name= Light Ingot
 item.Darkness_Ingot.name= Darkness Ingot
@@ -116,6 +121,12 @@ item.Fabulous_Pickaxe.name= Fabulous Pickaxe
 item.Fabulous_Shovel.name= Fabulous Shovel
 item.Fabulous_Axe.name= Fabulous Axe
 item.Fabulous_Hoe.name= Fabulous Hoe
+
+item.Flint_Sword.name= Flint Sword
+item.Flint_Pickaxe.name= Flint Pickaxe
+item.Flint_Shovel.name= Flint Shovel
+item.Flint_Axe.name= Flint Axe
+item.Flint_Hoe.name= Flint Hoe
 
 item.Fabulous_Diamond.name= Fabulous Diamond
 tile.Fabulous_Diamond_Block.name= Fabulous Diamond Block
@@ -176,7 +187,7 @@ item.Walking_Wounded_Headband.name= The Walking Wounded Headband
 item.pandaaburr's_Panda_Mask.name= Pandaaburr's Panda Mask
 item.Ingy_The_Ingot.name= Siyliss' Ingy The Ingot
 item.Darkosto's_Coffee.name= Darkosto's Coffee
-item.Draskia's_Potato.name= Draskia's Potato
+item.Draskia_Potato.name= Draskia's Potato
 item.Hound_Biscuit.name= LourdHound Biscuit
 item.Thilia's_Turtle_Shell.name= Thilia's Turtle Shell
 item.wallachsAnnounce.name= W4llach's Announcement Sign

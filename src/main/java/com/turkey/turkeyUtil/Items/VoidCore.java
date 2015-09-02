@@ -4,13 +4,12 @@ import com.turkey.turkeyUtil.TurkeyUtil;
 
 import net.minecraft.item.Item;
 
-public class LightIngot extends Item
+public class VoidCore extends Item
 {
-	public LightIngot()
+	public VoidCore()
 	{
-		this.setUnlocalizedName("Light_Ingot");
-		this.setTextureName(TurkeyUtil.MODID + ":light_Ingot");
+		this.setUnlocalizedName("Void_Core");
+		this.setTextureName(TurkeyUtil.MODID + ":void_core");
 		this.setCreativeTab(TurkeyUtil.baseModTab);
 	}
-
 }

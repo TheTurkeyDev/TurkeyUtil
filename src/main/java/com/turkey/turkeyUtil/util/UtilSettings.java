@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil;
+package com.turkey.turkeyUtil.util;
 
 public class UtilSettings
 {

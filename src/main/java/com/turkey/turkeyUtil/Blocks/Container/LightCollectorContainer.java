@@ -33,6 +33,11 @@ public class LightCollectorContainer extends Container
 			    {
 			        return inventory.isItemValidForSlot(this.slotNumber, stack);
 			    }
+			    
+			    public int getSlotStackLimit()
+			    {
+			        return 1;
+			    }
 			});
 		}
 

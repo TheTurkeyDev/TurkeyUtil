@@ -8,6 +8,7 @@ import com.turkey.turkeyUtil.util.CustomEntry;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 
 public class LightRegistry
 {
@@ -42,6 +43,15 @@ public class LightRegistry
 			if(entry.getKey().getBlock().equals(block) && entry.getKey().getMeta() == meta)
 				return true;
 		return false;
+	}
+	
+	public List<ItemStack> getBlocksForColor(FilterColor color)
+	{
+		List<ItemStack> toReturn = Lists.newArrayList();
+		for(Entry<FilterBlock, FilterColor> entry: lightFilters)
+			if(entry.getValue().equals(color))
+				toReturn.add(new ItemStack(entry.getKey().getBlock(), 1, entry.getKey().meta));
+		return toReturn;
 	}
 	
 	
@@ -106,6 +116,14 @@ public class LightRegistry
 		public int getMeta()
 		{
 			return this.meta;
+		}
+		
+		public static FilterColor getColorFromMeta(int meta)
+		{
+			for(FilterColor color: FilterColor.values())
+				if(color.meta == meta)
+					return color;
+			return clear;
 		}
 	}
 	

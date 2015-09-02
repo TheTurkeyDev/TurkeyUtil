@@ -1,8 +1,6 @@
-package com.turkey.turkeyUtil;
+package com.turkey.turkeyUtil.util;
 
 import java.io.File;
-
-import com.turkey.turkeyUtil.util.HopperType;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

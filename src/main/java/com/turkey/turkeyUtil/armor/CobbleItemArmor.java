@@ -9,7 +9,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.UtilSettings;
+import com.turkey.turkeyUtil.util.UtilSettings;
 
 public class CobbleItemArmor extends ItemArmor
 {

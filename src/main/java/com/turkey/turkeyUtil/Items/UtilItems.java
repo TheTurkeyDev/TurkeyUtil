@@ -36,6 +36,7 @@ public class UtilItems
 	public static Item coloredCores;
 	public static Item lightIngot;
 	public static Item darknessIngot;
+	public static Item abyssCore;
 
 	public static Item coffee;
 	public static Item ingyIngot;
@@ -56,75 +57,44 @@ public class UtilItems
 	public static void loadItems()
 	{
 
-		chain = new Chain();
-		chainPatch = new ChainPatch();
+		GameRegistry.registerItem(chain = new BaseItemUtil("Chain"), "Chain");
+		GameRegistry.registerItem(chainPatch = new BaseItemUtil("Chain_Patch"), "Chain_Patch");
 
-		passiveEssenceContainer = new SoulEssanceContainer("Passive");
-		hostileEssenceContainer = new SoulEssanceContainer("Hostile");
+		GameRegistry.registerItem(passiveEssenceContainer = new SoulEssanceContainer("Passive"), "Soul_Essence_Container_Hostile");
+		GameRegistry.registerItem(hostileEssenceContainer = new SoulEssanceContainer("Hostile"), "Soul_Essence_Container_Passive");
+
+		GameRegistry.registerItem(infinityBucket_Empty = new InfinityBucket(Blocks.air).setTextureName("turkeyutil:infinity_bucket_Empty").setUnlocalizedName("Infinity_Air_Bucket"), "Infinity_Air_Bucket");
+		GameRegistry.registerItem(infinityBucket_Water = new InfinityBucket(Blocks.flowing_water).setTextureName("turkeyutil:infinity_bucket_Water").setUnlocalizedName("Infinity_Water_Bucket"), "Infinity_Water_Bucket");
+		GameRegistry.registerItem(infinityBucket_Lava = new InfinityBucket(Blocks.flowing_lava).setTextureName("turkeyutil:infinity_bucket_Lava").setUnlocalizedName("Infinity_Lava_Bucket"), "Infinity_Lava_Bucket");
+
+		GameRegistry.registerItem(condensedCore = new BaseItemUtil("Condensed_Core"), "Condensed_Core");
+		GameRegistry.registerItem(turkeyTape = new BaseItemUtil("TurkeyTape"), "TurkeyTape");
+		GameRegistry.registerItem(turkeyFeather = new BaseItemUtil("Turkey_Feather"), "Turkey_Feather");
 		
-		swatter = new Swatter();
-		w4llachsAnnounce = new W4llachsAnnouncement();
-		catSpawn = new CatSpawn();
-		duckyArmy = new DuckyArmy();
-		wyldWhiskey = new WyldWhiskey();
-		glennsSoul = new GlennsSoul();
+		GameRegistry.registerItem(fabulousDiamond = new FabulousDiamond(), "Fabulous_Diamond");
+		GameRegistry.registerItem(coloredIngots = new ColoredIngots(), "Colored_Ingot");
+		GameRegistry.registerItem(lightIngot = new BaseItemUtil("Light_Ingot"), "Light_Ingot");
+		GameRegistry.registerItem(darknessIngot = new BaseItemUtil("Darkness_Ingot"), "Darkness_Ingot");
+		GameRegistry.registerItem(coloredCores = new ColoredCore(), "Colored_Core");
+		GameRegistry.registerItem(abyssCore = new BaseItemUtil("Abyss_Core"), "Abyss_Core");
 
-		infinityBucket_Empty = new InfinityBucket(Blocks.air).setTextureName("turkeyutil:infinity_bucket_Empty").setUnlocalizedName("Infinity_Air_Bucket");
-		infinityBucket_Water = new InfinityBucket(Blocks.flowing_water).setTextureName("turkeyutil:infinity_bucket_Water").setUnlocalizedName("Infinity_Water_Bucket");
-		infinityBucket_Lava = new InfinityBucket(Blocks.flowing_lava).setTextureName("turkeyutil:infinity_bucket_Lava").setUnlocalizedName("Infinity_Lava_Bucket");
-
-		condensedCore = new CondensedCore();
-		turkeyTape = new TurkeyTape();
-		turkeyFeather = new TurkeyFeather();
-
-		fabulousDiamond = new FabulousDiamond();
-		coloredIngots = new ColoredIngots();
-		coloredCores = new ColoredCore();
-		lightIngot = new LightIngot();
-		darknessIngot = new DarknessIngot();
-
-		coffee = new Coffee();
-		ingyIngot = new IngyIngot();
-		potato = new Potato();
-
-		piePan = new PiePan();
-		flour = new Flour();
-
-		limeSeeds = new LimeSeeds(UtilBlocks.limePlant);
-		
-		betterBook = new BetterBook();
-		
-
-		GameRegistry.registerItem(fabulousDiamond, "Fabulous_Diamond");
-		//GameRegistry.registerItem(coffee, "Darkosto's Coffee");
-		GameRegistry.registerItem(coffee, "Darkosto's Coffee");
-		GameRegistry.registerItem(ingyIngot, "Ingy_The_Ingot");
-		GameRegistry.registerItem(potato, "Draskia's_Potato");
-		GameRegistry.registerItem(piePan, "Pie_Pan");
-		GameRegistry.registerItem(flour, "Flour");
-		GameRegistry.registerItem(limeSeeds, "Lime_Seeds");
-		GameRegistry.registerItem(infinityBucket_Empty, "Infinity_Air_Bucket");
-		GameRegistry.registerItem(infinityBucket_Water, "Infinity_Water_Bucket");
-		GameRegistry.registerItem(infinityBucket_Lava, "Infinity_Lava_Bucket");
-		GameRegistry.registerItem(condensedCore, "Condensed_Core");
-		GameRegistry.registerItem(chain, "Chain");
-		GameRegistry.registerItem(chainPatch, "Chain_Patch");
-		GameRegistry.registerItem(swatter, "Naraxam's_Bug_Swatter");
-		GameRegistry.registerItem(turkeyTape, "TurkeyTape");
-		GameRegistry.registerItem(w4llachsAnnounce, "wallachsAnnounce");
-		GameRegistry.registerItem(betterBook, "Better_Book");
-		GameRegistry.registerItem(catSpawn, "Happiness");
-		GameRegistry.registerItem(duckyArmy, "Call_Of_The_Ducky_Army");
-		GameRegistry.registerItem(wyldWhiskey, "Wylds_Drink_of_Choice");
-		GameRegistry.registerItem(glennsSoul, "Glenns_Soul");
-		GameRegistry.registerItem(passiveEssenceContainer, "Soul_Essence_Container_Hostile");
-		GameRegistry.registerItem(hostileEssenceContainer, "Soul_Essence_Container_Passive");
-		GameRegistry.registerItem(coloredIngots, "Colored_Ingot");
-		GameRegistry.registerItem(lightIngot, "Light_Ingot");
-		GameRegistry.registerItem(darknessIngot, "Darkness_Ingot");
-		GameRegistry.registerItem(coloredCores, "Colored_Core");
-		GameRegistry.registerItem(turkeyFeather, "Turkey_Feather");
+		GameRegistry.registerItem(swatter = new Swatter(), "Naraxam's_Bug_Swatter");
+		GameRegistry.registerItem(w4llachsAnnounce = new W4llachsAnnouncement(), "wallachsAnnounce");
+		GameRegistry.registerItem(catSpawn = new CatSpawn(), "Happiness");
+		GameRegistry.registerItem(duckyArmy = new DuckyArmy(), "Call_Of_The_Ducky_Army");
+		GameRegistry.registerItem(wyldWhiskey = new WyldWhiskey(), "Wylds_Drink_of_Choice");
+		GameRegistry.registerItem(glennsSoul = new GlennsSoul(), "Glenns_Soul");
+		GameRegistry.registerItem(coffee = new Coffee(), "Darkosto's Coffee");
+		GameRegistry.registerItem(ingyIngot = new IngyIngot(), "Ingy_The_Ingot");
+		GameRegistry.registerItem(potato = new Potato(), "Draskia's_Potato");
 		GameRegistry.registerItem(kiraeysTurkeyFeather = new KiraeysTurkeyFeather(), "Kiraeys_Turkey_Feather");
+
+		GameRegistry.registerItem(piePan = new BaseItemUtil("Pie_Pan").setContainerItem(piePan), "Pie_Pan");
+		GameRegistry.registerItem(flour = new BaseItemUtil("Flour"), "Flour");
+		
+		GameRegistry.registerItem(limeSeeds = new LimeSeeds(UtilBlocks.limePlant), "Lime_Seeds");
+		
+		GameRegistry.registerItem(betterBook = new BetterBook(), "Better_Book");
 		
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);

@@ -7,21 +7,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
-
-import com.turkey.turkeyUtil.TurkeyUtil;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ColoredIngots extends Item
+public class ColoredIngots extends BaseItemUtil
 {
 	public static int[] baseColors = new int[] {Color.white.getRGB(), new Color(230, 92, 0).getRGB(), new Color(209, 71, 255).getRGB(), new Color(51, 173, 255).getRGB(), new Color(232, 232, 0).getRGB(), new Color(25, 212, 25).getRGB(), new Color(255, 102, 255).getRGB(), new Color(71, 71, 71).getRGB(), new Color(175, 175, 175).getRGB(), new Color(25, 117, 163).getRGB(), new Color(102, 0, 204).getRGB(), new Color(0, 0, 255).getRGB(), new Color(102, 51, 0).getRGB(), new Color(25, 117, 25).getRGB(), new Color(209, 25, 25).getRGB(), Color.black.getRGB() };
 
 	public ColoredIngots()
 	{
-		this.setUnlocalizedName("Colored_Ingot");
-		this.setTextureName(TurkeyUtil.MODID + ":colored_Ingot");
-		this.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Colored_Ingot");
 		this.setHasSubtypes(true);
 	}
 

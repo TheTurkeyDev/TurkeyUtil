@@ -1,12 +1,9 @@
 package com.turkey.turkeyUtil.Items;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -14,24 +11,14 @@ import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class CatSpawn extends Item
+public class CatSpawn extends BaseItemUtil
 {
 	public CatSpawn()
 	{
-		super.setTextureName("turkeyutil:happiness");
-		super.setUnlocalizedName("Happiness");
+		super("Happiness");
 		super.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
-	{
-		list.add("Brings temporary Happiness.... to RyanTheAllmighty atleast");
-		list.add("RyanTheAllmighty, Member of the Walking Wounded");
+		super.addLore("Brings temporary Happiness.... to RyanTheAllmighty atleast");
+		super.addLore("RyanTheAllmighty, Member of the Walking Wounded");
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
