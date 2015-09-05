@@ -10,12 +10,9 @@ tile.Deadpine_Log.name= Deadpine Log
 
 tile.Lime_Plant.name= Lime Plant
 
-tile.Empty_Portal.name= Empty Portal
-tile.Void_Portal.name= Void Portal
-tile.Flat_Portal.name= Flat Portal
-
 tile.Armor_Combiner.name= Armor Combiner (WIP DO NOT USE)
 tile.Light_Collector.name= Light Collector
+tile.Light_Healer.name= Light Healer
 
 tile.Iron_Advanced_Hopper.name= Extra Iron Advanced Hopper
 tile.Gold_Advanced_Hopper.name= Gold Advanced Hopper
@@ -105,7 +102,6 @@ item.Colored_Core.brown.name= Core of the Earth
 item.Colored_Core.green.name= Core of Life
 item.Colored_Core.red.name= Core of Rage
 item.Colored_Core.black.name= Core of the Void
-item.Abyss_Core.black.name= Core of the Abyss
 
 item.Light_Ingot.name= Light Ingot
 item.Darkness_Ingot.name= Darkness Ingot

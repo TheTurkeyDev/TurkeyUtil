@@ -6,6 +6,10 @@ public class UtilSettings
 
 	public static boolean cobbleArmorSlow = true;
 
+	public static int voidBiomeID = 42;
+	public static int voidDimensionID = -4;
+	public static boolean disableVoidworld = false;
+	
 	public static String[] blockedWorlds = new String[] {};
 
 	public static boolean isBlockedWorld(String world)

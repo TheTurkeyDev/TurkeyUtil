@@ -7,9 +7,11 @@ import net.minecraft.world.World;
 import com.turkey.turkeyUtil.blocks.Container.AdvancedHopperContainer;
 import com.turkey.turkeyUtil.blocks.Container.ArmorCombinerContainer;
 import com.turkey.turkeyUtil.blocks.Container.LightCollectorContainer;
+import com.turkey.turkeyUtil.blocks.Container.LightHealingContainer;
 import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
+import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -19,6 +21,7 @@ public class UtilGuiHandler implements IGuiHandler
 	public final static int BETTER_BOOK_ID = 1;
 	public final static int ADVANCED_HOPPER_ID = 2;
 	public final static int LIGHT_COLLECTOR_ID = 3;
+	public final static int LIGHT_HEALER_ID = 4;
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
@@ -45,6 +48,12 @@ public class UtilGuiHandler implements IGuiHandler
 					if(tileEntity instanceof LightCollectorTileEntity)
 					{
 						return new LightCollectorGui(player.inventory, (LightCollectorTileEntity) tileEntity);
+					}
+					break;
+				case LIGHT_HEALER_ID:
+					if(tileEntity instanceof LightHealingTileEntity)
+					{
+						return new LightHealingGui(player.inventory, (LightHealingTileEntity) tileEntity);
 					}
 					break;
 				default:
@@ -79,6 +88,12 @@ public class UtilGuiHandler implements IGuiHandler
 					if(tileEntity instanceof LightCollectorTileEntity)
 					{
 						return new LightCollectorContainer(player.inventory, (LightCollectorTileEntity) tileEntity);
+					}
+					break;
+				case LIGHT_HEALER_ID:
+					if(tileEntity instanceof LightHealingTileEntity)
+					{
+						return new LightHealingContainer(player.inventory, (LightHealingTileEntity) tileEntity);
 					}
 					break;
 				default:

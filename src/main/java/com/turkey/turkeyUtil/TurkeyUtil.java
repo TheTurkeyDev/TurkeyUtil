@@ -111,7 +111,6 @@ public class TurkeyUtil
 		UtilTools.loadTools();
 		UtilCrafting.loadCraftingRecipies();
 		UtilMobs.loadMobs();
-		
 		UtilAchievements.loadAchievements();
 		LightRegistry.instance.loadDefaultFilters();
 		

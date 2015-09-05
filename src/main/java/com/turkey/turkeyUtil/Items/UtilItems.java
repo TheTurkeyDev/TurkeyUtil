@@ -36,7 +36,6 @@ public class UtilItems
 	public static Item coloredCores;
 	public static Item lightIngot;
 	public static Item darknessIngot;
-	public static Item abyssCore;
 
 	public static Item coffee;
 	public static Item ingyIngot;
@@ -76,7 +75,6 @@ public class UtilItems
 		GameRegistry.registerItem(lightIngot = new BaseItemUtil("Light_Ingot"), "Light_Ingot");
 		GameRegistry.registerItem(darknessIngot = new BaseItemUtil("Darkness_Ingot"), "Darkness_Ingot");
 		GameRegistry.registerItem(coloredCores = new ColoredCore(), "Colored_Core");
-		GameRegistry.registerItem(abyssCore = new BaseItemUtil("Abyss_Core"), "Abyss_Core");
 
 		GameRegistry.registerItem(swatter = new Swatter(), "Naraxam's_Bug_Swatter");
 		GameRegistry.registerItem(w4llachsAnnounce = new W4llachsAnnouncement(), "wallachsAnnounce");

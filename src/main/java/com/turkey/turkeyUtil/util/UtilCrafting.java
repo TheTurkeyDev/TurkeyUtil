@@ -96,12 +96,11 @@ public class UtilCrafting
 			for(int i = 0; i < 16; i++)
 				GameRegistry.addShapelessRecipe(new ItemStack(UtilBlocks.monoLightBlock, 1, i), new ItemStack(UtilBlocks.monoBlock, 1, i), new ItemStack(Blocks.glowstone, 1));
 		}
-		
-		if(ConfigLoader.isEnabled(UtilItems.abyssCore.getUnlocalizedName()))
-			GameRegistry.addShapedRecipe(new ItemStack(UtilItems.abyssCore, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(UtilItems.darknessIngot, 1));
 
 		if(ConfigLoader.isEnabled(UtilBlocks.lightCollector.getLocalizedName()))
 			GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.lightCollector), "IGI", "IDI", "III", 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(Blocks.glass), 'D', new ItemStack(Items.diamond));
+		if(ConfigLoader.isEnabled(UtilBlocks.lightHealer.getLocalizedName()))
+			GameRegistry.addShapedRecipe(new ItemStack(UtilBlocks.lightHealer), "FGF", "CLC", "III", 'I', new ItemStack(Items.iron_ingot), 'G', new ItemStack(Blocks.glass), 'F', new ItemStack(UtilItems.fabulousDiamond), 'C', new ItemStack(UtilItems.coloredCores, 1, 13), 'L', new ItemStack(UtilBlocks.lightCollector));
 
 		if(ConfigLoader.isEnabled("Advanced Hoppers"))
 			for(AdvancedHopper hopper : UtilBlocks.advancedHoppers)
@@ -325,14 +324,6 @@ public class UtilCrafting
 			GameRegistry.addRecipe(new ItemStack(UtilFood.doughnutbacon, 1), "AAA", "ABA", "AAA", 'A', new ItemStack(Items.wheat, 1), 'B', new ItemStack(UtilFood.cookedBacon, 1));
 		if(ConfigLoader.isEnabled(UtilFood.genPie.getUnlocalizedName()))
 			GameRegistry.addShapelessRecipe(new ItemStack(UtilFood.genPie, 1), new ItemStack(UtilItems.piePan, 1), new ItemStack(UtilItems.flour, 1), new ItemStack(Items.apple));
-
-		
-		if(ConfigLoader.isEnabled(UtilBlocks.emptyPortal.getLocalizedName()))
-			GameRegistry.addRecipe(new ItemStack(UtilBlocks.emptyPortal, 1), "DDD", "D D", "DDD", 'D', new ItemStack(UtilItems.darknessIngot, 1));
-		if(ConfigLoader.isEnabled(UtilBlocks.voidPortal.getLocalizedName()))
-			GameRegistry.addRecipe(new ItemStack(UtilBlocks.voidPortal, 1), "   ", " E ", " V ", 'E', new ItemStack(UtilBlocks.emptyPortal, 1),  'V', new ItemStack(UtilItems.abyssCore, 1));
-		if(ConfigLoader.isEnabled(UtilBlocks.flatPortal.getLocalizedName()))
-			GameRegistry.addRecipe(new ItemStack(UtilBlocks.flatPortal, 1), "DDD", "SES", "SPS", 'D', new ItemStack(Blocks.dirt, 1), 'S', new ItemStack(Blocks.stone, 1), 'E', new ItemStack(UtilBlocks.emptyPortal, 1), 'P', new ItemStack(UtilTools.fabulousPickaxe, 1));
 		
 		
 		if(ConfigLoader.isEnabled(UtilFood.waffle.getUnlocalizedName()))

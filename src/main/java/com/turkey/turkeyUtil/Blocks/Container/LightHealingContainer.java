@@ -7,18 +7,16 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
+import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class LightCollectorContainer extends Container
+public class LightHealingContainer extends Container
 {
-	private LightCollectorTileEntity te;
+	private LightHealingTileEntity te;
 	private int lastDelay;
-	private int lastCollectorProgress;
-
-	public LightCollectorContainer(InventoryPlayer player, LightCollectorTileEntity te)
+	public LightHealingContainer(InventoryPlayer player, LightHealingTileEntity te)
 	{
 		this.te = te;
 		te.openInventory();
@@ -29,15 +27,15 @@ public class LightCollectorContainer extends Container
 		{
 			this.addSlotToContainer(new Slot(te, i, 80 + (i * 18), 33 + (18 * i))
 			{
-				public boolean isItemValid(ItemStack stack)
-				{
-					return inventory.isItemValidForSlot(this.slotNumber, stack);
-				}
-
-				public int getSlotStackLimit()
-				{
-					return 1;
-				}
+			    public boolean isItemValid(ItemStack stack)
+			    {
+			        return inventory.isItemValidForSlot(this.slotNumber, stack);
+			    }
+			    
+			    public int getSlotStackLimit()
+			    {
+			        return 1;
+			    }
 			});
 		}
 
@@ -54,50 +52,38 @@ public class LightCollectorContainer extends Container
 			this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 58 + b0));
 		}
 	}
-
+	
 	public void addCraftingToCrafters(ICrafting crafting)
-	{
-		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
-		crafting.sendProgressBarUpdate(this, 1, this.te.getCollectorProgress());
-	}
+    {
+        super.addCraftingToCrafters(crafting);
+        crafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
+    }
+	
+    public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
 
-	public void detectAndSendChanges()
-	{
-		super.detectAndSendChanges();
+        for (int i = 0; i < this.crafters.size(); ++i)
+        {
+            ICrafting icrafting = (ICrafting)this.crafters.get(i);
 
-		for(int i = 0; i < this.crafters.size(); ++i)
-		{
-			ICrafting icrafting = (ICrafting) this.crafters.get(i);
+            if (this.lastDelay != this.te.getDelay())
+            {
+                icrafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
+            }
+        }
 
-			if(this.lastDelay != this.te.getDelay())
-			{
-				icrafting.sendProgressBarUpdate(this, 0, this.te.getDelay());
-			}
+        this.lastDelay = this.te.getDelay();
+    }
 
-			if(this.lastCollectorProgress != this.te.getCollectorProgress())
-			{
-				icrafting.sendProgressBarUpdate(this, 1, this.te.getCollectorProgress());
-			}
-		}
-
-		this.lastDelay = this.te.getDelay();
-		this.lastCollectorProgress = this.te.getCollectorProgress();
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int id, int value)
-	{
-		if(id == 0)
-		{
-			this.te.setDelay(value);
-		}
-
-		if(id == 1)
-		{
-			this.te.setCollectorProgress(value);
-		}
-	}
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int id, int value)
+    {
+        if (id == 0)
+        {
+            this.te.setDelay(value);
+        }
+    }
 
 	public boolean canInteractWith(EntityPlayer p_75145_1_)
 	{

@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -16,7 +16,7 @@ import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.registries.LightRegistry;
 import com.turkey.turkeyUtil.registries.LightRegistry.FilterColor;
 
-public class LightCollectorTileEntity extends TileEntity implements IInventory
+public class LightCollectorTileEntity extends TileEntity implements ISidedInventory
 {
 	private ItemStack[] inventory = new ItemStack[1];
 
@@ -110,9 +110,9 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 		percentComplete++;
 
 		nbt.setInteger("InfusionPercent", percentComplete);
-		
+
 		NBTTagCompound display = (NBTTagCompound) nbt.getTag("display");
-		
+
 		if(display == null)
 		{
 			display = new NBTTagCompound();
@@ -123,8 +123,8 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 		if(list == null)
 			list = new NBTTagList();
 
-		if (list.tagCount() > 0)
-			for (int j = list.tagCount() - 1; j >= 0; j--)
+		if(list.tagCount() > 0)
+			for(int j = list.tagCount() - 1; j >= 0; j--)
 				if(list.getStringTagAt(j).contains("Light Infusing Progress"))
 					list.removeTag(j);
 
@@ -292,6 +292,7 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 	{
 		return this.progress;
 	}
+
 	public void setCollectorProgress(int prog)
 	{
 		this.progress = prog;
@@ -301,6 +302,7 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 	{
 		return this.delay;
 	}
+
 	public void setDelay(int delay)
 	{
 		this.delay = delay;
@@ -340,5 +342,55 @@ public class LightCollectorTileEntity extends TileEntity implements IInventory
 	public boolean isItemValidForSlot(int slot, ItemStack stack)
 	{
 		return stack.getItem().equals(UtilItems.coloredIngots) || stack.getItem().equals(UtilItems.lightIngot) || stack.getItem().equals(UtilItems.darknessIngot) || stack.getItem().equals(Items.iron_ingot);
+	}
+
+	@Override
+	public int[] getAccessibleSlotsFromSide(int p_94128_1_)
+	{
+		return new int[] { 0 };
+	}
+
+	@Override
+	public boolean canInsertItem(int slot, ItemStack stack, int side)
+	{
+		return this.isItemValidForSlot(slot, stack) && this.inventory[0] == null;
+	}
+
+	@Override
+	public boolean canExtractItem(int slot, ItemStack stack, int side)
+	{
+		return this.isIdle();
+	}
+
+	public boolean isIdle()
+	{
+		if(canSeeTheSky())
+		{
+			Block above = this.worldObj.getBlock(this.xCoord, this.yCoord + 1, this.zCoord);
+			int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord + 1, this.zCoord);
+			if(inventory[0] == null)
+				return true;
+			else if(inventory[0].getItem().equals(Items.iron_ingot))
+			{
+				if(LightRegistry.instance.getFilterColorFromBlock(above, meta).equals(FilterColor.clear))
+					return false;
+				return true;
+			}
+			else if(inventory[0].getItem().equals(UtilItems.lightIngot))
+			{
+				FilterColor color = LightRegistry.instance.getFilterColorFromBlock(above, meta);
+				if(!color.equals(FilterColor.clear))
+					return false;
+				else
+					return true;
+			}
+			else if(inventory[0].getItem().equals(UtilItems.coloredIngots))
+			{
+				if(LightRegistry.instance.getFilterColorFromBlock(above, meta).equals(FilterColor.clear))
+					return false;
+				return true;
+			}
+		}
+		return true;
 	}
 }

@@ -13,6 +13,8 @@ public class UtilAchievements
 	public static Achievement octupleCoal;
 	public static Achievement mysticalOre;
 	public static Achievement stiars;
+	public static Achievement nothingness;
+	public static Achievement flat;
 	
 	public static void loadAchievements()
 	{
@@ -20,7 +22,7 @@ public class UtilAchievements
 		octupleCoal = new Achievement("turkeyutil.OctupleCoal", "turkeyutil.OctupleCoal", -2, 0, UtilBlocks.octuplecompressedCoal, coalCompression).registerStat();
 		mysticalOre = new Achievement("turkeyutil.mysticalOre", "turkeyutil.mysticalOre", 0, -2, UtilBlocks.mysticalOreBlock, null).registerStat();
 		stiars = new Achievement("turkeyutil.stairs", "turkeyutil.stairs", 0, 0, Blocks.stone_stairs, null).registerStat();
-		page = new AchievementPage("TurkeyUtil Achievements", coalCompression, octupleCoal, mysticalOre, stiars);
+		page = new AchievementPage("TurkeyUtil Achievements", coalCompression, octupleCoal, mysticalOre, stiars, nothingness, flat);
 		AchievementPage.registerAchievementPage(page);
 	}
 }

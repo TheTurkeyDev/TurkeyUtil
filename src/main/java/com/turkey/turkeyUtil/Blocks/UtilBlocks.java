@@ -11,12 +11,13 @@ import com.turkey.turkeyUtil.blocks.Agriculture.LimePlant;
 import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
+import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
 import com.turkey.turkeyUtil.util.HopperType;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class UtilBlocks
-{		
+{
 	public static Block charcolBlock;
 	public static Block flintBlock;
 	public static Block fabulousBlock;
@@ -46,12 +47,9 @@ public class UtilBlocks
 
 	public static Block armorCombiner;
 	public static Block lightCollector;
+	public static Block lightHealer;
 
 	public static AdvancedHopper[] advancedHoppers;
-	
-	public static Block emptyPortal;
-	public static Block voidPortal;
-	public static Block flatPortal;
 
 	public static void loadBlocks()
 	{
@@ -64,7 +62,7 @@ public class UtilBlocks
 		GameRegistry.registerBlock(monoLightBlock = new MonocolorLightBlock(), ItemMonocolorLightBlock.class, "monocolored_Light_Block");
 
 		GameRegistry.registerBlock(doublecompressedCoal = new CompressedCoalBlock("Double").setBlockTextureName("turkeyutil:doubleCompressesdCoal"), "Double_Compressed_Coal_Block");
-		GameRegistry.registerBlock(triplecompressedCoal = new CompressedCoalBlock("Triple").setBlockTextureName("turkeyutil:tripleCompressesdCoal"),  "Triple_Compressed_Coal_Block");
+		GameRegistry.registerBlock(triplecompressedCoal = new CompressedCoalBlock("Triple").setBlockTextureName("turkeyutil:tripleCompressesdCoal"), "Triple_Compressed_Coal_Block");
 		GameRegistry.registerBlock(quadruplecompressedCoal = new CompressedCoalBlock("Quadruple").setBlockTextureName("turkeyutil:quadCompressesdCoal"), "Quadruple_Compressed_Coal_Block");
 		GameRegistry.registerBlock(quintuplecompressedCoal = new CompressedCoalBlock("Quintuple").setBlockTextureName("turkeyutil:quintCompressesdCoal"), "Quintuple_Compressed_Coal_Block");
 		GameRegistry.registerBlock(hextuplecompressedCoal = new CompressedCoalBlock("Hextuple").setBlockTextureName("turkeyutil:hexCompressesdCoal"), "Hextuple_Compressed_Coal_Block");
@@ -81,17 +79,14 @@ public class UtilBlocks
 		GameRegistry.registerBlock(octuplecompressedObsidian = new CompressedObsidianBlock("Octuple", 76).setBlockTextureName("turkeyutil:octCompressesdObsidian"), "Octuple_Compressed_Obsidian_Block");
 
 		GameRegistry.registerBlock(limePlant = new LimePlant(), "Lime_Plant");
-		
-		GameRegistry.registerBlock(emptyPortal = new EmptyPortal(), "Empty_Portal");
-		GameRegistry.registerBlock(voidPortal = new VoidWorldPortal(), "Void_Portal");
-		GameRegistry.registerBlock(flatPortal = new FlatWorldPortal(), "Flat_Portal");
 
 		GameRegistry.registerBlock(armorCombiner = new ArmorCombiner(), "Armor_Combiner");
 		GameRegistry.registerTileEntity(ArmorCombinerTileEntity.class, armorCombiner.getUnlocalizedName());
 
 		GameRegistry.registerBlock(lightCollector = new LightCollector(), "Light_Collector");
 		GameRegistry.registerTileEntity(LightCollectorTileEntity.class, lightCollector.getUnlocalizedName());
-
+		GameRegistry.registerBlock(lightHealer = new LightHealer(), "Light_Healer");
+		GameRegistry.registerTileEntity(LightHealingTileEntity.class, lightHealer.getUnlocalizedName());
 
 		OreDictionary.registerOre("oreMystical", mysticalOreBlock);
 		OreDictionary.registerOre("treeWood", deadpineLog);
