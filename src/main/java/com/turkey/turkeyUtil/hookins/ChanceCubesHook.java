@@ -2,7 +2,7 @@ package com.turkey.turkeyUtil.hookins;
 
 import net.minecraft.item.ItemStack;
 import chanceCubes.registry.ChanceCubeRegistry;
-import chanceCubes.rewards.BasicReward;
+import chanceCubes.rewards.defaultRewards.BasicReward;
 import chanceCubes.rewards.rewardparts.EntityPart;
 import chanceCubes.rewards.rewardparts.ItemPart;
 import chanceCubes.rewards.type.EntityRewardType;
