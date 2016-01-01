@@ -25,7 +25,19 @@ minecraft {
     version = "1.7.10-10.13.3.1403-1.7.10"
 }
 
+repositories {
+     maven { // The repo from which to get waila
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven { // the repo from which to get NEI and stuff 
+        name 'CB Repo'
+        url "http://chickenbones.net/maven/"
+    }
+}
+
 dependencies {
+	compile "mcp.mobius.waila:Waila:1.5.9_1.7.10:dev"
 }
 
 processResources

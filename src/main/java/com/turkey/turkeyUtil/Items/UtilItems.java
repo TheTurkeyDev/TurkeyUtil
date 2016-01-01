@@ -97,7 +97,7 @@ public class UtilItems
 		OreDictionary.registerOre("listAllwater", infinityBucket_Water);
 		OreDictionary.registerOre("listAlllava", infinityBucket_Lava);
 
-		FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER, new ItemStack(infinityBucket_Water), new ItemStack(infinityBucket_Water));
-		FluidContainerRegistry.registerFluidContainer(FluidRegistry.LAVA, new ItemStack(infinityBucket_Lava), new ItemStack(infinityBucket_Lava));
+		FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER, new ItemStack(infinityBucket_Water), new ItemStack(infinityBucket_Water, 1, 1));
+		FluidContainerRegistry.registerFluidContainer(FluidRegistry.LAVA, new ItemStack(infinityBucket_Lava), new ItemStack(infinityBucket_Lava, 1, 1));
 	}
 }
