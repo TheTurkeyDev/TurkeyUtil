@@ -1,7 +1,10 @@
 package com.turkey.turkeyUtil.mobs;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIPanic;
@@ -9,17 +12,18 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
+import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.Items.food.UtilFood;
 
-public class EntityDuck extends EntityAnimal
+public class EntityDuck extends EntityTameable
 {
 	public float field_70886_e;
 	public float destPos;
@@ -39,6 +43,7 @@ public class EntityDuck extends EntityAnimal
 		this.tasks.addTask(5, new EntityAIWander(this, 1.3D));
 		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
 		this.tasks.addTask(7, new EntityAILookIdle(this));
+		this.tasks.addTask(8, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
 	}
 
 	 protected void applyEntityAttributes()
@@ -152,4 +157,57 @@ public class EntityDuck extends EntityAnimal
 	 {
 		 return this.field_152118_bv;
 	 }
+	 
+	 public boolean interact(EntityPlayer p_70085_1_)
+	    {
+	        ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
+
+	        if (this.isTamed())
+	        {
+	            if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack))
+	            {
+	                this.aiSit.setSitting(!this.isSitting());
+	                this.isJumping = false;
+	                this.setPathToEntity((PathEntity)null);
+	                this.setTarget((Entity)null);
+	                this.setAttackTarget((EntityLivingBase)null);
+	            }
+	        }
+	        else if (itemstack != null && itemstack.getItem() == Items.bone)
+	        {
+	            if (!p_70085_1_.capabilities.isCreativeMode)
+	            {
+	                --itemstack.stackSize;
+	            }
+
+	            if (itemstack.stackSize <= 0)
+	            {
+	                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack)null);
+	            }
+
+	            if (!this.worldObj.isRemote)
+	            {
+	                if (this.rand.nextInt(3) == 0)
+	                {
+	                    this.setTamed(true);
+	                    this.setPathToEntity((PathEntity)null);
+	                    this.setAttackTarget((EntityLivingBase)null);
+	                    this.aiSit.setSitting(true);
+	                    this.setHealth(20.0F);
+	                    this.func_152115_b(p_70085_1_.getUniqueID().toString());
+	                    this.playTameEffect(true);
+	                    this.worldObj.setEntityState(this, (byte)7);
+	                }
+	                else
+	                {
+	                    this.playTameEffect(false);
+	                    this.worldObj.setEntityState(this, (byte)6);
+	                }
+	            }
+
+	            return true;
+	        }
+
+	        return super.interact(p_70085_1_);
+	    }
 }
