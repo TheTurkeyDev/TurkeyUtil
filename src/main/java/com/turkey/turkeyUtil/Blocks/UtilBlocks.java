@@ -5,13 +5,13 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.turkey.turkeyUtil.Items.ItemMonocolorBlock;
-import com.turkey.turkeyUtil.Items.ItemMonocolorLightBlock;
 import com.turkey.turkeyUtil.blocks.Agriculture.LimePlant;
 import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
+import com.turkey.turkeyUtil.items.ItemMonocolorBlock;
+import com.turkey.turkeyUtil.items.ItemMonocolorLightBlock;
 import com.turkey.turkeyUtil.util.HopperType;
 
 import cpw.mods.fml.common.registry.GameRegistry;

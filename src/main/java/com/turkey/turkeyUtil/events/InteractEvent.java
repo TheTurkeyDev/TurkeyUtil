@@ -10,8 +10,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
-import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.armor.UtilArmor;
+import com.turkey.turkeyUtil.items.UtilItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

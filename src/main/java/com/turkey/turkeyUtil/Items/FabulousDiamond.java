@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items;
+package com.turkey.turkeyUtil.items;
 
 public class FabulousDiamond extends BaseItemUtil
 {	

@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.tools;
+package com.turkey.turkeyUtil.items.tools;
 
 import java.util.List;
 import java.util.Random;
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 import com.google.common.collect.Multimap;
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Items.UtilItems;
+import com.turkey.turkeyUtil.items.UtilItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

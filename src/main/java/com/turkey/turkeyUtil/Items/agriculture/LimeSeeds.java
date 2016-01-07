@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.agriculture;
+package com.turkey.turkeyUtil.items.agriculture;
 
 import java.util.List;
 

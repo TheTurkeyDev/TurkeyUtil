@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 public class EntityDuck extends EntityTameable
 {

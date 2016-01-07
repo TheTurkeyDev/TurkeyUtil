@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.tools;
+package com.turkey.turkeyUtil.items.tools;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
 

@@ -10,8 +10,8 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Items.UtilItems;
 import com.turkey.turkeyUtil.gui.LightCollectorGui;
+import com.turkey.turkeyUtil.items.UtilItems;
 
 public class LightCollectorRecipieHandler extends TemplateRecipeHandler
 {

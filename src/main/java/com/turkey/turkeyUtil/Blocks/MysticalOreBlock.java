@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Items.UtilItems;
+import com.turkey.turkeyUtil.items.UtilItems;
 import com.turkey.turkeyUtil.util.UtilAchievements;
 
 public class MysticalOreBlock extends Block

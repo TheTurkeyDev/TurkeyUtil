@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.food;
+package com.turkey.turkeyUtil.items.food;
 
 import java.util.ArrayList;
 import java.util.List;

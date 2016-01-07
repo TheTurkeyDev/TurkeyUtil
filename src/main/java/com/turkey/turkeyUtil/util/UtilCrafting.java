@@ -9,12 +9,12 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.common.collect.Lists;
-import com.turkey.turkeyUtil.Items.UtilItems;
-import com.turkey.turkeyUtil.Items.food.UtilFood;
-import com.turkey.turkeyUtil.Items.tools.UtilTools;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.AdvancedHopper;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.items.UtilItems;
+import com.turkey.turkeyUtil.items.food.UtilFood;
+import com.turkey.turkeyUtil.items.tools.UtilTools;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

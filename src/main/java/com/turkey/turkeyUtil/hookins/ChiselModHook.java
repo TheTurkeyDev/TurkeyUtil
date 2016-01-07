@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.Level;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

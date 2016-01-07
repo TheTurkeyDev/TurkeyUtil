@@ -7,13 +7,13 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Items.ColoredCore;
-import com.turkey.turkeyUtil.Items.tools.UtilAxe;
-import com.turkey.turkeyUtil.Items.tools.UtilHoe;
-import com.turkey.turkeyUtil.Items.tools.UtilPickaxe;
-import com.turkey.turkeyUtil.Items.tools.UtilSpade;
-import com.turkey.turkeyUtil.Items.tools.UtilSword;
 import com.turkey.turkeyUtil.armor.SuperFabulousItemArmor;
+import com.turkey.turkeyUtil.items.ColoredCore;
+import com.turkey.turkeyUtil.items.tools.UtilAxe;
+import com.turkey.turkeyUtil.items.tools.UtilHoe;
+import com.turkey.turkeyUtil.items.tools.UtilPickaxe;
+import com.turkey.turkeyUtil.items.tools.UtilSpade;
+import com.turkey.turkeyUtil.items.tools.UtilSword;
 import com.turkey.turkeyUtil.util.UtilCrafting;
 
 public class FabulousToolCrafting implements IRecipe

@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.food;
+package com.turkey.turkeyUtil.items.food;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

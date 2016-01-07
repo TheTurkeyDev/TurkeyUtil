@@ -12,8 +12,8 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Items.UtilItems;
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.UtilItems;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 public class EntityTurkey extends EntityAnimal
 {

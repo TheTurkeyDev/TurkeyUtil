@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items;
+package com.turkey.turkeyUtil.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

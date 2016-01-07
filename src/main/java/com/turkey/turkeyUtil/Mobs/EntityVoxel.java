@@ -35,7 +35,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

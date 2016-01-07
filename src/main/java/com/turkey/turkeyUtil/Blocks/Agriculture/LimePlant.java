@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

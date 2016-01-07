@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items;
+package com.turkey.turkeyUtil.items;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 
-import com.turkey.turkeyUtil.Items.UtilItems;
+import com.turkey.turkeyUtil.items.UtilItems;
 import com.turkey.turkeyUtil.registries.LightRegistry;
 import com.turkey.turkeyUtil.registries.LightRegistry.FilterColor;
 

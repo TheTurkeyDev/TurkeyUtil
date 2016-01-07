@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.tools;
+package com.turkey.turkeyUtil.items.tools;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import com.google.common.collect.Multimap;
 import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.Items.UtilItems;
+import com.turkey.turkeyUtil.items.UtilItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

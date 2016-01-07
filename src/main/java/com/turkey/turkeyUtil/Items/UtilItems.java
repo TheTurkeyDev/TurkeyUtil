@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items;
+package com.turkey.turkeyUtil.items;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -7,8 +7,8 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.turkey.turkeyUtil.Items.agriculture.LimeSeeds;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.items.agriculture.LimeSeeds;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

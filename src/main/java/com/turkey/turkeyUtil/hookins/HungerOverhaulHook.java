@@ -2,7 +2,7 @@ package com.turkey.turkeyUtil.hookins;
 
 import net.minecraft.item.ItemStack;
 
-import com.turkey.turkeyUtil.Items.food.UtilFood;
+import com.turkey.turkeyUtil.items.food.UtilFood;
 
 import cpw.mods.fml.common.event.FMLInterModComms;
 

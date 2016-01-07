@@ -1,4 +1,4 @@
-package com.turkey.turkeyUtil.Items.food;
+package com.turkey.turkeyUtil.items.food;
 
 import com.turkey.turkeyUtil.TurkeyUtil;
 
