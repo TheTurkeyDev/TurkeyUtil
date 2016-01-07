@@ -22,7 +22,7 @@ public class Coffee extends Item
 		super.setTextureName("turkeyutil:Coffee");
 		super.setUnlocalizedName("Darkosto's_Coffee");
 		this.setMaxStackSize(8);
-		this.setCreativeTab(TurkeyUtil.noodlecraftModTab);
+		this.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
 	}
 
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
@@ -69,6 +69,6 @@ public class Coffee extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
 	{
-		list.add("Darkosto, Member of the Walking Wounded and NoodleCraft");
+		list.add("The one, the only, Darkosto");
 	}
 }

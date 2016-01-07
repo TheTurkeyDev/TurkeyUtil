@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
+import com.turkey.turkeyUtil.events.CraftingEvent;
 import com.turkey.turkeyUtil.events.FabulousToolCrafting;
 import com.turkey.turkeyUtil.events.InteractEvent;
 import com.turkey.turkeyUtil.events.UpdateNotificationHandler;
@@ -137,6 +138,7 @@ public class TurkeyUtil
 		GameRegistry.addRecipe(new FabulousToolCrafting());
 
 		MinecraftForge.EVENT_BUS.register(new InteractEvent());
+		FMLCommonHandler.instance().bus().register(new CraftingEvent());
 		FMLCommonHandler.instance().bus().register(new UpdateNotificationHandler());
 	}
 
