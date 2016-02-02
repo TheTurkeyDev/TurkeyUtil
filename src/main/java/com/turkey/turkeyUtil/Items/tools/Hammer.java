@@ -1,17 +1,24 @@
 package com.turkey.turkeyUtil.items.tools;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import java.util.Set;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
+
+import com.google.common.collect.Sets;
 import com.turkey.turkeyUtil.TurkeyUtil;
 
-public class Hammer extends Item
-{	
-	
-	public Hammer(String name, int durability)
+public class Hammer extends ItemTool
+{
+	private static final Set<Block> usefulAgainst = Sets.newHashSet(new Block[] { Blocks.cobblestone, Blocks.gravel });
+
+	public Hammer(String name, int durability, ToolMaterial material)
 	{
+		super(1.0F, material, usefulAgainst);
 		this.setUnlocalizedName(name);
-		this.setTextureName("turkeyutil:"+name);
+		this.setTextureName("turkeyutil:" + name);
 		super.setMaxDamage(durability);
 		super.setCreativeTab(TurkeyUtil.baseModTab);
 		super.setContainerItem(this);
@@ -19,20 +26,26 @@ public class Hammer extends Item
 		super.setMaxStackSize(1);
 		super.setNoRepair();
 	}
-	
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack)
-    {
-        return false;
-    }
-    
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack)
-    {
-        ItemStack stack = itemStack.copy();
 
-        stack.setItemDamage(stack.getItemDamage() + 1);
-        stack.stackSize = 1;
+	public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack)
+	{
+		return false;
+	}
 
-        return stack;
-    }
+	@Override
+	public ItemStack getContainerItem(ItemStack itemStack)
+	{
+		ItemStack stack = itemStack.copy();
+
+		stack.setItemDamage(stack.getItemDamage() + 1);
+		stack.stackSize = 1;
+
+		return stack;
+	}
+
+	public boolean canHarvestBlock(Block block, ItemStack itemStack)
+	{
+		return block == Blocks.cobblestone || block == Blocks.gravel;
+
+	}
 }

@@ -37,6 +37,8 @@ repositories {
 }
 
 dependencies {
+	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev"
+	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
 	compile "mcp.mobius.waila:Waila:1.5.9_1.7.10:dev"
 }
 
