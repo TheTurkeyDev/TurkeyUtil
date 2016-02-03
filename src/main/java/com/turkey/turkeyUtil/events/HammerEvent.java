@@ -20,7 +20,9 @@ public class HammerEvent
 		{
 			Block b = e.block;
 
-			if(e.getPlayer().inventory.getCurrentItem().getItem() instanceof Hammer)
+			ItemStack stack = e.getPlayer().inventory.getCurrentItem();
+			
+			if(stack != null && stack.getItem() instanceof Hammer)
 			{
 				if(b == Blocks.cobblestone )
 					e.world.spawnEntityInWorld(new EntityItem(e.world, e.x, e.y, e.z, new ItemStack(Blocks.gravel)));
@@ -39,10 +41,9 @@ public class HammerEvent
 
 			if(b == Blocks.cobblestone || b == Blocks.gravel)
 			{
-				if(e.harvester.inventory.getCurrentItem().getItem() instanceof Hammer)
-				{
+				ItemStack stack = e.harvester.inventory.getCurrentItem();
+				if(stack != null && stack.getItem() instanceof Hammer)
 					e.drops.clear();
-				}
 			}
 		}
 	}
