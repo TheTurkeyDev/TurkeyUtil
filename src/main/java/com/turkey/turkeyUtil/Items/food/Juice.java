@@ -1,5 +1,6 @@
 package com.turkey.turkeyUtil.items.food;
 
+import com.theprogrammingturkey.gobblecore.items.BaseFoodItem;
 import com.turkey.turkeyUtil.TurkeyUtil;
 
 import net.minecraft.entity.item.EntityItem;
@@ -9,14 +10,13 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class Juice extends TurkeyItemFood
+public class Juice extends BaseFoodItem
 {	
 	public Juice()
 	{
-		super(4, .25f, false, "Juice", "juice", 64);
+		super(4, .25f, "Juice");
 		super.addLore("Property of Scetchlink");
 		super.addLore("Scetchlink, Member of NoodleCraft");
-		this.setCreativeTab(TurkeyUtil.noodlecraftModTab);
 	}
 	
     public EnumAction getItemUseAction(ItemStack stack)

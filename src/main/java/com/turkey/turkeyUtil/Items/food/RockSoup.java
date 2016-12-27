@@ -1,5 +1,6 @@
 package com.turkey.turkeyUtil.items.food;
 
+import com.theprogrammingturkey.gobblecore.items.BaseFoodItem;
 import com.turkey.turkeyUtil.TurkeyUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,13 +10,12 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class RockSoup extends TurkeyItemFood
+public class RockSoup extends BaseFoodItem
 {
 	public RockSoup()
 	{
-		super(4, .25f, false, "Rock_Soup", "rock_soup", 64);
+		super(4, .25f,"rock_soup");
 		super.addLore("MMMMM Tasty");
-		this.setCreativeTab(TurkeyUtil.baseModTab);
 	}
 
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)

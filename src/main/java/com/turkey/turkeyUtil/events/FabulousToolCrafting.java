@@ -1,12 +1,5 @@
 package com.turkey.turkeyUtil.events;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.world.World;
-
 import com.turkey.turkeyUtil.armor.SuperFabulousItemArmor;
 import com.turkey.turkeyUtil.items.ColoredCore;
 import com.turkey.turkeyUtil.items.tools.UtilAxe;
@@ -16,9 +9,15 @@ import com.turkey.turkeyUtil.items.tools.UtilSpade;
 import com.turkey.turkeyUtil.items.tools.UtilSword;
 import com.turkey.turkeyUtil.util.UtilCrafting;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.world.World;
+
 public class FabulousToolCrafting implements IRecipe
 {
-
 	public boolean matches(InventoryCrafting inv, World world)
 	{
 		ItemStack core = null;
@@ -94,44 +93,44 @@ public class FabulousToolCrafting implements IRecipe
 		switch(meta)
 		{
 			case 0:
-				return Enchantment.silkTouch;
+				return Enchantment.getEnchantmentByLocation("silk_touch");
 			case 1:
-				return Enchantment.fireAspect;
+				return Enchantment.getEnchantmentByLocation("fire_aspect");
 			case 2:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 3:
-				return Enchantment.featherFalling;
+				return Enchantment.getEnchantmentByLocation("feather_falling");
 			case 4:
 			{
 				if(stack.getItem() instanceof UtilSword)
-					return Enchantment.looting;
+					return Enchantment.getEnchantmentByLocation("looting");
 				else
-					return Enchantment.fortune;
+					return Enchantment.getEnchantmentByLocation("fortune");
 			}
 			case 5:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 6:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 7:
-				return Enchantment.efficiency;
+				return Enchantment.getEnchantmentByLocation("efficiency");
 			case 8:
-				return Enchantment.unbreaking;
+				return Enchantment.getEnchantmentByLocation("unbreaking");
 			case 9:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 10:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 11:
-				return Enchantment.respiration;
+				return Enchantment.getEnchantmentByLocation("respiration");
 			case 12:
-				return Enchantment.thorns;
+				return Enchantment.getEnchantmentByLocation("thorns");
 			case 13:
-				return Enchantment.protection;
+				return Enchantment.getEnchantmentByLocation("protection");
 			case 14:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 			case 15:
-				return Enchantment.infinity;
+				return Enchantment.getEnchantmentByLocation("infinity");
 			default:
-				return Enchantment.sharpness;
+				return Enchantment.getEnchantmentByLocation("sharpness");
 		}
 	}
 
@@ -168,6 +167,12 @@ public class FabulousToolCrafting implements IRecipe
 			if(same)
 				return shaped.getRecipeOutput();
 		}
+		return null;
+	}
+
+	@Override
+	public ItemStack[] getRemainingItems(InventoryCrafting inv)
+	{
 		return null;
 	}
 }

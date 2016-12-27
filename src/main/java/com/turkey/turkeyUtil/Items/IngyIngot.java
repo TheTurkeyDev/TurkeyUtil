@@ -1,29 +1,23 @@
 package com.turkey.turkeyUtil.items;
 
-import java.util.List;
+import com.theprogrammingturkey.gobblecore.items.BaseItem;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class IngyIngot extends Item
+public class IngyIngot extends BaseItem
 {	
 	public IngyIngot()
 	{
-		super.setTextureName("turkeyutil:ingy_ingot");
-		super.setUnlocalizedName("Ingy_The_Ingot");
-		super.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
+		super("Ingy_The_Ingot");
+		super.addLore("Spawns an Iron Golem when used.");
+		super.addLore("SiylissTV, Member of the Walking Wounded");
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
@@ -75,13 +69,5 @@ public class IngyIngot extends Item
 			}
 		}
 		return entityirongolem;
-	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
-	{
-		list.add("Spawns an Iron Golem when used.");
-		list.add("SiylissTV, Member of the Walking Wounded");
 	}
 }

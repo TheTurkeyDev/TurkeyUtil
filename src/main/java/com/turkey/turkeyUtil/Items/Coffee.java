@@ -2,27 +2,25 @@ package com.turkey.turkeyUtil.items;
 
 import java.util.List;
 
+import com.theprogrammingturkey.gobblecore.items.BaseItem;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class Coffee extends Item
+public class Coffee extends BaseItem
 {
 	public Coffee()
 	{
-		super.setTextureName("turkeyutil:Coffee");
-		super.setUnlocalizedName("Darkosto's_Coffee");
+		super("Darkosto's_Coffee");
 		this.setMaxStackSize(8);
-		this.setCreativeTab(TurkeyUtil.walkingwoundedModTab);
+		super.addLore("The one, the only, Darkosto!");
+		super.addLore("FeelsBirthdayMan");
 	}
 
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
@@ -63,12 +61,5 @@ public class Coffee extends Item
 	{
 		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		return stack;
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
-	{
-		list.add("The one, the only, Darkosto");
 	}
 }

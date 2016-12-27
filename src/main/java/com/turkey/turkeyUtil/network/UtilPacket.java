@@ -1,20 +1,18 @@
 package com.turkey.turkeyUtil.network;
 
+import org.apache.logging.log4j.Level;
+
+import com.turkey.turkeyUtil.TurkeyUtil;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagString;
-import net.minecraft.server.MinecraftServer;
-
-import org.apache.logging.log4j.Level;
-
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-import cpw.mods.fml.common.network.ByteBufUtils;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class UtilPacket  implements IMessage
 {
@@ -55,7 +53,7 @@ public class UtilPacket  implements IMessage
 				short itemDamage = itemData.getShort("ItemDamage");
 				
 				ItemStack itemstack = new ItemStack(Item.getItemById(itemID), stackSize, itemDamage);
-				ItemStack itemstack1 = MinecraftServer.getServer().getEntityWorld().getPlayerEntityByName(packet.tags.getString("editor")).inventory.getCurrentItem();
+				ItemStack itemstack1 = ctx.getServerHandler().playerEntity.getEntityWorld().getPlayerEntityByName(packet.tags.getString("editor")).inventory.getCurrentItem();
 				
 				if (itemstack1 != null)
                 {
@@ -91,7 +89,7 @@ public class UtilPacket  implements IMessage
 				short itemDamage = itemData.getShort("ItemDamage");
 				
 				ItemStack itemstack = new ItemStack(Item.getItemById(itemID), stackSize, itemDamage);
-				ItemStack itemstack1 = MinecraftServer.getServer().getEntityWorld().getPlayerEntityByName(packet.tags.getString("editor")).inventory.getCurrentItem();
+				ItemStack itemstack1 = ctx.getServerHandler().playerEntity.getEntityWorld().getPlayerEntityByName(packet.tags.getString("editor")).inventory.getCurrentItem();
 				
 				if (itemstack1 != null)
                 {

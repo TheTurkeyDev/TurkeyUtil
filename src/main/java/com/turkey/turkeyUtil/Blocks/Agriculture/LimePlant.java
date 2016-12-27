@@ -2,51 +2,32 @@ package com.turkey.turkeyUtil.blocks.Agriculture;
 
 import java.util.Random;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
-
+import com.turkey.turkeyUtil.items.UtilItems;
 import com.turkey.turkeyUtil.items.food.UtilFood;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
 
-public class LimePlant extends TurkeyPlant
+public class LimePlant extends BlockCrops
 {
-
-    public LimePlant()
+	
+    protected Item getSeed()
     {
-        setBlockName("Lime_Plant");
-        setBlockTextureName("turkeyUtil:Lime_Stage_1");
+        return UtilItems.limeSeeds;
     }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    @Override
-    public int quantityDropped(int parMetadata, int parFortune, Random parRand)
-    {
-        return (parMetadata/2);
-    }
-
-    @Override
-    public Item getItemDropped(int parMetadata, Random parRand, int parFortune)  
+    protected Item getCrop()
     {
         return UtilFood.lime;
     }
     
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister parIIconRegister)
-    {
-          iIcon = new IIcon[maxGrowthStage+1];
-          iIcon[0] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_1");
-          iIcon[1] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_1");
-          iIcon[2] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_1");
-          iIcon[3] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_2");
-          iIcon[4] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_2");
-          iIcon[5] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_3");
-          iIcon[6] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_3");
-          iIcon[7] = parIIconRegister.registerIcon("turkeyUtil:Lime_Stage_4");
-    }
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
+	@Override 
+	public int quantityDropped(IBlockState state, int fortune, Random random)
+	{
+		return 2;
+	}
 }

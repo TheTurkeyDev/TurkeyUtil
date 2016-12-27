@@ -1,28 +1,20 @@
 package com.turkey.turkeyUtil.blocks;
 
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
+import com.theprogrammingturkey.gobblecore.blocks.BaseBlockContainer;
 import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
 
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
-public class ArmorCombiner extends BlockContainer
+public class ArmorCombiner extends BaseBlockContainer
 {
-
 	public ArmorCombiner()
 	{
-		super(Material.ground);
-		super.setHardness(3.5f);
-		super.setHarvestLevel("pickaxe", 0);
-		super.setResistance(10);
-		super.setBlockName("Armor_Combiner");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super("armor_combiner");
 	}
 
 	@Override

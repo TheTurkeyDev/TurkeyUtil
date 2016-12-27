@@ -1,67 +1,52 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-apply plugin: 'forge'
-
-version = "TUR_VER_KEY"
+version= "${mc_version}-${mod_version}"
 group= "com.turkey.turkeyUtil"
-archivesBaseName = "TurkeyUtil"
+archivesBaseName= "turkeyutil"
 
 minecraft {
-    version = "1.7.10-10.13.3.1403-1.7.10"
-}
-
-repositories {
-     maven { // The repo from which to get waila
-        name "Mobius Repo"
-        url "http://mobiusstrip.eu/maven"
-    }
-    maven { // the repo from which to get NEI and stuff 
-        name 'CB Repo'
-        url "http://chickenbones.net/maven/"
-    }
+    version = "${mc_version}-${forge_version}"
+    runDir = "run-1.10.2"
+    
+    mappings = "snapshot_20160518"
+	
+	replace "@VERSION@", project.version
+    replaceIn "TurkeyUtil.java"
+    replaceIn "mcmod.info"
 }
 
 dependencies {
-	compile "codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev"
-	compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
-	compile "mcp.mobius.waila:Waila:1.5.9_1.7.10:dev"
+
 }
 
 processResources
 {
+    // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-    
+
+    // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
+                
+        // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-    
+        
+    // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-}
-
-task deobfJar(type: Jar) {
-        from sourceSets.main.output
-        appendix = 'deobf'
-}
- 
-artifacts {
-        archives deobfJar
 }

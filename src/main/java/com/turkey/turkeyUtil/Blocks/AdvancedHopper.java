@@ -2,40 +2,31 @@ package com.turkey.turkeyUtil.blocks;
 
 import java.util.Random;
 
+import com.turkey.turkeyUtil.TurkeyUtil;
+import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
+import com.turkey.turkeyUtil.gui.UtilGuiHandler;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHopper;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.blocks.TileEntities.AdvancedHopperTileEntity;
-import com.turkey.turkeyUtil.gui.UtilGuiHandler;
-
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
 public class AdvancedHopper extends BlockHopper
 {
 	private final Random rand = new Random();
     
     private Block block;
-    
-    @SideOnly(Side.CLIENT)
-    private IIcon hopperTop;
 
 	public AdvancedHopper(String type, Block b)
 	{
 		super.setCreativeTab(TurkeyUtil.baseModTab);
-		super.setBlockName(type + "_Advanced_Hopper");
 		this.block = b;
 	}
 
@@ -134,16 +125,4 @@ public class AdvancedHopper extends BlockHopper
 	{
 		return (AdvancedHopperTileEntity)acess.getTileEntity(x, y, z);
 	}
-	
-	@SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register)
-    {
-        this.hopperTop = register.registerIcon("hopper_top");
-    }
-	
-    @SideOnly(Side.CLIENT)  
-    public IIcon getIcon(int side, int meta)
-    {
-        return side == 1 ? this.hopperTop : this.block.getBlockTextureFromSide(side);
-    }
 }

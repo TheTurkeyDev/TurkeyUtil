@@ -1,37 +1,23 @@
 package com.turkey.turkeyUtil.items;
 
-import java.util.List;
+import com.theprogrammingturkey.gobblecore.items.BaseItem;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class W4llachsAnnouncement extends Item
+public class W4llachsAnnouncement extends BaseItem
 {
 	public W4llachsAnnouncement()
 	{
-		super.setTextureName("turkeyutil:w4llachs_Announcement");
-		super.setUnlocalizedName("wallachsAnnounce");
-		super.setCreativeTab(TurkeyUtil.noodlecraftModTab);
+		super("wallachsAnnounce");
+		super.addLore("W4llach, Member of NoodleCraft");
 	}
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-		player.addChatMessage(new ChatComponentText(player.getDisplayName() + " PLES"));
+		player.addChatMessage(new ITextComponent(player.getDisplayName() + " PLES"));
 		return stack;
     }
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
-	{
-		list.add("W4llach, Member of NoodleCraft");
-	}
 }

@@ -29,9 +29,9 @@ public class ConfigLoader
 	
 	private static void loadHopperTypes()
 	{
-		HopperType.createNewHopperType("Iron", 10, 8, 64, Blocks.iron_block, Items.iron_ingot);
-		HopperType.createNewHopperType("Gold", 5, 4, 64, Blocks.gold_block, Items.gold_ingot);
-		HopperType.createNewHopperType("Diamond", 10, 4, 64, Blocks.diamond_block, Items.diamond);
+		HopperType.createNewHopperType("Iron", 10, 8, 64, Blocks.IRON_BLOCK, Items.IRON_INGOT);
+		HopperType.createNewHopperType("Gold", 5, 4, 64, Blocks.GOLD_BLOCK, Items.GOLD_INGOT);
+		HopperType.createNewHopperType("Diamond", 10, 4, 64, Blocks.DIAMOND_BLOCK, Items.DIAMOND);
 	}
 
 	public static boolean isEnabled(String itemName)

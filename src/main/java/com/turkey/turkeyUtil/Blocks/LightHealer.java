@@ -1,27 +1,20 @@
 package com.turkey.turkeyUtil.blocks;
 
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
+import com.theprogrammingturkey.gobblecore.blocks.BaseBlockContainer;
 import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
 
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
-public class LightHealer extends BlockContainer
+public class LightHealer extends BaseBlockContainer
 {
-
 	public LightHealer()
 	{
-		super(Material.ground);
-		super.setHardness(3.5f);
-		super.setBlockName("Light_Healer");
-		super.setBlockTextureName(TurkeyUtil.MODID + ":light_healer");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Light_Healer");
 	}
 
 	@Override

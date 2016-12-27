@@ -1,27 +1,21 @@
 package com.turkey.turkeyUtil.blocks;
 
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
+import com.theprogrammingturkey.gobblecore.blocks.BaseBlockContainer;
 import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
 
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
-public class LightCollector extends BlockContainer
+public class LightCollector extends BaseBlockContainer
 {
 
 	public LightCollector()
 	{
-		super(Material.ground);
-		super.setHardness(3.5f);
-		super.setBlockName("Light_Collector");
-		super.setBlockTextureName(TurkeyUtil.MODID + ":light_Collector");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Light_Collector");
 	}
 
 	@Override

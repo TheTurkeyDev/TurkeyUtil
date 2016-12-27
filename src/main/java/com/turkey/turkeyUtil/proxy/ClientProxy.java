@@ -17,7 +17,9 @@ import com.turkey.turkeyUtil.mobs.RenderRhea;
 import com.turkey.turkeyUtil.mobs.RenderTurkey;
 import com.turkey.turkeyUtil.mobs.RenderVoxel;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
 {
@@ -46,5 +48,12 @@ public class ClientProxy extends CommonProxy
 	public void registerEvents()
 	{
 		
+	}
+	
+
+	@Override
+	public EntityPlayer getClientPlayer()
+	{
+		return Minecraft.getMinecraft().thePlayer;
 	}
 }

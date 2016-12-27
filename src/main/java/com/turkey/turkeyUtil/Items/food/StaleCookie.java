@@ -1,15 +1,14 @@
 package com.turkey.turkeyUtil.items.food;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
+import com.theprogrammingturkey.gobblecore.items.BaseFoodItem;
 
 import net.minecraft.item.ItemStack;
 
-public class StaleCookie extends TurkeyItemFood
+public class StaleCookie extends BaseFoodItem
 {
 	public StaleCookie()
 	{
-		super(2, .25f, false, "Stale_Cookie", "cookie_stale", 64);
-		this.setCreativeTab(TurkeyUtil.baseModTab);
+		super(2, .25f, "cookie_stale");
 	}
 	
     public int getMaxItemUseDuration(ItemStack p_77626_1_)

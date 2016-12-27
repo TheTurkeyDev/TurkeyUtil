@@ -1,14 +1,20 @@
 package com.turkey.turkeyUtil.hookins;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 
+import com.theprogrammingturkey.gobblecore.modhooks.BaseModHook;
 import com.turkey.turkeyUtil.items.food.UtilFood;
 
-import cpw.mods.fml.common.event.FMLInterModComms;
-
-public class HungerOverhaulHook extends UtilHookin
+public class HungerOverhaulHook extends BaseModHook
 {
-	public void load()
+	public HungerOverhaulHook()
+	{
+		super("HungerOverhaul");
+	}
+
+	@Override
+	public void initHook()
 	{
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.baconRockSoup));
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.bowlofNoodles));
@@ -35,10 +41,5 @@ public class HungerOverhaulHook extends UtilHookin
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.waffle));
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.cookedDuck));
 		FMLInterModComms.sendMessage("HungerOverhaul", "BlacklistFood", new ItemStack(UtilFood.rawDuck));
-	}
-
-	public static boolean isEnabled()
-	{
-		return isEnabled;
 	}
 }

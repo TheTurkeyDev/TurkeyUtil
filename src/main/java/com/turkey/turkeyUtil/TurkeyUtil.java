@@ -1,20 +1,19 @@
 package com.turkey.turkeyUtil;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.oredict.RecipeSorter;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
+import com.theprogrammingturkey.gobblecore.IModCore;
+import com.theprogrammingturkey.gobblecore.blocks.BlockManager;
+import com.theprogrammingturkey.gobblecore.events.EventManager;
+import com.theprogrammingturkey.gobblecore.items.ItemManager;
+import com.theprogrammingturkey.gobblecore.modhooks.ModHookManager;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
 import com.turkey.turkeyUtil.events.CraftingEvent;
 import com.turkey.turkeyUtil.events.FabulousToolCrafting;
 import com.turkey.turkeyUtil.events.HammerEvent;
 import com.turkey.turkeyUtil.events.InteractEvent;
-import com.turkey.turkeyUtil.events.UpdateNotificationHandler;
 import com.turkey.turkeyUtil.gui.UtilGuiHandler;
 import com.turkey.turkeyUtil.hookins.ChanceCubesHook;
 import com.turkey.turkeyUtil.hookins.ChiselModHook;
@@ -32,24 +31,27 @@ import com.turkey.turkeyUtil.util.UtilAchievements;
 import com.turkey.turkeyUtil.util.UtilCrafting;
 import com.turkey.turkeyUtil.util.WorldGen;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.RecipeSorter;
 
-@Mod(modid = TurkeyUtil.MODID, version = TurkeyUtil.VERSION)
-public class TurkeyUtil
+@Mod(modid = TurkeyUtil.MODID, name = TurkeyUtil.NAME, version = TurkeyUtil.VERSION, dependencies = "after:gobblecore")
+public class TurkeyUtil implements IModCore
 {
-	public static final String MODID = "TurkeyUtil";
+	public static final String MODID = "turkeyutil";
+	public static final String NAME = "TurkeyUtil";
 	public static final String VERSION = "TUR_VER_KEY";
 
 	@SidedProxy(clientSide = "com.turkey.turkeyUtil.proxy.ClientProxy", serverSide = "com.turkey.turkeyUtil.proxy.CommonProxy")
@@ -95,72 +97,79 @@ public class TurkeyUtil
 	};
 
 	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
-	}
-
-	@EventHandler
 	public void load(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
 		ConfigLoader.loadConfigSettings(event.getSuggestedConfigurationFile());
+
+		ItemManager.registerItemHandler(new UtilItems(), TurkeyUtil.instance);
+		ItemManager.registerItemHandler(new UtilFood(), TurkeyUtil.instance);
 		
-		UtilBlocks.loadBlocks();
-		UtilItems.loadItems();
-		UtilFood.loadFood();
+		BlockManager.registerBlockHandler(new UtilBlocks(), TurkeyUtil.instance);
+
 		UtilArmor.loadArmor();
 		UtilTools.loadTools();
-		UtilCrafting.loadCraftingRecipies();
+
 		UtilMobs.loadMobs();
 		UtilAchievements.loadAchievements();
 		LightRegistry.instance.loadDefaultFilters();
-		
+
 		GameRegistry.registerFuelHandler(new TurkeyUtilFuelHandler());
-		
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new UtilGuiHandler());
 		proxy.registerGuis();
 		proxy.registerRenderings();
 		proxy.registerEvents();
-		
+
 		this.network = NetworkRegistry.INSTANCE.newSimpleChannel("TurkeyUtil");
 		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
 		this.network.registerMessage(UtilPacket.HandlerClient.class, UtilPacket.class, 1, Side.CLIENT);
 
-		if(Loader.isModLoaded("HungerOverhaul"))
-		{
-			logger.log(Level.INFO, "HungerOverhaul Detected.... applying hooks");
-			new HungerOverhaulHook();
-		}
-		else
-			logger.log(Level.INFO, "HungerOverhaul not Detected, there for not adding hooks");
-		
+		ModHookManager.loadModHook(new HungerOverhaulHook());
+
 		RecipeSorter.register(TurkeyUtil.MODID + ":fabulous_tool_crafting", FabulousToolCrafting.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
 		GameRegistry.addRecipe(new FabulousToolCrafting());
 
-		MinecraftForge.EVENT_BUS.register(new InteractEvent());
-		MinecraftForge.EVENT_BUS.register(new HammerEvent());
-		FMLCommonHandler.instance().bus().register(new CraftingEvent());
-		FMLCommonHandler.instance().bus().register(new UpdateNotificationHandler());
+		EventManager.registerListener(new InteractEvent());
+		EventManager.registerListener(new HammerEvent());
+		EventManager.registerListener(new CraftingEvent());
+	}
+
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+		OreDictionary.registerOre("listAllwater", UtilItems.infinityBucket_Water);
+		OreDictionary.registerOre("listAlllava", UtilItems.infinityBucket_Lava);
+
+		UtilCrafting.loadCraftingRecipies();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		if(Loader.isModLoaded("chisel"))
-		{
-			logger.log(Level.INFO, "Chisel 2 Detected.... applying hooks");
-			new ChiselModHook();
-		}
-		else
-			logger.log(Level.INFO, "Chisel 2 not Detected, there for not adding hooks");
-
-		if(Loader.isModLoaded("chancecubes"))
-		{
+		ModHookManager.loadModHook(new ChiselModHook());
+		if(ModHookManager.loadModHook(new ChanceCubesHook()))
 			logger.log(Level.INFO, "Chance Cubes Detected.... applying (possibly deadly) hooks");
-			new ChanceCubesHook();
-		}
 		else
 			logger.log(Level.INFO, "Chance Cubes not Detected....... What kind of pack are you making without Chance Cubes?");
+	}
+
+	@Override
+	public String getModID()
+	{
+		return MODID;
+	}
+
+	@Override
+	public String getName()
+	{
+		return NAME;
+	}
+
+	@Override
+	public String getVersion()
+	{
+		return VERSION;
 	}
 }

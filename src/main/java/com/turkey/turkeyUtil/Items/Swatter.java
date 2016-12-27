@@ -1,27 +1,22 @@
 package com.turkey.turkeyUtil.items;
 
-import java.util.List;
+import com.theprogrammingturkey.gobblecore.items.BaseItem;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 
-public class Swatter extends Item
+public class Swatter extends BaseItem
 {
 	public Swatter()
 	{
-		super.setTextureName("turkeyutil:swatter");
-		super.setUnlocalizedName("Naraxam's_Bug_Swatter");
-		super.setCreativeTab(TurkeyUtil.baseModTab);
+		super("Naraxam's_Bug_Swatter");
 		super.setMaxDamage(150);
 		super.setMaxStackSize(1);
+		super.addLore("Deals +10 damge to mobs smaller than .75 of a block in size");
+		super.addLore("Deals +1 damge to mobs larger than .75 of a block in size");
 	}
 	
     public boolean hitEntity(ItemStack stack, EntityLivingBase mob, EntityLivingBase playerBase)
@@ -45,12 +40,4 @@ public class Swatter extends Item
 		}
         return true;
     }
-    
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) 
-	{
-		list.add("Deals +10 damge to mobs smaller than .75 of a block in size");
-		list.add("Deals +1 damge to mobs larger than .75 of a block in size");
-	}
 }

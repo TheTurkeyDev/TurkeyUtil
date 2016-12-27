@@ -1,28 +1,25 @@
 package com.turkey.turkeyUtil.items;
 
+import com.theprogrammingturkey.gobblecore.items.BaseItem;
+import com.turkey.turkeyUtil.TurkeyUtil;
+import com.turkey.turkeyUtil.gui.BetterBookGui;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.world.World;
 
-import com.turkey.turkeyUtil.TurkeyUtil;
-import com.turkey.turkeyUtil.gui.BetterBookGui;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-
-public class BetterBook extends Item 
+public class BetterBook extends BaseItem 
 {
 	
 	public BetterBook() 
 	{
-		super.setCreativeTab(TurkeyUtil.baseModTab);
-		super.setUnlocalizedName("Better_Book");
+		super("Better_Book");
 		super.setMaxStackSize(1);
 		new ItemStack(this, 1).setTagInfo("author", new NBTTagString(""));
-		super.setTextureName("turkeyUtil:betterBook");
 	}
 	
 	public String getItemStackDisplayName(ItemStack stack)

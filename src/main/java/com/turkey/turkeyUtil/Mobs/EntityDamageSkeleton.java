@@ -2,6 +2,8 @@ package com.turkey.turkeyUtil.mobs;
 
 import java.util.Calendar;
 
+import com.turkey.turkeyUtil.mobs.ai.EntitySlowAIArrowAttack;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -29,10 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import com.turkey.turkeyUtil.mobs.ai.EntitySlowAIArrowAttack;
 
 public class EntityDamageSkeleton extends EntityMob implements IRangedAttackMob
 {

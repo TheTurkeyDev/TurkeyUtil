@@ -1,15 +1,13 @@
 package com.turkey.turkeyUtil.util;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
 
-import cpw.mods.fml.common.IFuelHandler;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.IFuelHandler;
 
 public class TurkeyUtilFuelHandler implements IFuelHandler
 {
-	
 	@Override
 	public int getBurnTime(ItemStack fuel)
 	{
@@ -45,8 +43,6 @@ public class TurkeyUtilFuelHandler implements IFuelHandler
 		{
 			return Integer.MAX_VALUE;
 		}
-		
 		return 0;
-	}	
-	
+	}
 }

@@ -1,9 +1,5 @@
 package com.turkey.turkeyUtil.gui;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
 import com.turkey.turkeyUtil.blocks.Container.AdvancedHopperContainer;
 import com.turkey.turkeyUtil.blocks.Container.ArmorCombinerContainer;
 import com.turkey.turkeyUtil.blocks.Container.LightCollectorContainer;
@@ -13,7 +9,11 @@ import com.turkey.turkeyUtil.blocks.TileEntities.ArmorCombinerTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightCollectorTileEntity;
 import com.turkey.turkeyUtil.blocks.TileEntities.LightHealingTileEntity;
 
-import cpw.mods.fml.common.network.IGuiHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class UtilGuiHandler implements IGuiHandler
 {
@@ -26,7 +26,7 @@ public class UtilGuiHandler implements IGuiHandler
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(tileEntity != null)
 		{
@@ -66,7 +66,7 @@ public class UtilGuiHandler implements IGuiHandler
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
 		if(tileEntity != null)
 		{

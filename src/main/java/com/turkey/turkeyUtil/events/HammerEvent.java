@@ -1,33 +1,36 @@
 package com.turkey.turkeyUtil.events;
 
+import com.turkey.turkeyUtil.items.tools.Hammer;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
-
-import com.turkey.turkeyUtil.items.tools.Hammer;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class HammerEvent
 {
 	@SubscribeEvent
 	public void onBlockBreak(BreakEvent e)
 	{
-		if(!e.world.isRemote)
+		World world = e.getWorld();
+		if(!world.isRemote)
 		{
-			Block b = e.block;
+			Block b = e.getState().getBlock();
+			BlockPos pos = e.getPos();
 
 			ItemStack stack = e.getPlayer().inventory.getCurrentItem();
-			
+
 			if(stack != null && stack.getItem() instanceof Hammer)
 			{
-				if(b == Blocks.cobblestone )
-					e.world.spawnEntityInWorld(new EntityItem(e.world, e.x, e.y, e.z, new ItemStack(Blocks.gravel)));
-				else if(b == Blocks.gravel)
-					e.world.spawnEntityInWorld(new EntityItem(e.world, e.x, e.y, e.z, new ItemStack(Blocks.sand)));
+				if(b == Blocks.COBBLESTONE)
+					world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Blocks.GRAVEL)));
+				else if(b == Blocks.GRAVEL)
+					world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Blocks.SAND)));
 			}
 		}
 	}
@@ -35,15 +38,15 @@ public class HammerEvent
 	@SubscribeEvent
 	public void onBlockHarvest(HarvestDropsEvent e)
 	{
-		if(!e.world.isRemote && e.harvester != null)
+		if(!e.getWorld().isRemote && e.getHarvester() != null)
 		{
-			Block b = e.block;
+			Block b = e.getState().getBlock();
 
-			if(b == Blocks.cobblestone || b == Blocks.gravel)
+			if(b == Blocks.COBBLESTONE || b == Blocks.GRAVEL)
 			{
-				ItemStack stack = e.harvester.inventory.getCurrentItem();
+				ItemStack stack = e.getHarvester().inventory.getCurrentItem();
 				if(stack != null && stack.getItem() instanceof Hammer)
-					e.drops.clear();
+					e.getDrops().clear();
 			}
 		}
 	}

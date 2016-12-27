@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import com.google.common.collect.Lists;
-import com.turkey.turkeyUtil.util.CustomEntry;
+import com.theprogrammingturkey.gobblecore.util.CustomEntry;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -57,24 +57,24 @@ public class LightRegistry
 	
 	public void loadDefaultFilters()
 	{
-		this.addLightFilter(Blocks.stained_glass, 0, FilterColor.white);
-		this.addLightFilter(Blocks.stained_glass, 1, FilterColor.orange);
-		this.addLightFilter(Blocks.stained_glass, 2, FilterColor.magenta);
-		this.addLightFilter(Blocks.stained_glass, 3, FilterColor.light_blue);
-		this.addLightFilter(Blocks.stained_glass, 4, FilterColor.yellow);
-		this.addLightFilter(Blocks.stained_glass, 5, FilterColor.lime);
-		this.addLightFilter(Blocks.stained_glass, 6, FilterColor.pink);
-		this.addLightFilter(Blocks.stained_glass, 7, FilterColor.gray);
-		this.addLightFilter(Blocks.stained_glass, 8, FilterColor.silver);
-		this.addLightFilter(Blocks.stained_glass, 9, FilterColor.cyan);
-		this.addLightFilter(Blocks.stained_glass, 10, FilterColor.purple);
-		this.addLightFilter(Blocks.stained_glass, 11, FilterColor.blue);
-		this.addLightFilter(Blocks.stained_glass, 12, FilterColor.brown);
-		this.addLightFilter(Blocks.stained_glass, 13, FilterColor.green);
-		this.addLightFilter(Blocks.stained_glass, 14, FilterColor.red);
-		this.addLightFilter(Blocks.stained_glass, 15, FilterColor.black);
-		this.addLightFilter(Blocks.glass, 0, FilterColor.clear);
-		this.addLightFilter(Blocks.air, 0, FilterColor.clear);
+		this.addLightFilter(Blocks.STAINED_GLASS, 0, FilterColor.white);
+		this.addLightFilter(Blocks.STAINED_GLASS, 1, FilterColor.orange);
+		this.addLightFilter(Blocks.STAINED_GLASS, 2, FilterColor.magenta);
+		this.addLightFilter(Blocks.STAINED_GLASS, 3, FilterColor.light_blue);
+		this.addLightFilter(Blocks.STAINED_GLASS, 4, FilterColor.yellow);
+		this.addLightFilter(Blocks.STAINED_GLASS, 5, FilterColor.lime);
+		this.addLightFilter(Blocks.STAINED_GLASS, 6, FilterColor.pink);
+		this.addLightFilter(Blocks.STAINED_GLASS, 7, FilterColor.gray);
+		this.addLightFilter(Blocks.STAINED_GLASS, 8, FilterColor.silver);
+		this.addLightFilter(Blocks.STAINED_GLASS, 9, FilterColor.cyan);
+		this.addLightFilter(Blocks.STAINED_GLASS, 10, FilterColor.purple);
+		this.addLightFilter(Blocks.STAINED_GLASS, 11, FilterColor.blue);
+		this.addLightFilter(Blocks.STAINED_GLASS, 12, FilterColor.brown);
+		this.addLightFilter(Blocks.STAINED_GLASS, 13, FilterColor.green);
+		this.addLightFilter(Blocks.STAINED_GLASS, 14, FilterColor.red);
+		this.addLightFilter(Blocks.STAINED_GLASS, 15, FilterColor.black);
+		this.addLightFilter(Blocks.GLASS, 0, FilterColor.clear);
+		this.addLightFilter(Blocks.AIR, 0, FilterColor.clear);
 	}
 	
 	
