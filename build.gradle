@@ -27,8 +27,17 @@ minecraft {
     replaceIn "mcmod.info"
 }
 
-dependencies {
+repositories {
+	mavenCentral()
+	
+    maven { // The repo from which to get GobbleCore
+        name "GobbleCore Repo"
+        url "http://maven.theprogrammingturkey.com/"
+    }
+}
 
+dependencies {
+	compile "com.theprogrammingturkey.gobblecore:1.10:1.10.2-0.0.4.16"
 }
 
 processResources
