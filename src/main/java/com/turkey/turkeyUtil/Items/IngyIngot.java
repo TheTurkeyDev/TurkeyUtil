@@ -8,11 +8,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Facing;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class IngyIngot extends BaseItem
-{	
+{
 	public IngyIngot()
 	{
 		super("Ingy_The_Ingot");
@@ -20,31 +24,30 @@ public class IngyIngot extends BaseItem
 		super.addLore("SiylissTV, Member of the Walking Wounded");
 	}
 
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
-		if (world.isRemote)
+		if(world.isRemote)
 		{
-			return true;
+			return EnumActionResult.FAIL;
 		}
 		else
 		{
-			p_77648_4_ += Facing.offsetsXForSide[p_77648_7_];
-			p_77648_5_ += Facing.offsetsYForSide[p_77648_7_];
-			p_77648_6_ += Facing.offsetsZForSide[p_77648_7_];
+			pos.offset(facing);
 
-			Entity entity = spawnCreature(world, (double)p_77648_4_ + 0.5D, (double)p_77648_5_ + 2, (double)p_77648_6_ + 0.5D);
+			Entity entity = spawnCreature(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 2, (double) pos.getZ() + 0.5D);
 
-			if (entity != null)
+			if(entity != null)
 			{
-				((EntityLiving)entity).setCustomNameTag("Siyliss");
-				
-				if (!player.capabilities.isCreativeMode)
+				((EntityLiving) entity).setCustomNameTag("Siyliss");
+
+				if(!player.capabilities.isCreativeMode)
 				{
 					--stack.stackSize;
 				}
 			}
 
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 	}
 
@@ -52,19 +55,19 @@ public class IngyIngot extends BaseItem
 	{
 		EntityIronGolem entityirongolem = null;
 
-		for (int j = 0; j < 1; ++j)
+		for(int j = 0; j < 1; ++j)
 		{
 			entityirongolem = new EntityIronGolem(world);
 
-			if (entityirongolem != null && entityirongolem instanceof EntityLivingBase)
+			if(entityirongolem != null && entityirongolem instanceof EntityLivingBase)
 			{
 				entityirongolem.setPlayerCreated(true);
-				entityirongolem.setLocationAndAngles((double)x + 0.5D, (double)y - 1.95D, (double)z + 0.5D, 0.0F, 0.0F);
+				entityirongolem.setLocationAndAngles((double) x + 0.5D, (double) y - 1.95D, (double) z + 0.5D, 0.0F, 0.0F);
 				world.spawnEntityInWorld(entityirongolem);
 
-				for (int l = 0; l < 120; ++l)
+				for(int l = 0; l < 120; ++l)
 				{
-					world.spawnParticle("snowballpoof", (double)x + world.rand.nextDouble(), (double)(y - 2) + world.rand.nextDouble() * 3.9D, (double)z + world.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
+					world.spawnParticle(EnumParticleTypes.SNOWBALL, (double) x + world.rand.nextDouble(), (double) (y - 2) + world.rand.nextDouble() * 3.9D, (double) z + world.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
 				}
 			}
 		}

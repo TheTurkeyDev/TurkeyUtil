@@ -3,16 +3,16 @@ package com.turkey.turkeyUtil.items;
 import java.util.List;
 
 import com.theprogrammingturkey.gobblecore.items.BaseItem;
-import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.mobs.EntityDuck;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DuckyArmy extends BaseItem
 {
@@ -61,9 +61,7 @@ public class DuckyArmy extends BaseItem
 				duck.setCustomNameTag("Ducky Army");
 
 				for(int l = 0; l < 120; ++l)
-				{
-					world.spawnParticle("snowballpoof", (double) x + world.rand.nextDouble(), (double) (y - 2) + world.rand.nextDouble() * 3.9D, (double) z + world.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
-				}
+					world.spawnParticle(EnumParticleTypes.SNOWBALL, (double) x + world.rand.nextDouble(), (double) (y - 2) + world.rand.nextDouble() * 3.9D, (double) z + world.rand.nextDouble(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 		return duck;

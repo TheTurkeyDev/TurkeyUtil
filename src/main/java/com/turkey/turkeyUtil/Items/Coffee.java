@@ -1,15 +1,11 @@
 package com.turkey.turkeyUtil.items;
 
-import java.util.List;
-
 import com.theprogrammingturkey.gobblecore.items.BaseItem;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
@@ -25,14 +21,14 @@ public class Coffee extends BaseItem
 
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (!player.capabilities.isCreativeMode)
+		if(!player.capabilities.isCreativeMode)
 		{
 			--stack.stackSize;
 		}
 
-		if (!world.isRemote)
+		if(!world.isRemote)
 		{
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 1800, 2));
+			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 1800, 2));
 		}
 
 		return stack;
@@ -51,15 +47,6 @@ public class Coffee extends BaseItem
 	 */
 	public EnumAction getItemUseAction(ItemStack stack)
 	{
-		return EnumAction.drink;
-	}
-
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-	{
-		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
-		return stack;
+		return EnumAction.DRINK;
 	}
 }

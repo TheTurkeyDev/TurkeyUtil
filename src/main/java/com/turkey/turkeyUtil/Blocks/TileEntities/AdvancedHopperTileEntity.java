@@ -2,9 +2,11 @@ package com.turkey.turkeyUtil.blocks.TileEntities;
 
 import java.util.List;
 
+import com.turkey.turkeyUtil.blocks.AdvancedHopper;
+import com.turkey.turkeyUtil.util.HopperType;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
-import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,17 +17,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.IHopper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Facing;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
-import com.turkey.turkeyUtil.blocks.AdvancedHopper;
-import com.turkey.turkeyUtil.util.HopperType;
 
 public class AdvancedHopperTileEntity extends TileEntity implements IHopper
 {

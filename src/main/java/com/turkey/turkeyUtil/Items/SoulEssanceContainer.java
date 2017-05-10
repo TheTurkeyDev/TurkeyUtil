@@ -12,7 +12,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,7 +30,7 @@ public class SoulEssanceContainer extends BaseItem
 		this.setHasSubtypes(true);
 		this.setMaxDamage(100);
 		this.setMaxStackSize(1);
-		
+
 		super.addLore("Stores essence and once full (100 essence) will allow the container to spawn random mob");
 		super.addLore("Note, spawning this item in and not crafting it currently does not work.");
 	}
@@ -44,24 +48,24 @@ public class SoulEssanceContainer extends BaseItem
 		return true;
 	}
 
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
 		if(world.isRemote)
 		{
-			return true;
+			return EnumActionResult.FAIL;
 		}
 		else
 		{
 			if(stack.getTagCompound() == null || !stack.getTagCompound().hasKey("Completed") || !stack.getTagCompound().getBoolean("Completed"))
-				return false;
-			p_77648_4_ += Facing.offsetsXForSide[p_77648_7_];
-			p_77648_5_ += Facing.offsetsYForSide[p_77648_7_];
-			p_77648_6_ += Facing.offsetsZForSide[p_77648_7_];
+				return EnumActionResult.FAIL;
+
+			pos.offset(facing);
 
 			boolean passive = stack.getItem().equals(UtilItems.passiveEssenceContainer);
 			List<Entity> ents = new ArrayList<Entity>();
 
-			for(Object i : EntityList.entityEggs.keySet())
+			for(Object i : EntityList.ENTITY_EGGS.keySet())
 			{
 				int id = (Integer) i;
 				Entity ent = EntityList.createEntityByID(id, world);
@@ -72,17 +76,17 @@ public class SoulEssanceContainer extends BaseItem
 			}
 
 			if(ents.size() == 0)
-				return false;
+				return EnumActionResult.FAIL;
 
 			int r = new Random().nextInt(ents.size());
 
-			Entity entity = spawnCreature(ents.get(r), world, (double) p_77648_4_ + 0.5D, (double) p_77648_5_ + 2, (double) p_77648_6_ + 0.5D);
+			Entity entity = spawnCreature(ents.get(r), world, (double) pos.getX() + 0.5D, (double) pos.getY() + 2, (double) pos.getZ() + 0.5D);
 
 			if(entity != null)
 				if(!player.capabilities.isCreativeMode)
 					stack.setItemDamage(100);
 
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 	}
 
