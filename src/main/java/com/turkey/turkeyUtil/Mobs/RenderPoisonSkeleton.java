@@ -1,51 +1,33 @@
 package com.turkey.turkeyUtil.mobs;
 
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderPoisonSkeleton extends RenderBiped
+public class RenderPoisonSkeleton extends RenderBiped<EntityPoisonSkeleton>
 {
-    private static final ResourceLocation skeletonTextures = new ResourceLocation("textures/entity/skeleton/skeleton.png");
+	private static final ResourceLocation skeletonTextures = new ResourceLocation("textures/entity/skeleton/skeleton.png");
 
-    public RenderPoisonSkeleton()
-    {
-        super(new ModelPoisonSkeleton(), 0.5F);
-    }
+	public RenderPoisonSkeleton(RenderManager renderManagerIn)
+	{
+		super(renderManagerIn, new ModelPoisonSkeleton(), 0.5F);
+	}
 
-    protected void func_82422_c()
-    {
-        GL11.glTranslatef(0.09375F, 0.1875F, 0.0F);
-    }
+	protected void func_82422_c()
+	{
+		GL11.glTranslatef(0.09375F, 0.1875F, 0.0F);
+	}
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(EntityPoisonSkeleton p_110775_1_)
-    {
-        return skeletonTextures;
-    }
-
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(EntityLiving p_110775_1_)
-    {
-        return this.getEntityTexture((EntityPoisonSkeleton)p_110775_1_);
-    }
-
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_)
-    {
-        return this.getEntityTexture((EntityPoisonSkeleton)p_110775_1_);
-    }
+	/**
+	 * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+	 */
+	protected ResourceLocation getEntityTexture(EntityPoisonSkeleton p_110775_1_)
+	{
+		return skeletonTextures;
+	}
 }

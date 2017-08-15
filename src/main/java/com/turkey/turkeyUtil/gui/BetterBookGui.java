@@ -6,6 +6,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import com.theprogrammingturkey.gobblecore.network.NetworkManager;
 import com.turkey.turkeyUtil.TurkeyUtil;
 import com.turkey.turkeyUtil.network.UtilPacket;
 
@@ -182,7 +183,7 @@ public class BetterBookGui extends GuiScreen
 			tags.setTag("ItemData", itemTags);
 			tags.setTag("ItemTags", this.bookObj.getTagCompound());
 
-			TurkeyUtil.instance.network.sendToServer(new UtilPacket(tags));
+			NetworkManager.getSimpleNetwork(TurkeyUtil.instance).sendToServer(new UtilPacket(tags));
 		}
 	}
 

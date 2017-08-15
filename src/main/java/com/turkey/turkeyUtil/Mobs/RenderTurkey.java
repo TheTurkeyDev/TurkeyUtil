@@ -1,22 +1,22 @@
 package com.turkey.turkeyUtil.mobs;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderTurkey extends RenderLiving
+public class RenderTurkey extends RenderLiving<EntityTurkey>
 {
+	private static final ResourceLocation RES = new ResourceLocation("turkeyutil:textures/entity/Turkey.png");
 
-	ResourceLocation res = new ResourceLocation("turkeyutil:textures/entity/Turkey.png");
-	
-	public RenderTurkey(ModelBase model, float f) {
-		super(model, f);
+	public RenderTurkey(RenderManager renderManagerIn)
+	{
+		super(renderManagerIn, new ModelTurkey(), 0.5f);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-		return res;
+	protected ResourceLocation getEntityTexture(EntityTurkey entity)
+	{
+		return RES;
 	}
 
 }

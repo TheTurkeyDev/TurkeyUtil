@@ -5,9 +5,11 @@ import org.apache.logging.log4j.Logger;
 
 import com.theprogrammingturkey.gobblecore.IModCore;
 import com.theprogrammingturkey.gobblecore.blocks.BlockManager;
+import com.theprogrammingturkey.gobblecore.entity.EntityManager;
 import com.theprogrammingturkey.gobblecore.events.EventManager;
 import com.theprogrammingturkey.gobblecore.items.ItemManager;
 import com.theprogrammingturkey.gobblecore.modhooks.ModHookManager;
+import com.theprogrammingturkey.gobblecore.network.NetworkManager;
 import com.turkey.turkeyUtil.armor.UtilArmor;
 import com.turkey.turkeyUtil.blocks.UtilBlocks;
 import com.turkey.turkeyUtil.events.CraftingEvent;
@@ -22,7 +24,7 @@ import com.turkey.turkeyUtil.items.UtilItems;
 import com.turkey.turkeyUtil.items.food.UtilFood;
 import com.turkey.turkeyUtil.items.tools.UtilTools;
 import com.turkey.turkeyUtil.mobs.UtilMobs;
-import com.turkey.turkeyUtil.network.UtilPacket;
+import com.turkey.turkeyUtil.network.UtilPackets;
 import com.turkey.turkeyUtil.proxy.CommonProxy;
 import com.turkey.turkeyUtil.registries.LightRegistry;
 import com.turkey.turkeyUtil.util.ConfigLoader;
@@ -41,9 +43,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
 
@@ -61,8 +61,6 @@ public class TurkeyUtil implements IModCore
 	public static TurkeyUtil instance;
 
 	public static Logger logger;
-
-	public SimpleNetworkWrapper network;
 
 	public static CreativeTabs baseModTab = new CreativeTabs(MODID)
 	{
@@ -96,21 +94,27 @@ public class TurkeyUtil implements IModCore
 		}
 	};
 
+	public TurkeyUtil()
+	{
+		ItemManager.registerItemHandler(new UtilItems(), this);
+		ItemManager.registerItemHandler(new UtilFood(), this);
+
+		BlockManager.registerBlockHandler(new UtilBlocks(), this);
+
+		EntityManager.registerEntityHandler(new UtilMobs(), this);
+		
+		NetworkManager.registerNetworkHandler(new UtilPackets(), this);
+	}
+
 	@EventHandler
 	public void load(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
 		ConfigLoader.loadConfigSettings(event.getSuggestedConfigurationFile());
 
-		ItemManager.registerItemHandler(new UtilItems(), TurkeyUtil.instance);
-		ItemManager.registerItemHandler(new UtilFood(), TurkeyUtil.instance);
-		
-		BlockManager.registerBlockHandler(new UtilBlocks(), TurkeyUtil.instance);
-
 		UtilArmor.loadArmor();
 		UtilTools.loadTools();
 
-		UtilMobs.loadMobs();
 		UtilAchievements.loadAchievements();
 		LightRegistry.instance.loadDefaultFilters();
 
@@ -120,10 +124,6 @@ public class TurkeyUtil implements IModCore
 		proxy.registerGuis();
 		proxy.registerRenderings();
 		proxy.registerEvents();
-
-		this.network = NetworkRegistry.INSTANCE.newSimpleChannel("TurkeyUtil");
-		this.network.registerMessage(UtilPacket.HandlerServer.class, UtilPacket.class, 0, Side.SERVER);
-		this.network.registerMessage(UtilPacket.HandlerClient.class, UtilPacket.class, 1, Side.CLIENT);
 
 		ModHookManager.loadModHook(new HungerOverhaulHook());
 

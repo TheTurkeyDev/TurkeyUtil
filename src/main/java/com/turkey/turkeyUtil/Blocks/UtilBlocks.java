@@ -3,7 +3,6 @@ package com.turkey.turkeyUtil.blocks;
 import java.util.List;
 
 import com.theprogrammingturkey.gobblecore.blocks.BaseBlock;
-import com.theprogrammingturkey.gobblecore.blocks.BaseBlockContainer;
 import com.theprogrammingturkey.gobblecore.blocks.BlockLoader;
 import com.theprogrammingturkey.gobblecore.blocks.IBlockHandler;
 import com.turkey.turkeyUtil.TurkeyUtil;
@@ -46,15 +45,15 @@ public class UtilBlocks implements IBlockHandler
 
 	public static Block limePlant;
 
-	public static BaseBlockContainer armorCombiner;
-	public static BaseBlockContainer lightCollector;
-	public static BaseBlockContainer lightHealer;
+	public static Block armorCombiner;
+	public static Block lightCollector;
+	public static Block lightHealer;
 
 	public static AdvancedHopper[] advancedHoppers;
 
 	@Override
 	public void registerBlocks(BlockLoader loader)
-	{	
+	{
 		loader.setCreativeTab(TurkeyUtil.baseModTab);
 		loader.registerBlock(charcolBlock = new BaseBlock("charcoal_block", 5f));
 		loader.registerBlock(flintBlock = new BaseBlock("flint_block", 5f));
@@ -72,7 +71,7 @@ public class UtilBlocks implements IBlockHandler
 		loader.registerBlock(hextuplecompressedCoal = new BaseBlock("hextuple_compressed_coal_block", 6f));
 		loader.registerBlock(septuplecompressedCoal = new BaseBlock("septuple_compressed_coal_block", 6f));
 		loader.registerBlock(octuplecompressedCoal = new BaseBlock("octuple_compressed_coal_block", 6f));
-		
+
 		loader.registerBlock(compressedObsidian = new BaseBlock("compressed_obsidian_block", 75f));
 		loader.registerBlock(doublecompressedObsidian = new BaseBlock("double_compressed_obsidian_block", 75f));
 		loader.registerBlock(triplecompressedObsidian = new BaseBlock("triple_compressed_obsidian_block", 75f));
@@ -88,7 +87,6 @@ public class UtilBlocks implements IBlockHandler
 
 		loader.registerBlock(limePlant = new LimePlant(), "lime_plant");
 
-		
 		loader.registerBlock(armorCombiner = new ArmorCombiner(), ArmorCombinerTileEntity.class);
 		loader.registerBlock(lightCollector = new LightCollector(), LightCollectorTileEntity.class);
 		loader.registerBlock(lightHealer = new LightHealer(), LightHealingTileEntity.class);
@@ -108,6 +106,6 @@ public class UtilBlocks implements IBlockHandler
 	@Override
 	public void registerModels(BlockLoader loader)
 	{
-		
+
 	}
 }

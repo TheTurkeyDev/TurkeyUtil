@@ -21,10 +21,10 @@ public class CommonProxy implements IBaseProxy
 	{
 
 	}
-	
+
 	public void registerEvents()
 	{
-		
+
 	}
 
 	@Override

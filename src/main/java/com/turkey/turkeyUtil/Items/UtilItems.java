@@ -57,35 +57,35 @@ public class UtilItems implements IItemHandler
 	{
 		loader.setCreativeTab(TurkeyUtil.baseModTab);
 
-		loader.registerItem(chain = new BaseItem("Chain"), "Chain");
-		loader.registerItem(chainPatch = new BaseItem("Chain_Patch"), "Chain_Patch");
+		loader.registerItem(chain = new BaseItem("Chain"));
+		loader.registerItem(chainPatch = new BaseItem("Chain_Patch"));
 
-		loader.registerItem(passiveEssenceContainer = new SoulEssanceContainer("Passive"), "Passive");
-		loader.registerItem(hostileEssenceContainer = new SoulEssanceContainer("Hostile"), "Hostile");
+		loader.registerItem(passiveEssenceContainer = new SoulEssanceContainer("Passive"));
+		loader.registerItem(hostileEssenceContainer = new SoulEssanceContainer("Hostile"));
 
 		loader.registerItem(infinityBucket_Empty = new InfinityBucket(Blocks.AIR).setUnlocalizedName("Infinity_Air_Bucket"), "Infinity_Air_Bucket");
 		loader.registerItem(infinityBucket_Water = new InfinityBucket(Blocks.FLOWING_WATER).setUnlocalizedName("Infinity_Water_Bucket"), "Infinity_Water_Bucket");
 		loader.registerItem(infinityBucket_Lava = new InfinityBucket(Blocks.FLOWING_LAVA).setUnlocalizedName("Infinity_Lava_Bucket"), "Infinity_Lava_Bucket");
 
-		loader.registerItem(condensedCore = new BaseItem("Condensed_Core"), "Condensed_Core");
-		loader.registerItem(turkeyTape = new BaseItem("TurkeyTape"), "TurkeyTape");
-		loader.registerItem(turkeyFeather = new BaseItem("Turkey_Feather"), "Turkey_Feather");
+		loader.registerItem(condensedCore = new BaseItem("Condensed_Core"));
+		loader.registerItem(turkeyTape = new BaseItem("TurkeyTape"));
+		loader.registerItem(turkeyFeather = new BaseItem("Turkey_Feather"));
 
-		loader.registerItem(fabulousDiamond = new BaseItem("Fabulous_Diamond"), "Fabulous_Diamond");
+		loader.registerItem(fabulousDiamond = new BaseItem("Fabulous_Diamond"));
 		fabulousDiamond.addLore("Obtained as a random percent drop from Mystical Ladyosto Ore");
-		loader.registerItem(coloredIngots = new ColoredIngots(), "Colored_Ingot");
-		loader.registerItem(lightIngot = new BaseItem("Light_Ingot"), "Light_Ingot");
-		loader.registerItem(darknessIngot = new BaseItem("Darkness_Ingot"), "Darkness_Ingot");
+		loader.registerItem(coloredIngots = new ColoredIngots());
+		loader.registerItem(lightIngot = new BaseItem("Light_Ingot"));
+		loader.registerItem(darknessIngot = new BaseItem("Darkness_Ingot"));
 		loader.registerItem(coloredCores = new ColoredCore());
 
 		loader.registerItem(swatter = new Swatter());
 
 		loader.registerItem(kiraeysTurkeyFeather = new KiraeysTurkeyFeather());
 
-		loader.registerItem(piePan = new BaseItem("Pie_Pan"), "Pie_Pan");
+		loader.registerItem(piePan = new BaseItem("Pie_Pan"));
 		piePan.setContainerItem(piePan);
 
-		loader.registerItem(flour = new BaseItem("Flour"), "Flour");
+		loader.registerItem(flour = new BaseItem("Flour"));
 
 		loader.registerItem(limeSeeds = new LimeSeeds(UtilBlocks.limePlant), "Lime_Seeds");
 
@@ -105,7 +105,7 @@ public class UtilItems implements IItemHandler
 
 		loader.setCreativeTab(TurkeyUtil.buildguildmodTab);
 		loader.registerItem(wyldWhiskey = new WyldWhiskey());
-		loader.registerItem(glennsSoul = new BaseItem("Glenns_Soul"), "Glenns_Soul");
+		loader.registerItem(glennsSoul = new BaseItem("Glenns_Soul"));
 		glennsSoul.addLore("Used to craft essence containers");
 		glennsSoul.addLore("Obtained by killing mobs with Aknot's soul reaper");
 		glennsSoul.addLore("Sevadus, Member of the Build Guild");
